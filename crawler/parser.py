@@ -5,6 +5,7 @@ import sys
 import os
 import lxml.html
 from collections import deque
+from htmlentitydefs import name2codepoint
 from HTMLParser import HTMLParser
 
 # create a subclass and override the handler methods
@@ -54,6 +55,19 @@ class MyHTMLParser(HTMLParser):
             self.caption = data
         if self.insideTable:
             self.tableData += data
+    def handle_charref(self, name):
+        if name.startswith('x'):
+            c = chr(int(name[1:], 16))
+        else:
+            c = chr(int(name))
+        if self.insideTable:
+            self.tableData += c
+    def handle_entityref(self, name):
+        if self.insideTable:
+            if name in name2codepoint:
+                self.tableData += chr(name2codepoint[name])
+            else:
+                self.tableData += "&" + name
     def getCourseInfo(self):
         return self.courseInfo
 
@@ -73,7 +87,6 @@ importantFields = [ 'Instructors', 'Type', 'Org-unit', 'Course Name Abbreviation
 linksFile = open('courses', 'r')
 namesFile = open('courseNames', 'r')
 outputFile = open('courseDetails', 'w')
-parser = MyHTMLParser()
 
 for link in linksFile:
     courseName = namesFile.readline()
@@ -82,6 +95,7 @@ for link in linksFile:
     page = urllib.urlopen(link)
     page = page.read()
 
+    parser = MyHTMLParser()
     parser.feed(page)
     uglyCourseInfo = parser.getCourseInfo()
 
@@ -98,21 +112,24 @@ for link in linksFile:
         length = len(details)
         if (field+':') in details:
             startIdx = details.find(field + ":") + len(field) + 2
-            stopIdx = min( [ (details.find(f+":") if details.find(f+":") > startIdx else length) for f in importantFields] )
-            if stopIdx >= startIdx:
-                detailsMap[field] = details[startIdx:stopIdx]
+            stopIdx = min( [ (details.find(f+":") if details.find(f+":") >= startIdx else length) for f in importantFields] )
+            if startIdx <= stopIdx:
+                if startIdx < stopIdx:
+                    detailsMap[field] = details[startIdx:stopIdx]
             else:
                 print "Error: Start after stop"
 
     if 'Contained in course catalogues' in courseInfo:
         catalogue = courseInfo['Contained in course catalogues']
         startIdx = catalogue.find('> ')
-        detailsMap['catalogue'] = catalogue[startIdx+2:]
+        detailsMap['Catalogue'] = catalogue[startIdx+2:]
     else:
         print "Error: No label 'Contained in course catalogues'"
 
-    detailsMap['Name'] = courseInfo['Name']
+    detailsMap['Name'] = courseName[:-1]
+
     for k,v in detailsMap.iteritems():
         outputFile.write(k + "::: " + v + "\n")
     outputFile.write("\n\n")
+
 outputFile.close()
