@@ -30,6 +30,8 @@ class MyHTMLParser(HTMLParser):
             self.insideTable = 1
         if self.insideTable and tag == 'caption':
             self.insideCaption = 1
+        if self.insideTable and tag == 'br':
+            self.tableData += '<br>'
         # if self.insideTable:
         #     self.tableData += "{ "
     def handle_endtag(self, tag):
@@ -77,7 +79,8 @@ def cleanuper(content):
     no_unix_newlines = no_newlines.replace("\r", " ")
     no_tabs = no_unix_newlines.replace("\t", " ")
     no_extra_spaces = re.sub(r'  +', ' ', no_tabs)
-    return no_extra_spaces
+    formatted = no_extra_spaces.replace('<br>', '\n')
+    return formatted
 
 importantFields = [ 'Instructors', 'Type', 'Org-unit', 'Course Name Abbreviation', 'Hours per week',
                     'Credits', 'Min. | Max. participants', 'Partial Grades', 'Official Course Description',
