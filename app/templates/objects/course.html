@@ -4,12 +4,16 @@
     <div class="panel-body">
         <div class="row">
             <div class="col-md-3">
-                <img src="{{ STATIC_URL }}/books.jpg" alt="Course image" class="img-rounded course-image">
+              {% if course.course.image %}
+                <img class="img-rounded course-image" src="{% url 'course_image' course.course.slug %}" alt="{{course.course.name}} image">
+              {% else %}
+                <img class="img-rounded course-image" src="{{ STATIC_URL }}books.jpg" alt="{{course.course.name}} image">
+              {% endif %}
             </div>
 
             <div class="col-md-9 course-details">
                 <div class="course-name">
-                    <a href="#">{{ course.course.name }}</a>
+                    <a href="/course/{{ course.course.slug }}">{{ course.course.name }}</a>
                     <span class="badge course-credits"> {{ course.course.credits }} </span>
                 </div>
 

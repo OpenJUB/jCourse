@@ -1,6 +1,7 @@
 from django.db import models
 
 from django.contrib.auth.models import User
+from django.utils.text import slugify
 from django.conf import settings 
 
 LECTURE = 'LEC'
@@ -59,6 +60,13 @@ class Course(models.Model):
     abbreviation = models.CharField(max_length=50, blank=True, null=True)
     participants = models.CharField(max_length=10, blank=True, null=True)
     hours_per_week = models.CharField(max_length=10, blank=True,null=True)
+
+    slug = models.SlugField()
+    image = models.ImageField(upload_to='courses')
+
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.name)
+        super(Course, self).save(*args, **kwargs)
 
     def __unicode__(self):
         return str(self.name)
