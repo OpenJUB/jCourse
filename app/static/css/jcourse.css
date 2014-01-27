@@ -5,11 +5,20 @@
     max-height: 120px;
 }
 
+.course-details {
+    position: relative;
+    min-height: 120px;
+}
+
 .course-name {
     font-size: 20px;
 }
+.course-name .course-credits {
+    float: right;
+}
 
 .course-catalog {
-    color: gray;
-    font-size: 12px;
+    font-size: 11px;
+    position: absolute;
+    bottom: 0px;
 }

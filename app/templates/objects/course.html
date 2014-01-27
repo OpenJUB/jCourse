@@ -7,20 +7,28 @@
                 <img src="{{ STATIC_URL }}/books.jpg" alt="Course image" class="img-rounded course-image">
             </div>
 
-            <div class="col-md-9">
+            <div class="col-md-9 course-details">
                 <div class="course-name">
                     <a href="#">{{ course.course.name }}</a>
+                    <span class="badge course-credits"> {{ course.course.credits }} </span>
                 </div>
 
                 <div class="course-instructors">
-                    {% for prof in course.profs %}
-                        {{ prof.name }}; 
+                    {% for prof in course.profs|slice:":3" %}
+                        {{ prof.name }};
                     {% endfor %}
+                    {% if course.profs|length > 3 %}
+                        ...
+                    {% endif %}
                 </div>
 
-                <div class="course-catalog">
-                    {{ course.course.catalogue }}
+                <div class="course-rating">
+                    
                 </div>
+
+                <p class="course-catalog text-muted">
+                    {{ course.course.catalogue }}
+                </p>
             </div>
         </div>
     </div>
