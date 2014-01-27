@@ -53,16 +53,19 @@ while queue:
     queue.extend(newLinks)
 
 
-fileHandle = open('courses', 'w')
+fileHandle = open('crawler/courses', 'w')
 for course in courses:
     sys.stdout = fileHandle
     print ('%s' % (course))
 sys.stdout = sys.__stdout__
 fileHandle.close()
 
-fileHandle = open('courseNames', 'w')
+fileHandle = open('crawler/courseNames', 'w')
 for course in courseNames:
     sys.stdout = fileHandle
+    # Hacked way to avoid some bad characters
+    course = course.replace('\xe9', 'e').replace('\xa0', ' ').strip()
+
     print ('%s' % (course))
 sys.stdout = sys.__stdout__
 fileHandle.close()
