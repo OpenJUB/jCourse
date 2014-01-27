@@ -10,6 +10,11 @@ def home(request):
 
     # Get courses
     courses = Course.objects.all()
-    context['courses'] = courses
+    context['courses'] = []
+    for course in courses:
+        context['courses'].append({
+            'course': course,
+            'profs': course.instructors.all()
+        })
 
     return render(request, "pages/home.html", context)

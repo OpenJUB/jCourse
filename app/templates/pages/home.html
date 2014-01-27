@@ -1,5 +1,13 @@
 {% extends 'pages/base.html' %}
 
 {% block content %}
-    {% include 'objects/courses_timeline.html' %}
+    <div class="row">
+        <div class="col-md-3">
+            Sidebar place
+        </div>
+        <div class="col-md-9">
+            {% include 'objects/courses_timeline.html' %}
+        </div>
+    </div>
+    </div>
 {% endblock %}

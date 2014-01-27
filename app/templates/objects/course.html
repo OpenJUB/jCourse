@@ -1,1 +1,27 @@
-{{ course.name }} <br>
+
+
+<div class="panel panel-default">
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-3">
+                <img src="{{ STATIC_URL }}/books.jpg" alt="Course image" class="img-rounded course-image">
+            </div>
+
+            <div class="col-md-9">
+                <div class="course-name">
+                    <a href="#">{{ course.course.name }}</a>
+                </div>
+
+                <div class="course-instructors">
+                    {% for prof in course.profs %}
+                        {{ prof.name }}; 
+                    {% endfor %}
+                </div>
+
+                <div class="course-catalog">
+                    {{ course.course.catalogue }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

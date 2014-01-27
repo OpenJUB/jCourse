@@ -8,7 +8,7 @@ f = open('crawler/courseDetails')
 courseDetailsString = f.readline()
 f.close()
 
-courseDetails = loads(courseDetailsString)
+coursesList = loads(courseDetailsString)
 
 for courseDetails in coursesList:
     print courseDetails['CourseName']

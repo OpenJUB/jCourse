@@ -1,0 +1,15 @@
+
+
+.course-image {
+    max-width: 140px;
+    max-height: 120px;
+}
+
+.course-name {
+    font-size: 20px;
+}
+
+.course-catalog {
+    color: gray;
+    font-size: 12px;
+}
