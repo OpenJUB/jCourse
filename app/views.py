@@ -22,7 +22,7 @@ def home(request):
     # Get courses
     courses = Course.objects.all()
     context['courses'] = []
-    for course in courses:
+    for course in courses[0:10]:
         context['courses'].append({
             'course': course,
             'profs': course.instructors.all()

@@ -12,11 +12,18 @@
     </div>
     <!-- IDEA: AJAX Querying -->
   	<hr>
+
     <!-- Checkboxes for majors -->
-    {% for category in categories %}
     <div class="checkbox">
       <label>
-        <input type="checkbox" value="">
+        <input type="checkbox" class="major-checkbox" id="all-majors-cb" value="">
+          All majors
+      </label>
+    </div>
+    {% for category in categories %}
+    <div class="checkbox major-cb">
+      <label>
+        <input type="checkbox" class="major-checkbox" id="{{ category }}" value="">
         {{ category }}
       </label>
     </div>
@@ -25,19 +32,15 @@
     <hr>
 
     <div id="credit-slider"></div>
-    <!-- Checkboxes for credits -->
-    <div class="checkbox">
-      <label>
-        <input type="checkbox" value="">2.5
-      </label>
+    <div class="credit-slider-values row">
+      <div class="col-md-4">
+        <input class="form-control credit-slider-handle" id="slider-handle-0" value="" disabled>
+      </div>
+      <div class="col-md-4"> </div>
+      <div class="col-md-4">
+        <input class="form-control credit-slider-handle" id="slider-handle-1" value="" disabled>
+      </div>
     </div>
-    <div class="checkbox">
-      <label>
-        <input type="checkbox" value="">5.0
-      </label>
-    </div>
-    <!-- Range slider(!) -->
-    
     
   </div>
 </div>

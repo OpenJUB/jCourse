@@ -22,3 +22,15 @@
     position: absolute;
     bottom: 0px;
 }
+
+
+#credit-slider .ui-slider-range {
+    background: #729fcf;
+}
+#credit-slider .ui-slider-handle {
+    border-color: #729fcf;
+}
+
+.credit-slider-values {
+    margin-top: 15px;
+}
