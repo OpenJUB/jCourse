@@ -13,14 +13,18 @@
     <!-- IDEA: AJAX Querying -->
   	<hr>
     <!-- Checkboxes for majors -->
+    {% for category in categories %}
     <div class="checkbox">
       <label>
         <input type="checkbox" value="">
-        Computer Science
+        {{ category }}
       </label>
     </div>
-    <!-- Generate this automatically -->
+    {% endfor %}
+
     <hr>
+
+    <div id="credit-slider"></div>
     <!-- Checkboxes for credits -->
     <div class="checkbox">
       <label>

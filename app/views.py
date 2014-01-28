@@ -8,6 +8,11 @@ from mimetypes import guess_type
 
 # App Models
 from app.models import *
+categories = ['Electrical Engineering and Computer Science', 'Life Sciences', 
+'Logistics', 'Mathematical Sciences', 'Natural and Environmental Sciences', 
+'Economics and Management', 'History', 'Humanities', 'Law', 'Psychology', 
+'Social Sciences', 'Statistics and Methods', 'University Studies Courses', 
+'German', 'French', 'Chinese', 'Spanish', 'Foundation Year']
 
 def home(request):
     context = {
@@ -22,6 +27,7 @@ def home(request):
             'course': course,
             'profs': course.instructors.all()
         })
+    context['categories'] = categories
 
     return render(request, "pages/home.html", context)
 
