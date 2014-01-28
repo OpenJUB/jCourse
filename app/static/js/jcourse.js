@@ -1,17 +1,13 @@
 $(function() {
 
-<<<<<<< HEAD
     // For lazy loading images
     $("img.course-image").lazyload({
         effect : "fadeIn"
     });
 
-    indexCourses = function() {
-=======
     indexCourses = function(btn_studies) {
 
         var courses = $('.panel-course');
->>>>>>> 16b37c250bddb627f5630f00d126b703df2a4f2a
         var checked = $('.major-checkbox').filter( ':checked' );
         var allMajors = false;
         var allStudies = false;
@@ -71,7 +67,9 @@ $(function() {
             }
         });
 
-
+        $("img.course-image").lazyload({
+            event : "click"
+        });
         
     }
 
