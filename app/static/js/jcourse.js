@@ -1,5 +1,10 @@
 $(function() {
 
+    // For lazy loading images
+    $("img.course-image").lazyload({
+        effect : "fadeIn"
+    });
+
     indexCourses = function() {
         var checked = $('.major-checkbox').filter( ':checked' );
         if (checked.not( '#all-majors-cb' ).length > 0) {

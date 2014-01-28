@@ -3,6 +3,17 @@
 {% block content %}
     <div class="row">
         <div class="col-md-3">
+            <div class="course-image-wrapper">
+                {% if course.image %}
+                    <img class="img-rounded course-image" src="{% url 'course_image' course.slug %}" alt="{{course.name}} image">
+                {% else %}
+                    <img class="img-rounded course-image" src="{{ STATIC_URL }}books.jpg" alt="{{course.name}} image">
+                {% endif %}
+            </div>
+
+            <div class="course-name">
+                <a href="/course/{{ course.slug }}">{{ course.name }}</a>
+            </div>
         </div>
         <div class="col-md-9">
             <div class="panel panel-default">

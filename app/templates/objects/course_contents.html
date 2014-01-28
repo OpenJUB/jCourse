@@ -1,75 +1,72 @@
 <div class="row">
     <div class="col-md-8">
 
+        {% if course.instructors %}
         <div class="course-detail">
-            {% if course.instructors %}
                 <strong> Instructors: </strong> 
                 <div class="content">
                     {% for prof in instructors %}
                         {{ prof.name }}; 
                     {% endfor %}
                 </div>
-            {% endif %}
         </div>
+        <br/>
+        {% endif %}
 
+        {% if course.type %}
         <div class="course-detail">
-            {% if course.type %}
                 <strong> Type: </strong> 
                 <div class="content">
                     {{ course.type }}
                 </div>
-            {% endif %}
         </div>
+        <br/>
+        {% endif %}
 
+        {% if course.credits %}
         <div class="course-detail">
-            {% if course.credits %}
                 <strong> Credits: </strong> 
                 <span class="content">
                     {{ course.credits }}
                 </span>
-            {% endif %}
         </div>
+        <br/>
+        {% endif %}
 
+        {% if course.participants %}
         <div class="course-detail">
-            {% if course.participants %}
                 <strong> Min. | Max. participants: </strong> 
                 <span class="content">
                     {{ course.participants }}
                 </span>
-            {% endif %}
         </div>
+        <br/>
+        {% endif %}
 
+        {% if course.abbreviation %}
         <div class="course-detail">
-            {% if course.abbreviation %}
                 <strong> Abbreviation: </strong> 
                 <span class="content">
                     {{ course.abbreviation }}
                 </span>
-            {% endif %}
         </div>
+        <br/>
+        {% endif %}
 
+        {% if course.description %}
         <div class="course-detail">
-            {% if course.description %}
                 <strong> Description: </strong> 
                 <div class="content">
                     {{ course.description }}
                 </div>
-            {% endif %}
         </div>
+        <br/>
+        {% endif %}
 
     </div>
+
     <div class="col-md-4">
-        <div class="course-image-wrapper">
-            {% if course.image %}
-                <img class="img-rounded course-image" src="{% url 'course_image' course.slug %}" alt="{{course.name}} image">
-            {% else %}
-                <img class="img-rounded course-image" src="{{ STATIC_URL }}books.jpg" alt="{{course.name}} image">
-            {% endif %}
-        </div>
-
-        <div class="course-name">
-            <a href="/course/{{ course.slug }}">{{ course.name }}</a>
-        </div>
-
+        <!-- EMPTY? -->
     </div>
+
 </div>
