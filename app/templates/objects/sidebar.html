@@ -2,6 +2,7 @@
 <div class="panel panel-default">
   <div class="panel-body">
   	<!-- Search bar -->
+    {% comment %}
     <div class="input-group">
       <span class="input-group-addon"><span class="glyphicon glyphicon-search"></span></span>
       <input type="text" class="form-control" placeholder="Search">
@@ -12,6 +13,21 @@
     </div>
     <!-- IDEA: AJAX Querying -->
   	<hr>
+    {% endcomment %}
+
+    <div class="btn-group studies-group" data-toggle="buttons">
+      <label class="btn btn-primary btn-studies">
+        <input type="radio" class="studies-radio" name="studies" id="st_UG"> UG </input>
+      </label>
+      <label class="btn btn-primary btn-studies">
+        <input type="radio" class="studies-radio" name="studies" id="st_Grad"> Grad </input>
+      </label>
+      <label class="btn btn-primary btn-studies active">
+        <input type="radio" class="studies-radio" name="studies" id="st_Both"> Both </input>
+      </label>
+    </div>
+
+    <hr>
 
     <!-- Checkboxes for majors -->
     <div class="checkbox">
