@@ -37,3 +37,7 @@
 .credit-slider-values {
     margin-top: 15px;
 }
+
+.comment-submit {
+    resize: vertical;
+}

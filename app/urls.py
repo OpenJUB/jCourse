@@ -5,4 +5,5 @@ urlpatterns = patterns('',
     url(r'^$', 'app.views.home'),
     url(r'^course/(?P<slug>[\w-]+)', 'app.views.course_page', name='course_page'),
     url(r'^course_image/(?P<slug>[\w-]+)', 'app.views.get_course_image', name='course_image'),
+    url(r'^submit_comment', 'app.views.submit_comment', name='submit_comment')
 )

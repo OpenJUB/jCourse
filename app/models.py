@@ -70,3 +70,11 @@ class Course(models.Model):
 
     def __unicode__(self):
         return str(self.name)
+
+class Comment(models.Model):
+    course = models.ForeignKey('Course')
+    comment = models.CharField(max_length=1000)
+    datetime = models.DateTimeField(auto_now=True)
+
+    def __unicode__(self):
+        return "Comm" + str(self.id)

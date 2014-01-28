@@ -51,6 +51,9 @@ def course_page(request, slug):
     context['course'] = course
     context['instructors'] = course.instructors.all()
 
+    comments = Comment.objects.filter(course=course)
+    context['comments'] = comments
+
     return render(request, "pages/course.html", context)
 
 def get_course_image(request, slug):
@@ -60,3 +63,19 @@ def get_course_image(request, slug):
 
     content_type = guess_type(course.image.name)
     return HttpResponse(course.image, mimetype=content_type)
+
+def submit_comment(request):
+    if request.method != 'POST':
+        raise Http404
+
+    if not 'url' in request.POST or not request.POST['url'] or \
+        not 'comment' in request.POST or not request.POST['comment'] or \
+        not 'course_id' in request.POST or not request.POST['course_id']:
+            raise Http404
+
+    course = get_object_or_404(Course, id= request.POST['course_id'])
+    comment_text = request.POST['comment']
+    comment = Comment(course= course, comment= comment_text)
+    comment.save()
+
+    return redirect(request.POST['url'])

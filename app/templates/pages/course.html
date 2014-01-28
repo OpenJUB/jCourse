@@ -1,5 +1,6 @@
 {% extends 'pages/base.html' %}
 
+{% load humanize %}
 {% block content %}
     <div class="row">
         <div class="col-md-3">
@@ -21,6 +22,40 @@
                     {% include 'objects/course_contents.html' %}
                 </div>
             </div>
+        </div>
+    </div>
+
+
+
+    <div class="panel panel-default comments">
+        <div class="panel-body">
+            <form role="form" action="{% url 'submit_comment' %}" method="post">
+                <input type="hidden" name="url" value="{% url 'course_page' course.slug %}">
+                <input type="hidden" name="course_id" value="{{course.id}}">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="col-md-10">
+                        <textarea class="form-control comment-submit" rows="1" max-length="1000" placeholder="Add a review or question. It will be posted anonymously" name="comment"></textarea>
+                    </div>
+                    <div class="col-md-2">
+                    </div>
+                    <div class="col-md-2">
+                        <button type="submit" class="btn btn-default">Submit</button>
+                    </div>
+                </div>
+            </form>
+
+
+            {% for comment in comments %}
+                <hr>
+                <div class="row">
+                    <div class="text-muted col-md-1"> @{{ comment.id }} </div>
+                    <div class="text-muted col-md-2"> {{ comment.datetime|naturaltime }} </div>
+                    <div class="col-md-9">
+                        {{ comment.comment }}
+                    </div>
+                </div>
+            {% endfor %}
         </div>
     </div>
 {% endblock %}
