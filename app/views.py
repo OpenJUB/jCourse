@@ -26,6 +26,7 @@ def home(request):
             .replace('Language Courses', '')
         major = ""
         school = ""
+        studies = "UG" if " Undergraduate Level Courses" in course.catalogue else ("Grad" if " Graduate Level Courses" in course.catalogue else "")
         for m in categories:
             if m[1] in noSchoolCatalogue:
                 major = m[0]
@@ -35,6 +36,7 @@ def home(request):
             'profs': course.instructors.all(),
             'major': major,
             'school': school,
+            'studies': studies
         })
     context['categories'] = categories
     print categories
