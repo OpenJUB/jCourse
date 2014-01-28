@@ -27,10 +27,13 @@ def home(request):
 
 def course_page(request, slug):
     course = get_object_or_404(Course, slug=slug)
-    if not course.image:
-        raise Http404
+    context = {
+        "page": "course"
+    }
+    context['course'] = course
+    context['instructors'] = course.instructors.all()
 
-    raise Http404
+    return render(request, "pages/course.html", context)
 
 def get_course_image(request, slug):
     course = get_object_or_404(Course, slug=slug)
