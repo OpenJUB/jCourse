@@ -1,6 +1,6 @@
-
-
-<div class="panel panel-default">
+<div class="panel panel-default panel-course
+{% if course.major %} major-{{ course.major }} {% endif %}
+{% if course.school %} school-{{ course.school }} {% endif %}">
     <div class="panel-body">
         <div class="row">
             <div class="col-md-3">

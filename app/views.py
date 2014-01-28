@@ -8,26 +8,36 @@ from mimetypes import guess_type
 
 # App Models
 from app.models import *
-categories = ['Electrical Engineering and Computer Science', 'Life Sciences', 
-'Logistics', 'Mathematical Sciences', 'Natural and Environmental Sciences', 
-'Economics and Management', 'History', 'Humanities', 'Law', 'Psychology', 
-'Social Sciences', 'Statistics and Methods', 'University Studies Courses', 
-'German', 'French', 'Chinese', 'Spanish', 'Foundation Year']
+from app.course_info import *
 
 def home(request):
     context = {
         "page": "home",
     }
+    categories = MAJOR_TYPES
 
     # Get courses
     courses = Course.objects.all()
     context['courses'] = []
-    for course in courses[0:10]:
+    for course in courses:
+        noSchoolCatalogue = course.catalogue \
+            .replace('School of Humanities and Social Sciences', '') \
+            .replace('School of Engineering and Science', '') \
+            .replace('Language Courses', '')
+        major = ""
+        school = ""
+        for m in categories:
+            if m[1] in noSchoolCatalogue:
+                major = m[0]
+                school = m[2]
         context['courses'].append({
             'course': course,
-            'profs': course.instructors.all()
+            'profs': course.instructors.all(),
+            'major': major,
+            'school': school,
         })
     context['categories'] = categories
+    print categories
 
     return render(request, "pages/home.html", context)
 

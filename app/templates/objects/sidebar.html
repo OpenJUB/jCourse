@@ -23,8 +23,8 @@
     {% for category in categories %}
     <div class="checkbox major-cb">
       <label>
-        <input type="checkbox" class="major-checkbox" id="{{ category }}" value="">
-        {{ category }}
+        <input type="checkbox" class="major-checkbox cb-{{category.2}}  " id="checkbox_{{ category.0 }}" value="">
+        {{ category.1 }}
       </label>
     </div>
     {% endfor %}
