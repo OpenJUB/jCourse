@@ -14,9 +14,10 @@ for filepath in filepaths:
     course = Course.objects.filter(course_id = cid)
     if len(course) == 1:
         course = course[0]
-        f = open(filepath)
-        myf = File(f)
-        course.image = myf
-        course.save()
+        if not course.image:
+            f = open(filepath)
+            myf = File(f)
+            course.image = myf
+            course.save()
     else:
         print "Error! There were more files with that ID!"

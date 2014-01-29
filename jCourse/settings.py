@@ -1,6 +1,7 @@
 # Django settings for jCourse project.
 
 from os import environ, path
+import boto
 
 DEBUG = environ.get('JCOURSE_DEBUG_STATE', 'True') == 'True'
 TEMPLATE_DEBUG = DEBUG
@@ -15,14 +16,6 @@ PROJECT_ROOT = path.realpath(path.dirname(__file__)) + '/'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': PROJECT_ROOT + 'db/database.db',                      # Or path to database file if using sqlite3.
-        # The following settings are not used with sqlite3:
-        'USER': '',
-        'PASSWORD': '',
-        'HOST': '',                      # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
-        'PORT': '',                      # Set to empty string for default.
-
         'ENGINE': environ.get('JCOURSE_DATABASE_BACKEND', 'django.db.backends.sqlite3'),
         'NAME': environ.get('JCOURSE_DATABASE_NAME', PROJECT_ROOT + 'db/database.db'),
         'USER': environ.get('JCOURSE_DATABASE_USER', ''),
@@ -47,6 +40,8 @@ TIME_ZONE = 'Europe/Berlin'
 LANGUAGE_CODE = 'en-us'
 
 SITE_ID = 1
+
+LOGIN_URL = '/login'
 
 # If you set this to False, Django will make some optimizations so as not
 # to load the internationalization machinery.
@@ -137,6 +132,7 @@ INSTALLED_APPS = (
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
     'django.contrib.humanize',
+    'storages',
     'app',
 )
 
@@ -168,3 +164,17 @@ LOGGING = {
         },
     }
 }
+
+########################## Media files setup on AWS
+# Setup AWS
+AWS_ACCESS_KEY_ID = environ.get('JCOURSE_AWS_ACCESS_KEY_ID', '')
+AWS_SECRET_ACCESS_KEY = environ.get('JCOURSE_AWS_SECRET_ACCESS_KEY', '')
+AWS_STORAGE_BUCKET_NAME = 'jcourse'
+AWS_PRELOAD_METADATA = True
+
+# Connect to s3 only in production
+if not DEBUG:
+    boto.connect_s3()
+
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage' if not DEBUG else 'django.core.files.storage.FileSystemStorage'
+MEDIA_URL = 'http://{0}.s3.amazonaws.com/'.format(AWS_STORAGE_BUCKET_NAME) if not DEBUG else '/media/'
