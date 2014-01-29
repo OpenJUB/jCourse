@@ -48,7 +48,7 @@ class Course(models.Model):
     course_type = models.CharField( max_length=3,
                                     choices=COURSE_TYPES,
                                     default=LECTURE)
-    name = models.CharField(max_length=100)
+    name = models.CharField(max_length=200)
     instructors = models.ManyToManyField('Professor')
     credits = models.FloatField()
     description = models.CharField(max_length=5000, blank=True, null=True)
