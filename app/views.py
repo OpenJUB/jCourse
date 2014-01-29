@@ -39,7 +39,6 @@ def home(request):
             'studies': studies
         })
     context['categories'] = categories
-    print categories
 
     return render(request, "pages/home.html", context)
 
