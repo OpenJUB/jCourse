@@ -1,6 +1,16 @@
 <div class="row">
     <div class="col-md-8">
 
+        {% if course.course_id %}
+        <div class="course-detail">
+                <strong> Course ID: </strong> 
+                <span class="content">
+                    {{ course.course_id }}
+                </spa>
+        </div>
+        <br/>
+        {% endif %}
+
         {% if course.instructors %}
         <div class="course-detail">
                 <strong> Instructors: </strong> 
@@ -59,6 +69,68 @@
                 <div class="content">
                     {{ course.description|linebreaks }}
                 </div>
+        </div>
+        <br/>
+        {% endif %}
+    
+        {% if course.course_type %}
+        <div class="course-detail">
+                <strong> Course Type: </strong> 
+                <span class="content">
+                    {{ course.course_type }}
+                </span>
+        </div>
+        <br/>
+        {% endif %}
+        
+        {% if course.additional_info %}
+        <div class="course-detail">
+                <strong> Additional information: </strong> 
+                <div class="content">
+                    {{ course.additional_info }}
+                </div>
+        </div>
+        <br/>
+        {% endif %}
+
+        <!-- sections_info is useless -->
+        
+        {% if course.grades %}
+        <div class="course-detail">
+                <strong> Grade breakdown: </strong> 
+                <div class="content">
+                    {{ course.grades }}
+                </div>
+        </div>
+        <br/>
+        {% endif %}
+        
+        {% if course.grades_info %}
+        <div class="course-detail">
+                <strong> Additional Information about grades: </strong> 
+                <div class="content">
+                    {{ course.grades_info }}
+                </div>
+        </div>
+        <br/>
+        {% endif %}
+        
+        {% if course.hours_per_week %}
+        <div class="course-detail">
+                <strong> Hours per week: </strong> 
+                <span class="content">
+                    {{ course.hours_per_week }}
+                </span>
+        </div>
+        <br/>
+        {% endif %}
+
+        {% if course.catalogue %}
+        <div class="course-detail">
+                <strong> Catalogue: </strong> 
+                <span class="content">
+                    {{ course.catalogue }}
+                </span>
         </div>
         <br/>
         {% endif %}
