@@ -61,7 +61,7 @@ class Course(models.Model):
     participants = models.CharField(max_length=10, blank=True, null=True)
     hours_per_week = models.CharField(max_length=10, blank=True,null=True)
 
-    slug = models.SlugField(max_length=140)
+    slug = models.SlugField(max_length=200)
     image = models.ImageField(upload_to='courses')
 
     def save(self, *args, **kwargs):
