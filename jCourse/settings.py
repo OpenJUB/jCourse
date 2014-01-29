@@ -2,7 +2,7 @@
 
 from os import environ, path
 
-DEBUG = True
+DEBUG = environ.get('JCOURSE_DEBUG_STATE', 'True') == 'True'
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
@@ -22,12 +22,19 @@ DATABASES = {
         'PASSWORD': '',
         'HOST': '',                      # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
         'PORT': '',                      # Set to empty string for default.
+
+        'ENGINE': environ.get('JCOURSE_DATABASE_BACKEND', 'django.db.backends.sqlite3'),
+        'NAME': environ.get('JCOURSE_DATABASE_NAME', PROJECT_ROOT + 'db/database.db'),
+        'USER': environ.get('JCOURSE_DATABASE_USER', ''),
+        'PASSWORD': environ.get('JCOURSE_DATABASE_PASSWORD', ''),
+        'HOST': environ.get('JCOURSE_DATABASE_HOST', ''),
+        'PORT': environ.get('JCOURSE_DATABASE_PORT', ''),
     }
 }
 
 # Hosts/domain names that are valid for this site; required if DEBUG is False
 # See https://docs.djangoproject.com/en/1.5/ref/settings/#allowed-hosts
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['.heroku.app']
 
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
@@ -65,7 +72,7 @@ MEDIA_URL = '/media/'
 # Don't put anything in this directory yourself; store your static files
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
 # Example: "/var/www/example.com/static/"
-STATIC_ROOT = 'static/'
+STATIC_ROOT = path.join(PROJECT_ROOT, 'static/')
 
 # URL prefix for static files.
 # Example: "http://example.com/static/", "http://static.example.com/"
@@ -88,7 +95,7 @@ STATICFILES_FINDERS = (
 )
 
 # Make this unique, and don't share it with anybody.
-SECRET_KEY = '^vix^ohv5hl+w9yv(o!1-b#$54vm_p$12s(a7iiz14u*c&gs@1'
+SECRET_KEY = environ.get('JCOURSE_SECRET_KEY', '^vix^ohv5hl+w9yv(o!1-b#$54vm_p$12s(a7iiz14u*c&gs@1')
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
