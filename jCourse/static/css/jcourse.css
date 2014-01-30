@@ -70,3 +70,16 @@
 .comments .comment-datetime {
     float: right;
 }
+
+/* All Comments page*/
+.comments-page .comments-display hr {
+    margin-bottom: 12px;
+}
+
+.comments-page .comment-text {
+    margin-top: 6px;
+}
+
+.comments-page .comment-datetime {
+    float: right;
+}

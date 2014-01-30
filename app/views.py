@@ -53,3 +53,11 @@ def submit_comment(request):
     comment.save()
 
     return redirect(request.POST['url'])
+
+def all_comments(request):
+    context = {
+        'page': 'all_comments'
+    }
+    context['comments'] = Comment.objects.all()
+
+    return render(request, 'pages/comments.html', context)
