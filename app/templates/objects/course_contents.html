@@ -1,6 +1,25 @@
 <div class="row">
-    <div class="col-md-8">
-
+    <div class="col-md-12">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="course-name">
+                    <a href="/course/{{ course.slug }}">{{ course.name }}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Picture here -->
+    <div class="col-md-6">
+        <div class="course-image-wrapper">
+            {% if course.image %}
+            <img class="img-rounded course-image" src="{% url 'course_image' course.slug %}" alt="{{course.name}} image">
+            {% else %}
+            <img class="img-rounded course-image" src="{{ STATIC_URL }}books.jpg" alt="{{course.name}} image">
+            {% endif %}
+        </div>
+    </div>
+    <!-- Some info -->
+    <div class="col-md-6">
         {% if course.course_id %}
         <div class="course-detail">
                 <strong> Course ID: </strong> 
@@ -10,29 +29,6 @@
         </div>
         <br/>
         {% endif %}
-
-        {% if course.instructors %}
-        <div class="course-detail">
-                <strong> Instructors: </strong> 
-                <div class="content">
-                    {% for prof in instructors %}
-                        {{ prof.name }}; 
-                    {% endfor %}
-                </div>
-        </div>
-        <br/>
-        {% endif %}
-
-        {% if course.type %}
-        <div class="course-detail">
-                <strong> Type: </strong> 
-                <div class="content">
-                    {{ course.type }}
-                </div>
-        </div>
-        <br/>
-        {% endif %}
-
         {% if course.credits %}
         <div class="course-detail">
                 <strong> Credits: </strong> 
@@ -62,6 +58,39 @@
         </div>
         <br/>
         {% endif %}
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        {% if course.instructors %}
+        <div class="course-detail">
+                <strong> Instructors: </strong> 
+                <div class="content">
+                    {% for prof in instructors %}
+                        {{ prof.name }}; 
+                    {% endfor %}
+                </div>
+        </div>
+        {% endif %}
+        <br/>
+    </div>
+</div>
+
+<div class="row">
+
+    <div class="col-md-12">
+
+        {% if course.type %}
+        <div class="course-detail">
+                <strong> Type: </strong> 
+                <div class="content">
+                    {{ course.type }}
+                </div>
+        </div>
+        <br/>
+        {% endif %}
+
 
         {% if course.description %}
         <div class="course-detail">
