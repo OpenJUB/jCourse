@@ -38,14 +38,31 @@
     margin-top: 15px;
 }
 
-.comment-submit {
-    resize: vertical;
-}
-
-.course-detail-wrapper {
+/* Course page */
+.course-details .course-brief-detail-wrapper {
     margin-top: 10px;
 }
 
-.course-detail {
+.course-details .course-detail {
+    margin-top: 16px;
+}
+
+.main-content .course-details .course-brief-detail-wrapper .course-brief-detail {
     margin-top: 4px;
+}
+
+.comments .comment-submit {
+    resize: vertical;
+}
+
+.comments .comments-display hr {
+    margin-bottom: 12px;
+}
+
+.comments .comment-text {
+    margin-top: 6px;
+}
+
+.comments .comment-datetime {
+    float: right;
 }

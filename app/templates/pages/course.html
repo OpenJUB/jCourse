@@ -2,9 +2,8 @@
 
 {% block content %}
     <div class="row">
-        
         <div class="col-md-7">
-            <div class="panel panel-default">
+            <div class="panel panel-default course-details">
                 <div class="panel-body">
                     {% include 'objects/course_contents.html' %}
                 </div>
@@ -12,10 +11,7 @@
         </div>
 
         <div class="col-md-5">
-                    {% include 'objects/comment_section.html' %}
-            </div>
+            {% include 'objects/comment_section.html' %}
         </div>
-
     </div>
-    
 {% endblock %}
