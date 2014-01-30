@@ -4,7 +4,17 @@
 {% if course.studies %} studies-{{ course.studies }} {% endif %}">
     <div class="panel-body">
         <div class="row">
-            <div class="col-md-3">
+            <div class="col-md-10">
+                <div class="course-name">
+                    <a href="/course/{{ course.course.slug }}">{{ course.course.name }}</a>
+                </div>
+            </div>
+            <div class="col-md-1">
+                <span class="badge course-credits"> {{ course.course.credits }} </span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-5">
               {% if course.course.image %}
                 <img class="img-rounded course-image" data-original="{% url 'course_image' course.course.slug %}" alt="{{course.course.name}} image">
               {% else %}
@@ -12,11 +22,8 @@
               {% endif %}
             </div>
 
-            <div class="col-md-9 course-details">
-                <div class="course-name">
-                    <a href="/course/{{ course.course.slug }}">{{ course.course.name }}</a>
-                    <span class="badge course-credits"> {{ course.course.credits }} </span>
-                </div>
+            <div class="col-md-7 course-details">
+                
 
                 <div class="course-instructors">
                     {% for prof in course.profs|slice:":3" %}

@@ -1,0 +1,9 @@
+{% if forloop.counter|divisibleby:2 %}
+<div class="row">
+	{% endif %}
+    <div class="col-md-6">
+    	{% include 'objects/course_block.html' %}
+    </div>
+    {% if forloop.counter|divisibleby:2 %}
+</div>
+{% endif %}
