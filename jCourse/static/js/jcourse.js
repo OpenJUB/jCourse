@@ -61,9 +61,9 @@ $(function() {
             }
 
             if (show) {
-                $(this).show();
+                $(this).parent().show();
             } else {
-                $(this).hide();
+                $(this).parent().hide();
             }
         });
 

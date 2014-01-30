@@ -1,29 +1,33 @@
 
+.course-block-wrapper {
+    padding-bottom: 12px;
+}
+
 .school-group {
     margin-top: 8px;
 }
 
 .course-image {
-    max-width: 140px;
-    max-height: 120px;
+    max-width: 100px;
+    max-height: 100px;
 }
 
-.course-details {
-    position: relative;
-    min-height: 120px;
+.panel-body {
+    min-height: 195px;
 }
 
 .course-name {
-    font-size: 20px;
+    font-size: 18px;
 }
 .course-name .course-credits {
     float: right;
 }
 
 .course-catalog {
-    font-size: 11px;
-    position: absolute;
-    bottom: 0px;
+    font-size: 10px;
+    margin-top: 12px;
+    /*position: absolute;
+    bottom: 0px;*/
 }
 
 

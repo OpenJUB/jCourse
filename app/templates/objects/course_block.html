@@ -1,3 +1,4 @@
+<div class="col-md-6 course-block-wrapper">
 <div class="panel panel-default panel-course
 {% if course.major %} major-{{ course.major }} {% endif %}
 {% if course.school %} school-{{ course.school }} {% endif %}
@@ -9,12 +10,12 @@
                     <a href="/course/{{ course.course.slug }}">{{ course.course.name }}</a>
                 </div>
             </div>
-            <div class="col-md-1">
-                <span class="badge course-credits"> {{ course.course.credits }} </span>
+            <div class="col-md-2">
+                    <span class="badge course-credits"> {{ course.course.credits }} </span>
             </div>
         </div>
         <div class="row">
-            <div class="col-md-5">
+            <div class="col-md-4">
               {% if course.course.image %}
                 <img class="img-rounded course-image" data-original="{% url 'course_image' course.course.slug %}" alt="{{course.course.name}} image">
               {% else %}
@@ -22,7 +23,7 @@
               {% endif %}
             </div>
 
-            <div class="col-md-7 course-details">
+            <div class="col-md-8 course-details">
                 
 
                 <div class="course-instructors">
@@ -44,4 +45,5 @@
             </div>
         </div>
     </div>
+</div>
 </div>
