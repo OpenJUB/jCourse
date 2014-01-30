@@ -61,3 +61,27 @@ def all_comments(request):
     context['comments'] = Comment.objects.all()
 
     return render(request, 'pages/comments.html', context)
+
+def login_action(request):
+    if request.method != 'POST':
+        raise Http404
+
+    if not 'url' in request.POST or not request.POST['url'] or \
+        not 'login' in request.POST or not request.POST['login']
+            raise Http404
+
+    login_user = request.POST['user']
+    login_pass = request.POST['pass']
+
+    go('https://campusnet.jacobs-university.de/scripts/mgrqispi.dll?APPNAME=CampusNet&PRGNAME=ACTION&ARGUMENTS=-A9PnS7.Eby4LCWWmmtOcbYKUQ-so-sF48wtHtVNWX9aIeYmoSh5mej--SCbT.jubdlAouHy3dHzwyr-O.ufj3NVAYCNiJr0CFcBNwA3xADclRCTyqC0Oip8drT0F=')
+    fv('1', 'usrname', username)
+    fv('1', 'pass', password)
+    submit('3')
+    login_result = show()
+    if login_result.find('Wrong username or password') != -1:
+        pass
+    else:
+        juser = get_object_or_404(jUser)
+        login = Login()
+
+    return render(request, "objects/login.html", context)    
