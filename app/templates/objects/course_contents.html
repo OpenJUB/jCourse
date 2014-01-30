@@ -19,15 +19,14 @@
         </div>
     </div>
     <!-- Some info -->
-    <div class="col-md-6">
+    <div class="col-md-6 course-detail-wrapper">
         {% if course.course_id %}
         <div class="course-detail">
                 <strong> Course ID: </strong> 
                 <span class="content">
                     {{ course.course_id }}
-                </spa>
+                </span>
         </div>
-        <br/>
         {% endif %}
         {% if course.credits %}
         <div class="course-detail">
@@ -36,7 +35,6 @@
                     {{ course.credits }}
                 </span>
         </div>
-        <br/>
         {% endif %}
 
         {% if course.participants %}
@@ -46,7 +44,6 @@
                     {{ course.participants }}
                 </span>
         </div>
-        <br/>
         {% endif %}
 
         {% if course.abbreviation %}
@@ -54,6 +51,15 @@
                 <strong> Abbreviation: </strong> 
                 <span class="content">
                     {{ course.abbreviation }}
+                </span>
+        </div>
+        {% endif %}
+
+        {% if course_type %}
+        <div class="course-detail">
+                <strong> Course Type: </strong> 
+                <span class="content">
+                    {{ course_type }}
                 </span>
         </div>
         <br/>
@@ -81,33 +87,12 @@
 
     <div class="col-md-12">
 
-        {% if course.type %}
-        <div class="course-detail">
-                <strong> Type: </strong> 
-                <div class="content">
-                    {{ course.type }}
-                </div>
-        </div>
-        <br/>
-        {% endif %}
-
-
         {% if course.description %}
         <div class="course-detail">
                 <strong> Description: </strong> 
                 <div class="content">
                     {{ course.description|linebreaks }}
                 </div>
-        </div>
-        <br/>
-        {% endif %}
-    
-        {% if course.course_type %}
-        <div class="course-detail">
-                <strong> Course Type: </strong> 
-                <span class="content">
-                    {{ course.course_type }}
-                </span>
         </div>
         <br/>
         {% endif %}

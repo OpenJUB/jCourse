@@ -41,3 +41,11 @@
 .comment-submit {
     resize: vertical;
 }
+
+.course-detail-wrapper {
+    margin-top: 10px;
+}
+
+.course-detail {
+    margin-top: 4px;
+}
