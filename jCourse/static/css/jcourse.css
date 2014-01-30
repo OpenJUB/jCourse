@@ -12,7 +12,7 @@
     max-height: 100px;
 }
 
-.panel-body {
+.course-block-wrapper .panel-course .panel-body {
     min-height: 195px;
 }
 
