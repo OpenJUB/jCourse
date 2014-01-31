@@ -156,5 +156,15 @@ $(function() {
         },
         hints: ['1', '2', '3', '4', '5']
     });
-    
+
+    // Logged out rating tooltip
+    var ratingTooltips = $('.ratings-tooltip')
+    if (ratingTooltips.length > 0) {
+        ratingTooltips.tooltip({
+            placement: 'left',
+            html: false,
+            title: 'Log in to vote!'
+        });
+        ratingTooltips.attr('data-original-title', 'Log in to vote!')
+    }
 });

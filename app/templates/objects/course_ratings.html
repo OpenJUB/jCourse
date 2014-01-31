@@ -17,7 +17,7 @@
                     {% endif %}
                 </div>
                 <div class="col-md-4">
-                    <span class="rating-stars">
+                    <span class="rating-stars {% if not user_auth %} ratings-tooltip {% endif %}">
                     </span>
                     <span class="rating-nrs">
                         ({{ rating.count }})
