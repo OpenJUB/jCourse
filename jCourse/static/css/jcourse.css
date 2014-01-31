@@ -42,6 +42,10 @@
     margin-top: 15px;
 }
 
+.login-form .login-input {
+    max-width: 120px;
+}
+
 /* Course page */
 .course-details .course-brief-detail-wrapper {
     margin-top: 10px;

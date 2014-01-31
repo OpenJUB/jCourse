@@ -1,4 +1,19 @@
-<form>
-Username: <input type="text" name="username"> Password: <input type="password" name="password">
-<input type="button" value="Login" onClick="Login(this.form);">
-</form>
+{% if not user_auth %}
+    <form class="navbar-form navbar-right login-form" method="post" action="/login">
+        {% csrf_token %}
+        <div class="form-group">
+          <input type="text" class="form-control login-input" placeholder="Username" name="user">
+          {{ request.path }}
+        </div>
+        <div class="form-group">
+          <input type="password" class="form-control login-input" placeholder="Password" name="pass">
+          {{ request.get_full_path }}
+        </div>
+        <input type="hidden" name="url" value="/home">
+        <button type="submit" class="btn btn-default">Login</button>
+    </form>
+{% else %}
+  <ul class="nav navbar-nav navbar-right">
+    <li><a href="{% url 'logout' %}">Logout {{ user_auth }}</a></li>
+  </ul>
+{% endif %}
