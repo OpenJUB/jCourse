@@ -6,7 +6,6 @@ $(function() {
     });
 
     indexCourses = function(btn_studies) {
-
         var courses = $('.panel-course');
         var checked = $('.major-checkbox').filter( ':checked' );
         var allMajors = false;
@@ -122,4 +121,19 @@ $(function() {
     $("#slider-handle-0").val( creditValues[0] )
     $("#slider-handle-1").val( creditValues[creditValues.length - 1] )
     majorCheckboxHandle();
+
+    // Course page JS
+    $('.course-overall-rating').raty( {
+        starOn: '/static/images/star-on.png',
+        starOff: '/static/images/star-off.png',
+        click: function(score, evt) {
+            var form = $(this).parents('form');
+            form.find('input[name="rating_value"]').val(score)
+            var user = form.find('input[name="user_id"]')
+            if (user.length > 0) {
+                form.submit();
+            }
+        }
+    });
+    
 });

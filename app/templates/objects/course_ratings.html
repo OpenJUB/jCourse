@@ -1,0 +1,21 @@
+
+<div class="row overall-rating">
+    <form class="overall-rating-form" method="post" action="/vote_course">
+        <div class="col-md-3">
+            Overall: 
+            <span class="badge"> <span class="glyphicon glyphicon-star"></span> 4.5 </span>
+        </div>
+        <div class="col-md-3">
+            <div class="course-overall-rating">
+            </div>
+        </div>
+
+        {% csrf_token %}
+        <input type="hidden" name="course_id" value="{{ course.id }}">
+        {% if user_auth %}
+            <input type="hidden" name="user_id" value="{{ request.user.id }}">
+        {% endif %}
+        <input type="hidden" name="rating_value" value="">
+        <input type="hidden" name="url" value="{% url 'course_page' course.slug %}">
+    </form>
+</div>
