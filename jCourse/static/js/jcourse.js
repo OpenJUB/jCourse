@@ -123,7 +123,6 @@ $(function() {
     majorCheckboxHandle();
 
     // Course page JS
-    var my_overall_rating = $('#my_overall_rating').text();
     $('.rating-stars').raty( {
         starOn: '/static/images/star-on.png',
         starOff: '/static/images/star-off.png',
