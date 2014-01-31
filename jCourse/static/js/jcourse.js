@@ -167,6 +167,24 @@ $(function() {
         });
         ratingTooltips.attr('data-original-title', 'Log in to vote!')
     }
+    var ratingClarif = $('.ratings-tooltip-clarif')
+    if (ratingClarif.length > 0) {
+        ratingClarif.tooltip({
+            placement: 'top',
+            title: function() {
+                var type = $(this).parents('form').find('input[name="rating_type"]').val();
+                if (type == 'ALL') {
+                    return "How do you rate the course in general?"
+                } else if (type == 'WKL') {
+                    return "More stars means higher workload"
+                } else if (type == 'DIF') {
+                    return "More stars means higher difficulty"
+                } else if (type == 'PRF') {
+                    return "How do you rate this professor?"
+                } 
+            }
+        })
+    }
 
     // Tooltip for CampusNet
     $("#campusnet-popover").tooltip({title: 'Please log in with your CampusNet credentials!'})
