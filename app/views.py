@@ -39,6 +39,33 @@ def course_page(request, slug):
 
     return render(request, "pages/course.html", context)
 
+def vote_course(request):
+    context = {}
+    if request.method != 'POST':
+        raise Http404
+
+    if not 'user_id' in request.POST or not request.POST['user_id'] or \
+        not 'course_id' in request.POST or not request.POST['course_id'] or \
+        not 'rating_value' in request.POST or not request.POST['rating_value'] or \
+        not 'url' in request.POST or not request.POST['url']:
+            raise Http404        
+
+    user = get_object_or_404(jUser, id= request.POST['user_id'])
+    course = get_object_or_404(Course, id= request.POST['course_id'])
+    rating_value = float(request.POST['rating_value'])
+    ratings = Rating.objects.filter(user= user, course= course)
+    
+    if len(ratings) == 0:
+        rating = Rating(user= user, course= course, rating= rating_value)
+        rating.save()
+    else:
+        rating = ratings[0]
+        rating.rating = rating_value
+        rating.save()
+
+    return redirect(request.POST['url'])
+
+
 def get_course_image(request, slug):
     course = get_object_or_404(Course, slug=slug)
     if not course.image:

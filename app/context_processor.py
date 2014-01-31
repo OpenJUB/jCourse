@@ -27,6 +27,13 @@ def course_timeline_context(courses):
         major = ""
         school = ""
         studies = "UG" if " Undergraduate Level Courses" in course.catalogue else ("Grad" if " Graduate Level Courses" in course.catalogue else "")
+        
+        ratings = Rating.objects.filter(course= course)
+        if (len(ratings) == 0):
+            overall_rating = None
+        else:   
+            overall_rating = sum([cur.rating for cur in ratings])/len(ratings)
+
         for m in categories:
             if m[1] in noSchoolCatalogue:
                 major = m[0]
@@ -37,7 +44,8 @@ def course_timeline_context(courses):
             'major': major,
             'school': school,
             'studies': studies,
-            'catalogue': noSchoolCatalogue
+            'catalogue': noSchoolCatalogue,
+            'overall_rating': overall_rating
         })
     context['categories'] = categories
 
