@@ -157,6 +157,8 @@ def login_action(request):
     if user is not None:
         if user.is_active:
             login(request, user)
+            if 'login' in request.META.get('HTTP_REFERER'):
+                return redirect('/')
             return redirect(request.META.get('HTTP_REFERER'))
         else:
             context['error'] = "Invalid user! Please try again! The account may not be activated!"

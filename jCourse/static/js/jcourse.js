@@ -1,7 +1,5 @@
 $(function() {
 
-    $("#campusnet-popover").tooltip({title: 'Please log in with your CampusNet credentials!'})
-
     // For lazy loading images
     $("img.course-image").lazyload({
         effect : "fadeIn"
@@ -169,4 +167,7 @@ $(function() {
         });
         ratingTooltips.attr('data-original-title', 'Log in to vote!')
     }
+
+    // Tooltip for CampusNet
+    $("#campusnet-popover").tooltip({title: 'Please log in with your CampusNet credentials!'})
 });
