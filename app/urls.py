@@ -8,5 +8,6 @@ urlpatterns = patterns('',
     url(r'^course_image/(?P<slug>[\w-]+)', 'app.views.get_course_image', name='course_image'),
     url(r'^submit_comment', 'app.views.submit_comment', name='submit_comment'),
     url(r'^login','app.views.login_action', name='login'),
-    url(r'^logout', 'app.views.logout_action', name='logout')
+    url(r'^logout', 'app.views.logout_action', name='logout'),
+    url(r'^vote_course', app.views.vote_course, name='vote_course')
 )
