@@ -1,5 +1,7 @@
 $(function() {
 
+    $("#campusnet-popover").tooltip({title: 'Please log in with your CampusNet credentials!'})
+
     // For lazy loading images
     $("img.course-image").lazyload({
         effect : "fadeIn"

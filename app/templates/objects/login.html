@@ -1,6 +1,10 @@
 {% if not user_auth %}
     <form class="navbar-form navbar-right login-form" method="post" action="/login">
         {% csrf_token %}
+
+        <span id="campusnet-popover" class="glyphicon glyphicon-info-sign" 
+        data-container="body" data-toggle="popover" data-placement="bottom"></span>
+
         <div class="form-group">
           <input type="text" class="form-control login-input" placeholder="Username" name="user">
         </div>
