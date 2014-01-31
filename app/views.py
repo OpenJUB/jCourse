@@ -35,33 +35,52 @@ def course_page(request, slug):
         "page": "course",
         'user_auth': user_authenticated(request)
     }
-    context = dict(context.items() + course_page_context(course).items())
+    context = dict(context.items() + course_page_context(request, course).items())
 
     return render(request, "pages/course.html", context)
 
+@login_required
 def vote_course(request):
     context = {}
     if request.method != 'POST':
         raise Http404
+    user = get_object_or_404(jUser, id=request.user.id)
 
-    if not 'username' in request.POST or not request.POST['username'] or \
-        not 'course_id' in request.POST or not request.POST['course_id'] or \
+    if not 'course_id' in request.POST or not request.POST['course_id'] or \
         not 'rating_value' in request.POST or not request.POST['rating_value'] or \
+        not 'rating_type' in request.POST or not request.POST['rating_type'] or \
         not 'url' in request.POST or not request.POST['url']:
             raise Http404        
 
     user = get_object_or_404(jUser, username= request.POST['username'])
     course = get_object_or_404(Course, id= request.POST['course_id'])
     rating_value = float(request.POST['rating_value'])
-    ratings = Rating.objects.filter(user= user, course= course)
-    
-    if len(ratings) == 0:
-        rating = Rating(user= user, course= course, rating= rating_value)
-        rating.save()
+    rating_type = request.POST['rating_type']
+
+    if not rating_type in dict(RATING_TYPES):
+        raise Http404
+
+    if rating_type != PROFESSOR_R:
+        ratings = Rating.objects.filter(user= user, course= course, rating_type= rating_type)
+        if len(ratings) == 0:
+            rating = Rating(user= user, course= course, rating= rating_value, rating_type= rating_type)
+            rating.save()
+        else:
+            rating = ratings[0]
+            rating.rating = rating_value
+            rating.save()
     else:
-        rating = ratings[0]
-        rating.rating = rating_value
-        rating.save()
+        if not 'profname' in request.POST or not request.POST['profname']:
+            raise Http404
+        prof = get_object_or_404(Professor, name=request.POST['profname'])
+        ratings = Professor_Rating.objects.filter(user= user, course= course, rating_type= rating_type, prof=prof)
+        if len(ratings) == 0:
+            rating = Professor_Rating(user= user, course= course, rating= rating_value, rating_type= rating_type, prof=prof)
+            rating.save()
+        else:
+            rating = ratings[0]
+            rating.rating = rating_value
+            rating.save()
 
     return redirect(request.POST['url'])
 
@@ -98,6 +117,8 @@ def all_comments(request):
     context['comments'] = Comment.objects.all()
 
     return render(request, 'pages/comments.html', context)
+
+##### User authentication here on
 
 def login_action(request):
     context = {}

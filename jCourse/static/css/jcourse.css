@@ -46,7 +46,7 @@
     max-width: 120px;
 }
 
-/* Course page */
+/******* Course page *********/
 .course-details .course-brief-detail-wrapper {
     margin-top: 10px;
 }
@@ -59,6 +59,7 @@
     margin-top: 4px;
 }
 
+/* Comments */
 .comments .comment-submit {
     resize: vertical;
 }
@@ -75,7 +76,12 @@
     float: right;
 }
 
-/* All Comments page*/
+/* Ratings */
+.ratings .rating-form .rating-nrs {
+    font-size: 10px;
+}
+
+/******* All Comments page *******/
 .comments-page .comments-display hr {
     margin-bottom: 12px;
 }

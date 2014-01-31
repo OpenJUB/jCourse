@@ -123,9 +123,26 @@ $(function() {
     majorCheckboxHandle();
 
     // Course page JS
-    $('.course-overall-rating').raty( {
+    var my_overall_rating = $('#my_overall_rating').text();
+    $('.rating-stars').raty( {
         starOn: '/static/images/star-on.png',
         starOff: '/static/images/star-off.png',
+        starHalf: '/static/images/star-half.png',
+        number: 5,
+        mouseover: function(score, evt) {
+            $(this).parents('form').find('.rating-my-score').text(score);
+        },
+        mouseout: function() {
+            var form = $(this).parents('form');
+            var score = form.find('input[name="old_score"]').val();
+            form.find('.rating-my-score').text(score);
+        },
+        noRatedMsg: "To rate please log in!",
+        score: function() {
+            var form = $(this).parents('form');
+            form.find('input[name="rating_value"]')
+            return form.find('input[name="rating_value"]').val()
+        },
         click: function(score, evt) {
             var form = $(this).parents('form');
             form.find('input[name="rating_value"]').val(score)
@@ -133,7 +150,12 @@ $(function() {
             if (user.length > 0) {
                 form.submit();
             }
-        }
+        },
+        readOnly: function() {
+            var is_auth = $(this).parents('form').find('input[name="authenticated"]')
+            return (is_auth.length == 0);
+        },
+        hints: ['bad', 'poor', 'regular', 'good', 'very good']
     });
     
 });

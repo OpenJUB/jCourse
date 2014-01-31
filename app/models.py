@@ -19,6 +19,17 @@ COURSE_TYPES = (
     (UNKNOWN, 'Unknown')
 )
 
+OVERALL_R = 'ALL'
+WORKLOAD_R = 'WKL'
+DIFFICULTY_R = 'DIF'
+PROFESSOR_R = 'PRF'
+RATING_TYPES = (
+    (OVERALL_R, 'Overall'),
+    (WORKLOAD_R, 'Workload'),
+    (DIFFICULTY_R, 'Difficulty'),
+    (PROFESSOR_R, 'Professor')
+)
+
 class jUser(User):
     department = models.CharField(max_length=50)
 
@@ -33,6 +44,9 @@ class Rating(models.Model):
     user = models.ForeignKey('jUser')
     course = models.ForeignKey('Course')
     rating = models.FloatField()
+    rating_type = models.CharField( max_length=3,
+                                    choices=RATING_TYPES,
+                                    default=OVERALL_R)
 
     def __unicode__(self):
         return str(self.rating)
