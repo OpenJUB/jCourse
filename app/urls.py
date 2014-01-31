@@ -9,5 +9,5 @@ urlpatterns = patterns('',
     url(r'^submit_comment', 'app.views.submit_comment', name='submit_comment'),
     url(r'^login','app.views.login_action', name='login'),
     url(r'^logout', 'app.views.logout_action', name='logout'),
-    url(r'^vote_course', app.views.vote_course, name='vote_course')
+    url(r'^vote_course', 'app.views.vote_course', name='vote_course')
 )

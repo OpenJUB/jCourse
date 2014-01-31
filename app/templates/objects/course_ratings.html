@@ -13,7 +13,7 @@
         {% csrf_token %}
         <input type="hidden" name="course_id" value="{{ course.id }}">
         {% if user_auth %}
-            <input type="hidden" name="user_id" value="{{ request.user.id }}">
+            <input type="hidden" name="username" value="{{ user_auth }}">
         {% endif %}
         <input type="hidden" name="rating_value" value="">
         <input type="hidden" name="url" value="{% url 'course_page' course.slug %}">

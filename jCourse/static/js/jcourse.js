@@ -129,7 +129,7 @@ $(function() {
         click: function(score, evt) {
             var form = $(this).parents('form');
             form.find('input[name="rating_value"]').val(score)
-            var user = form.find('input[name="user_id"]')
+            var user = form.find('input[name="username"]')
             if (user.length > 0) {
                 form.submit();
             }

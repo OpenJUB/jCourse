@@ -44,13 +44,13 @@ def vote_course(request):
     if request.method != 'POST':
         raise Http404
 
-    if not 'user_id' in request.POST or not request.POST['user_id'] or \
+    if not 'username' in request.POST or not request.POST['username'] or \
         not 'course_id' in request.POST or not request.POST['course_id'] or \
         not 'rating_value' in request.POST or not request.POST['rating_value'] or \
         not 'url' in request.POST or not request.POST['url']:
             raise Http404        
 
-    user = get_object_or_404(jUser, id= request.POST['user_id'])
+    user = get_object_or_404(jUser, username= request.POST['username'])
     course = get_object_or_404(Course, id= request.POST['course_id'])
     rating_value = float(request.POST['rating_value'])
     ratings = Rating.objects.filter(user= user, course= course)
