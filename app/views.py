@@ -157,7 +157,8 @@ def login_action(request):
     if user is not None:
         if user.is_active:
             login(request, user)
-            return redirect(request.POST['url'])
+            return redirect(request.META.get('HTTP_REFERER'))
+            # return redirect(request.POST['url'])
         else:
             context['error'] = "Invalid user! Please try again! The account may not be activated!"
             return render(request, "pages/login_page.html", context)
@@ -172,4 +173,5 @@ def logout_action(request):
     if request.user:
         user = request.user
     logout(request)
-    return redirect('/')
+    return redirect(request.META.get('HTTP_REFERER'))
+    # return redirect('/')
