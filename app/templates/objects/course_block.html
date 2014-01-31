@@ -12,6 +12,9 @@
             </div>
             <div class="col-md-2">
                     <span class="badge course-credits"> {{ course.course.credits }} </span>
+                    {% if course.overall_rating %}
+                        <span class="badge course-rating"> <span class="glyphicon glyphicon-star yellow-star"></span> {{ course.overall_rating }} </span>
+                    {% endif %}
             </div>
         </div>
         <div class="row">

@@ -15,7 +15,7 @@ def course_timeline_context(courses):
     courses = sorted(courses, key=lambda x: x.name)
 
     # Add the courses to the context
-    context['courses'] = []
+    allcourses = []
     for course in courses:
         noSchoolCatalogue = course.catalogue \
             .replace('School of Humanities and Social Sciences', 'SHSS') \
@@ -28,7 +28,7 @@ def course_timeline_context(courses):
         school = ""
         studies = "UG" if " Undergraduate Level Courses" in course.catalogue else ("Grad" if " Graduate Level Courses" in course.catalogue else "")
         
-        ratings = Rating.objects.filter(course= course)
+        ratings = Rating.objects.filter(course= course, rating_type=OVERALL_R)
         if (len(ratings) == 0):
             overall_rating = None
         else:   
@@ -38,7 +38,7 @@ def course_timeline_context(courses):
             if m[1] in noSchoolCatalogue:
                 major = m[0]
                 school = m[2]
-        context['courses'].append({
+        allcourses.append({
             'course': course,
             'profs': course.instructors.all(),
             'major': major,
@@ -47,6 +47,9 @@ def course_timeline_context(courses):
             'catalogue': noSchoolCatalogue,
             'overall_rating': overall_rating
         })
+    allcourses = sorted(allcourses, key=lambda x:x['overall_rating'], reverse=True)
+    context['courses'] = allcourses
+
     context['categories'] = categories
 
     return context
