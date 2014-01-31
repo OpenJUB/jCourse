@@ -2,7 +2,7 @@
     {% for rating in ratings %}
         <div class="row">
             <form class="rating-form" method="post" action="/vote_course">
-                <div class="col-md-6">
+                <div class="col-md-5">
                     {% if rating.type != 'Professor' %}
                         {{ rating.type }}:
                     {% else %}
@@ -11,7 +11,7 @@
                 </div>
                 <div class="col-md-2">
                     {% if user_auth %}
-                        <span class="badge"> <span class="glyphicon glyphicon-star"></span>
+                        <span class="badge"> <span class="glyphicon glyphicon-star {% if rating.my_score %} yellow-star {% endif %}"></span>
                             <span class="rating-my-score"> {% if rating.my_score %} {{ rating.my_score }} {% endif %} </span>
                         </span>
                     {% endif %}
@@ -39,5 +39,9 @@
                 {% endif %}
             </form>
         </div>
+
+        {% if rating.type == 'Difficulty' %}
+            <hr/>
+        {% endif %}
     {% endfor %}
 </div>

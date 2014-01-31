@@ -77,8 +77,21 @@
 }
 
 /* Ratings */
+.ratings {
+    margin-top: 8px;
+}
+
+.ratings hr {
+    margin-top: 6px;
+    margin-bottom: 6px;
+}
+
 .ratings .rating-form .rating-nrs {
     font-size: 10px;
+}
+
+.ratings .yellow-star {
+    color: #EDDA74;
 }
 
 /******* All Comments page *******/

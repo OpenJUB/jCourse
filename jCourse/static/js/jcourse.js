@@ -154,7 +154,7 @@ $(function() {
             var is_auth = $(this).parents('form').find('input[name="authenticated"]')
             return (is_auth.length == 0);
         },
-        hints: ['bad', 'poor', 'regular', 'good', 'very good']
+        hints: ['1', '2', '3', '4', '5']
     });
     
 });
