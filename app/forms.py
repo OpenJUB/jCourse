@@ -37,3 +37,22 @@ class VoteCourseForm(forms.Form):
             cleaned_data['prof'] = profs[0]
 
         return cleaned_data
+
+class SubmitCommentForm(forms.Form):
+    course_id = forms.CharField()
+    comment = forms.CharField()
+    url = forms.CharField()
+
+    def clean(self):
+        cleaned_data = super(SubmitCommentForm, self).clean()
+
+        courses = Course.objects.filter(id=cleaned_data.get("course_id"))
+        if len(courses) != 1:
+            raise forms.ValidationError("Not a valid number of courses with this course_id!")
+        cleaned_data['course'] = courses[0]
+
+        return cleaned_data
+
+class LoginForm(forms.Form):
+    username = forms.CharField()
+    password = forms.CharField()

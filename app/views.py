@@ -13,11 +13,7 @@ from app.models import *
 from app.course_info import *
 from app.context_processor import *
 from app.forms import *
-
-from twill import commands
-
-import os
-import sys
+from app.campusnet_login import *
 
 def home(request):
     context = {
@@ -90,17 +86,17 @@ def submit_comment(request):
     if request.method != 'POST':
         raise Http404
 
-    if not 'url' in request.POST or not request.POST['url'] or \
-        not 'comment' in request.POST or not request.POST['comment'] or \
-        not 'course_id' in request.POST or not request.POST['course_id']:
-            raise Http404
+    form = SubmitCommentForm(request.POST)
+    if not form.is_valid():
+        raise Http404
 
-    course = get_object_or_404(Course, id= request.POST['course_id'])
-    comment_text = request.POST['comment']
+    course = form.cleaned_data['course']
+
+    comment_text = form.cleaned_data['comment']
     comment = Comment(course= course, comment= comment_text)
     comment.save()
 
-    return redirect(request.POST['url'])
+    return redirect(form.cleaned_data['url'])
 
 def all_comments(request):
     context = {
@@ -118,35 +114,21 @@ def login_action(request):
     if request.method != 'POST':
         raise Http404
 
-    if not 'user' in request.POST or not request.POST['user'] or \
-        not 'pass' in request.POST or not request.POST['pass'] or \
-        not 'url' in request.POST or not request.POST['url']:
-            raise Http404
+    form = LoginForm(request.POST)
+    if not form.is_valid():
+        raise Http404
 
-    login_user = request.POST['user']
-    login_pass = request.POST['pass']
-
-    commands.go('https://campusnet.jacobs-university.de/scripts/mgrqispi.dll?APPNAME=CampusNet&PRGNAME=ACTION&ARGUMENTS=-A9PnS7.Eby4LCWWmmtOcbYKUQ-so-sF48wtHtVNWX9aIeYmoSh5mej--SCbT.jubdlAouHy3dHzwyr-O.ufj3NVAYCNiJr0CFcBNwA3xADclRCTyqC0Oip8drT0F=')
-    commands.fv('1', 'usrname', login_user)
-    commands.fv('1', 'pass', login_pass)
-    commands.submit('3')
-
-    out = sys.stdout
-    bin = open(os.devnull, 'w')
-    sys.stdout = bin
-    login_result = commands.show()
-    sys.stdout = out
-
-    if login_result.find('Wrong username or password') != -1:
+    login_username = form.cleaned_data['username']
+    if not login_success(login_username, form.cleaned_data['password']):
         context['error'] = "Wrong username or password!"
         return render(request, "pages/login_page.html", context)
     
-    users = jUser.objects.filter(username=login_user)
+    users = jUser.objects.filter(username=login_username)
     if len(users) == 0:
-        user = jUser.objects.create_user(username=login_user, password="1234")
+        user = jUser.objects.create_user(username=login_username, password="1234")
         user.save()
 
-    user = authenticate(username=login_user, password="1234")
+    user = authenticate(username=login_username, password="1234")
     if user is not None:
         if user.is_active:
             login(request, user)
