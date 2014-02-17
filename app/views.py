@@ -12,6 +12,7 @@ from mimetypes import guess_type
 from app.models import *
 from app.course_info import *
 from app.context_processor import *
+from app.forms import *
 
 from twill import commands
 
@@ -46,19 +47,13 @@ def vote_course(request):
         raise Http404
     user = get_object_or_404(jUser, id=request.user.id)
 
-    if not 'course_id' in request.POST or not request.POST['course_id'] or \
-        not 'rating_value' in request.POST or not request.POST['rating_value'] or \
-        not 'rating_type' in request.POST or not request.POST['rating_type'] or \
-        not 'url' in request.POST or not request.POST['url']:
-            raise Http404        
-
-    user = get_object_or_404(jUser, username= request.POST['username'])
-    course = get_object_or_404(Course, id= request.POST['course_id'])
-    rating_value = float(request.POST['rating_value'])
-    rating_type = request.POST['rating_type']
-
-    if not rating_type in dict(RATING_TYPES):
+    form = VoteCourseForm(request.POST)
+    if not form.is_valid():
         raise Http404
+
+    course = form.cleaned_data['course']
+    rating_value = form.cleaned_data['rating_value']
+    rating_type = form.cleaned_data['rating_type']
 
     if rating_type != PROFESSOR_R:
         ratings = Rating.objects.filter(user= user, course= course, rating_type= rating_type)
@@ -70,9 +65,7 @@ def vote_course(request):
             rating.rating = rating_value
             rating.save()
     else:
-        if not 'profname' in request.POST or not request.POST['profname']:
-            raise Http404
-        prof = get_object_or_404(Professor, name=request.POST['profname'])
+        prof = form.cleaned_data['prof']
         ratings = Professor_Rating.objects.filter(user= user, course= course, rating_type= rating_type, prof=prof)
         if len(ratings) == 0:
             rating = Professor_Rating(user= user, course= course, rating= rating_value, rating_type= rating_type, prof=prof)
@@ -82,7 +75,7 @@ def vote_course(request):
             rating.rating = rating_value
             rating.save()
 
-    return redirect(request.POST['url'])
+    return redirect(form.cleaned_data['url'])
 
 
 def get_course_image(request, slug):

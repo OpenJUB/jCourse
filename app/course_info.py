@@ -1,4 +1,29 @@
 
+LECTURE = 'LEC'
+SEMINAR = 'SEM'
+PROJECT = 'PRJ'
+WORKSHOP = 'WKS'
+LAB = 'LAB'
+UNKNOWN = 'UNK'
+COURSE_TYPES = (
+    (LECTURE, 'Lecture'),
+    (SEMINAR, 'Seminar'),
+    (PROJECT, 'Project'),
+    (WORKSHOP, 'APS Workshop'),
+    (LAB, 'Lab'),
+    (UNKNOWN, 'Unknown')
+)
+
+OVERALL_R = 'ALL'
+WORKLOAD_R = 'WKL'
+DIFFICULTY_R = 'DIF'
+PROFESSOR_R = 'PRF'
+RATING_TYPES = (
+    (OVERALL_R, 'Overall'),
+    (WORKLOAD_R, 'Workload'),
+    (DIFFICULTY_R, 'Difficulty'),
+    (PROFESSOR_R, 'Professor')
+)
 
 CREDIT_TYPES = [0.1, 0.15, 0.2, 0.3, 1.1, 2.5, 3.0, 3.75, 5.0, 7.5, 10.0, 12.0, 15.0, 30.0]
 MAJOR_TYPES = [

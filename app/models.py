@@ -3,32 +3,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.utils.text import slugify
 from django.conf import settings 
-
-LECTURE = 'LEC'
-SEMINAR = 'SEM'
-PROJECT = 'PRJ'
-WORKSHOP = 'WKS'
-LAB = 'LAB'
-UNKNOWN = 'UNK'
-COURSE_TYPES = (
-    (LECTURE, 'Lecture'),
-    (SEMINAR, 'Seminar'),
-    (PROJECT, 'Project'),
-    (WORKSHOP, 'APS Workshop'),
-    (LAB, 'Lab'),
-    (UNKNOWN, 'Unknown')
-)
-
-OVERALL_R = 'ALL'
-WORKLOAD_R = 'WKL'
-DIFFICULTY_R = 'DIF'
-PROFESSOR_R = 'PRF'
-RATING_TYPES = (
-    (OVERALL_R, 'Overall'),
-    (WORKLOAD_R, 'Workload'),
-    (DIFFICULTY_R, 'Difficulty'),
-    (PROFESSOR_R, 'Professor')
-)
+from app.course_info import *
 
 class jUser(User):
     department = models.CharField(max_length=50)
