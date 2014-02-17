@@ -18,6 +18,7 @@ $(function() {
         var checked = $('.major-checkbox').filter( ':checked' );
         var allMajors = false;
         var allStudies = false;
+        var searchTerm = $('.course-search-bar').val();
         if (checked.not( '#all-majors-cb' ).length == 0) {
             allMajors = true;
         }
@@ -66,6 +67,12 @@ $(function() {
                     show = false;
                 }
             }
+            if (show) {
+                course_name = $(this).find('.course-name').find('a').text();
+                if (course_name.indexOf(searchTerm) == -1) {
+                    show = false;
+                }
+            }
 
             if (show) {
                 $(this).parent().show();
@@ -79,6 +86,18 @@ $(function() {
         });
         
     }
+
+    // Search handle code!
+    $(".course-search-bar").keypress(function(event) {
+        if (event.which == 13) {
+            indexCourses();
+        }
+    });
+    $(".course-search-bar").keyup(function() {
+        if ($(this).val() == "") {
+            indexCourses();
+        }
+    });
 
     // Studies handle code!
     $('.btn-studies').click( function() {
