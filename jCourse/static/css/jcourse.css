@@ -1,3 +1,10 @@
+/********* body image ***********/
+#body_image{
+    background-image: url(project_papper.png);
+    background-repeat:repeat;
+}
+
+
 
 /********* Main page ***********/
 .course-block-wrapper {
@@ -128,4 +135,13 @@
 
 .comments-page .comment-datetime {
     float: right;
+}
+
+/******** COURSE BLOCK *********/
+.glyphicon {  margin-bottom: 10px;margin-right: 10px;}
+
+small {
+display: block;
+line-height: 1.428571429;
+color: #999;
 }
