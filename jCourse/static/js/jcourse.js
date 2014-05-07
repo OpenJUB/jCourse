@@ -13,7 +13,7 @@ $(function() {
     //     effect : "fadeIn"
     // });
 
-    indexCourses = function(btn_studies, btn_terms) {
+    indexCourses = function(offset, size, btn_studies, btn_terms) {
         if ($(".sidebar-panel").length == 0) {
             return ;
         }
@@ -26,86 +26,95 @@ $(function() {
         if (checked.not( '#all-majors-cb' ).length == 0) {
             allMajors = true;
         }
-        if ((btn_studies == undefined || btn_studies == "") && $('#st_Both').parent().hasClass('active')) {
+        if (btn_studies == undefined && $('#st_Both').parent().hasClass('active')) {
             allStudies = true;
         }
-        if (btn_studies != undefined && btn_studies != "" && btn_studies == "Both") {
+        if (btn_studies != undefined && btn_studies == "Both") {
             allStudies = true
         }
-        if ((btn_terms == undefined || btn_terms == "") && $('#tm_All').parent().hasClass('active')) {
+        if (btn_terms == undefined && $('#tm_All').parent().hasClass('active')) {
             allTerms = true;
         }
-        if (btn_terms != undefined && btn_terms != "" && btn_terms == "All") {
+        if (btn_terms != undefined && btn_terms == "All") {
             allTerms = true
         }
 
-        courses.each( function() {
-            var show = true;
-            classesArr = this.classList;
-            if (!allMajors) {
-                for(var i=0; i< classesArr.length; i++) {
-                    if (classesArr[i].match('^major-') != undefined) {
-                        major = classesArr[i].replace('major-', '');
-                        if (!$('#checkbox_' + major).is(':checked')) {
-                            show = false;
-                        }
-                    }
-                }
-            }
-            if (show && !allStudies) {
-                found = false;
-                for(var i=0; i<classesArr.length; i++) {
-                    if (classesArr[i].match('^studies-') != undefined) {
-                        studies = classesArr[i].replace('studies-', '');
-                        if (btn_studies == undefined && !$('#st_' + studies).parent().hasClass('active')) {
-                            show = false;
-                        }
-                        if (btn_studies != undefined && btn_studies != studies) {
-                            show = false;
-                        }
-                        found = true;
-                    }
-                }
-                if (found == false) {
-                    show = false;
-                }
-            }
-            if (show && !allTerms) {
-                found = false;
-                for(var i=0; i<classesArr.length; i++) {
-                    if (classesArr[i].match('^term-') != undefined) {
-                        term = classesArr[i].replace('term-', '');
-                        if (btn_terms == undefined && !$('#tm_' + term).parent().hasClass('active')) {
-                            show = false;
-                        }
-                        if (btn_terms != undefined && btn_terms != term) {
-                            show = false;
-                        }
-                        found = true;
-                    }
-                }
-                if (found == false) {
-                    show = false;
-                }
-            }
-            if (show) {
-                credits = parseFloat( $(this).find('.course-credits').text() );
-                values = $("#credit-slider").slider("values");
-                if (credits < creditValues[values[0]] || credits > creditValues[values[1]]) {
-                    show = false;
-                }
-            }
-            if (show) {
-                course_name = $(this).find('.course-name').find('a').text();
-                cname = course_name.toLowerCase()
-                if (cname.indexOf(searchTerm) == -1) {
-                    show = false;
-                }
-            }
+        var showedSoFar = 0;
 
-            if (show) {
-                $(this).parent().show();
+        courses.each( function() {
+            if (showedSoFar < offset + size) {
+                // If it has to be shown
+                var show = true;
+                classesArr = this.classList;
+                if (!allMajors) {
+                    for(var i=0; i< classesArr.length; i++) {
+                        if (classesArr[i].match('^major-') != undefined) {
+                            major = classesArr[i].replace('major-', '');
+                            if (!$('#checkbox_' + major).is(':checked')) {
+                                show = false;
+                            }
+                        }
+                    }
+                }
+                if (show && !allStudies) {
+                    found = false;
+                    for(var i=0; i<classesArr.length; i++) {
+                        if (classesArr[i].match('^studies-') != undefined) {
+                            studies = classesArr[i].replace('studies-', '');
+                            if (btn_studies == undefined && !$('#st_' + studies).parent().hasClass('active')) {
+                                show = false;
+                            }
+                            if (btn_studies != undefined && btn_studies != studies) {
+                                show = false;
+                            }
+                            found = true;
+                        }
+                    }
+                    if (found == false) {
+                        show = false;
+                    }
+                }
+                if (show && !allTerms) {
+                    found = false;
+                    for(var i=0; i<classesArr.length; i++) {
+                        if (classesArr[i].match('^term-') != undefined) {
+                            term = classesArr[i].replace('term-', '');
+                            if (btn_terms == undefined && !$('#tm_' + term).parent().hasClass('active')) {
+                                show = false;
+                            }
+                            if (btn_terms != undefined && btn_terms != term) {
+                                show = false;
+                            }
+                            found = true;
+                        }
+                    }
+                    if (found == false) {
+                        show = false;
+                    }
+                }
+                if (show) {
+                    credits = parseFloat( $(this).find('.course-credits').text() );
+                    values = $("#credit-slider").slider("values");
+                    if (credits < creditValues[values[0]] || credits > creditValues[values[1]]) {
+                        show = false;
+                    }
+                }
+                if (show) {
+                    course_name = $(this).find('.course-name').find('a').text();
+                    cname = course_name.toLowerCase()
+                    if (cname.indexOf(searchTerm) == -1) {
+                        show = false;
+                    }
+                }
+
+                if (show) {
+                    $(this).parent().show();
+                    showedSoFar += 1;
+                } else {
+                    $(this).parent().hide();
+                }
             } else {
+                // If there are enough hits just hide it
                 $(this).parent().hide();
             }
         });
@@ -119,25 +128,25 @@ $(function() {
     // Search handle code!
     $(".course-search-bar").keypress(function(event) {
         if (event.which == 13) {
-            indexCourses();
+            indexCourses(0, 16);
         }
     });
     $(".course-search-bar").keyup(function() {
         if ($(this).val() == "") {
-            indexCourses();
+            indexCourses(0, 16);
         }
     });
 
     // Studies handle code!
     $('.btn-studies').click( function() {
         studies = $(this).children('.studies-radio')[0].id.replace('st_','')
-        indexCourses(studies)
+        indexCourses(0, 16, studies)
     });
 
     // Term handle code!
     $('.btn-terms').click( function() {
         term = $(this).children('.terms-radio')[0].id.replace('tm_','')
-        indexCourses("", term)
+        indexCourses(0, 16, undefined, term)
     });
 
     // Checkboxes handle code!
@@ -155,7 +164,7 @@ $(function() {
             $('#all-majors-cb').prop('checked', true);
         }
 
-        indexCourses()
+        indexCourses(0, 16)
     }
     $('.major-checkbox').change(majorCheckboxHandle);
 
@@ -164,7 +173,7 @@ $(function() {
     var nrCredits = creditValues.length;
 
     function sliderStop(event, ui) {
-        indexCourses()
+        indexCourses(0, 16)
     }
     function sliderChange(event, ui) {
         $("#slider-handle-0").val( creditValues[ ui.values[0] ] )
