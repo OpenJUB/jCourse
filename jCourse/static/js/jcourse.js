@@ -202,9 +202,11 @@ $(function() {
 
     // Endless scroll
     $(window).scroll(function() {
-        if(( $(document).height() - $(window).height() ) - $(window).scrollTop() < 10 ) {
-            cnt = $('.panel-course:visible').length;
-            indexCourses(0, cnt + 16);
+        if ($(".loading-courses:visible").length > 0) {
+            if(( $(document).height() - $(window).height() ) - $(window).scrollTop() < 10 ) {
+                cnt = $('.panel-course:visible').length;
+                indexCourses(0, cnt + 16);
+            }
         }
     });
 
