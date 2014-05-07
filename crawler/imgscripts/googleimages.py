@@ -5,11 +5,14 @@ from urllib import FancyURLopener
 import urllib2
 import simplejson
 import json
+import string
 
 # Start FancyURLopener with defined version 
 class MyOpener(FancyURLopener): 
     version = 'Mozilla/5.0 (Windows; U; Windows NT 5.1; it; rv:1.8.1.11) Gecko/20071127 Firefox/2.0.0.11'
 myopener = MyOpener()
+
+allowed_extensions = ["jpg", "png", "jpeg", "jif", "jfif", "bmp", "jpeg2000"]
 
 def truncate(text):
     for i, c in enumerate(text):
@@ -27,6 +30,16 @@ def clean_up(text):
     for keyword in useless_keywords:
         text = text.replace(keyword, '')
     return truncate(text) 
+
+def get_extension(url):
+    match = string.rfind(url, ".") 
+    if match < 0:
+        return "jpg"
+    ext = url[match+1:]
+    print ext
+    if ext in allowed_extensions:
+        return ext
+    return "jpg"
 
 
 # prepare json data from courses
@@ -54,7 +67,11 @@ for i in range(0, len(json_data)):
     course_id = json_data[i]['CourseID']
     course_image = course_id + '.jpg'
 
-    if course_image in already_have_image:
+    found = False
+    for ext in allowed_extensions:
+        if course_image + "." + ext in already_have_image:
+            found = True
+    if found:
         continue
 
     #print '\n'
@@ -75,8 +92,9 @@ for i in range(0, len(json_data)):
 
         for myUrl in dataInfo:
             #print myUrl['unescapedUrl']
-            myopener.retrieve(myUrl['unescapedUrl'],course_id+'.jpg')
-            count += 1
+            ext = get_extension(myUrl['unescapedUrl'])
+            myopener.retrieve(myUrl['unescapedUrl'],course_name_search + "-" + course_id + "-" + str(count) + "." + ext)
             if count >= url_limit:
                 break
+            count += 1
         time.sleep(1)
