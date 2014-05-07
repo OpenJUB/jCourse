@@ -25,6 +25,8 @@ RATING_TYPES = (
     (PROFESSOR_R, 'Professor')
 )
 
+TERM_TYPES = ['Fall', 'Spring', 'Intersession']
+
 CREDIT_TYPES = [0.1, 0.15, 0.2, 0.3, 1.1, 2.5, 3.0, 3.75, 5.0, 7.5, 10.0, 12.0, 15.0, 30.0]
 MAJOR_TYPES = [
 ('EECS', 'Electrical Engineering and Computer Science', 'SES'),

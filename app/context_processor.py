@@ -26,6 +26,7 @@ def course_timeline_context(courses):
 
         major = ""
         school = ""
+        term = ""
         studies = "UG" if " Undergraduate Level Courses" in course.catalogue else ("Grad" if " Graduate Level Courses" in course.catalogue else "")
         
         ratings = Rating.objects.filter(course= course, rating_type=OVERALL_R)
@@ -38,11 +39,15 @@ def course_timeline_context(courses):
             if m[1] in noSchoolCatalogue:
                 major = m[0]
                 school = m[2]
+        for t in TERM_TYPES:
+            if t in course.catalogue:
+                term = t
         allcourses.append({
             'course': course,
             'profs': course.instructors.all(),
             'major': major,
             'school': school,
+            'term': term,
             'studies': studies,
             'catalogue': noSchoolCatalogue,
             'overall_rating': overall_rating

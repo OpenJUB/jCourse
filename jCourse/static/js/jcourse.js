@@ -13,20 +13,27 @@ $(function() {
     //     effect : "fadeIn"
     // });
 
-    indexCourses = function(btn_studies) {
+    indexCourses = function(btn_studies, btn_terms) {
         var courses = $('.panel-course');
         var checked = $('.major-checkbox').filter( ':checked' );
         var allMajors = false;
         var allStudies = false;
-        var searchTerm = $('.course-search-bar').val();
+        var allTerms = false;
+        var searchTerm = $('.course-search-bar').val().toLowerCase();
         if (checked.not( '#all-majors-cb' ).length == 0) {
             allMajors = true;
         }
-        if (btn_studies == undefined && $('#st_Both').parent().hasClass('active')) {
+        if ((btn_studies == undefined || btn_studies == "") && $('#st_Both').parent().hasClass('active')) {
             allStudies = true;
         }
-        if (btn_studies != undefined && btn_studies == "Both") {
+        if (btn_studies != undefined && btn_studies != "" && btn_studies == "Both") {
             allStudies = true
+        }
+        if ((btn_terms == undefined || btn_terms == "") && $('#tm_All').parent().hasClass('active')) {
+            allTerms = true;
+        }
+        if (btn_terms != undefined && btn_terms != "" && btn_terms == "All") {
+            allTerms = true
         }
 
         courses.each( function() {
@@ -60,6 +67,24 @@ $(function() {
                     show = false;
                 }
             }
+            if (show && !allTerms) {
+                found = false;
+                for(var i=0; i<classesArr.length; i++) {
+                    if (classesArr[i].match('^term-') != undefined) {
+                        term = classesArr[i].replace('term-', '');
+                        if (btn_terms == undefined && !$('#tm_' + term).parent().hasClass('active')) {
+                            show = false;
+                        }
+                        if (btn_terms != undefined && btn_terms != term) {
+                            show = false;
+                        }
+                        found = true;
+                    }
+                }
+                if (found == false) {
+                    show = false;
+                }
+            }
             if (show) {
                 credits = parseFloat( $(this).find('.course-credits').text() );
                 values = $("#credit-slider").slider("values");
@@ -69,7 +94,8 @@ $(function() {
             }
             if (show) {
                 course_name = $(this).find('.course-name').find('a').text();
-                if (course_name.indexOf(searchTerm) == -1) {
+                cname = course_name.toLowerCase()
+                if (cname.indexOf(searchTerm) == -1) {
                     show = false;
                 }
             }
@@ -103,6 +129,12 @@ $(function() {
     $('.btn-studies').click( function() {
         studies = $(this).children('.studies-radio')[0].id.replace('st_','')
         indexCourses(studies)
+    });
+
+    // Term handle code!
+    $('.btn-terms').click( function() {
+        term = $(this).children('.terms-radio')[0].id.replace('tm_','')
+        indexCourses("", term)
     });
 
     // Checkboxes handle code!
