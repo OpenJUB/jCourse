@@ -72,6 +72,10 @@ def vote_course(request):
             rating.rating = rating_value
             rating.save()
 
+
+    if rating_type == OVERALL_R:
+        mark_timeline_cache()
+
     return redirect(form.cleaned_data['url'])
 
 

@@ -68,6 +68,7 @@ class Comment(models.Model):
     def __unicode__(self):
         return "Comm" + str(self.id)
 
-class HomeCache(models.Model):
-    cached_html = models.CharField(max_length=10000)
+class TimelineCache(models.Model):
+    cached_html = models.CharField(max_length=2000000)
+    should_change_mark = models.NullBooleanField()
     create_time = models.DateTimeField(auto_now=True)
