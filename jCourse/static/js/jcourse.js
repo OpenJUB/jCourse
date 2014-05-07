@@ -14,6 +14,9 @@ $(function() {
     // });
 
     indexCourses = function(btn_studies, btn_terms) {
+        if ($(".sidebar-panel").length == 0) {
+            return ;
+        }
         var courses = $('.panel-course');
         var checked = $('.major-checkbox').filter( ':checked' );
         var allMajors = false;
@@ -239,7 +242,7 @@ $(function() {
                 } else if (type == 'DIF') {
                     return "More stars means higher difficulty"
                 } else if (type == 'PRF') {
-                    return "How do you rate this professor?"
+                    return "How do you rate this professor's performance?"
                 } 
             }
         })
