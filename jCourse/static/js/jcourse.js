@@ -119,6 +119,14 @@ $(function() {
             }
         });
 
+        if (showedSoFar < offset + size) {
+            $(".no-more-courses").show();
+            $(".loading-courses").hide();
+        } else {
+            $(".loading-courses").show();
+            $(".no-more-courses").hide();
+        }
+
         $("img.course-image").lazyload({
             event : "click"
         });

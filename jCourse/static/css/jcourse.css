@@ -63,6 +63,12 @@
     max-width: 120px;
 }
 
+/* Loading gif */
+.loading-gif {
+    max-height: 25px;
+    margin-bottom: 50px;
+}
+
 /******* Course page *********/
 .course-details .course-brief-detail-wrapper {
     margin-top: 10px;
