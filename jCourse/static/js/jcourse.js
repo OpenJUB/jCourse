@@ -130,7 +130,6 @@ $(function() {
         $("img.course-image").lazyload({
             event : "click"
         });
-        
     }
 
     // Search handle code!
@@ -200,6 +199,19 @@ $(function() {
     $("#slider-handle-0").val( creditValues[0] )
     $("#slider-handle-1").val( creditValues[creditValues.length - 1] )
     majorCheckboxHandle();
+
+    // Endless scroll
+    $(window).scroll(function() {
+        if(( $(document).height() - $(window).height() ) - $(window).scrollTop() < 10 ) {
+            cnt = $('.panel-course:visible').length;
+            indexCourses(0, cnt + 16);
+        }
+    });
+
+
+
+
+
 
     // Course page JS
     $('.rating-stars').raty( {
