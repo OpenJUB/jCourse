@@ -1,0 +1,45 @@
+{% extends 'pages/base.html' %}
+
+{% block content %}
+    <div class="row">
+        {% with course=course1.course %}
+        {% with comments=course1.comments %}
+        {% with course_type=course1.course_type %}
+        {% with instructors=course1.instructors %}
+        {% with ratings=course1.ratings %}
+            <div class="col-md-6">
+                <div class="panel panel-default course-details">
+                    <div class="panel-body">
+                        {% include 'objects/course_contents.html' %}
+                    </div>
+                </div>
+                {% include 'objects/comment_section.html' %}
+            </div>
+        {% endwith %}
+        {% endwith %}
+        {% endwith %}
+        {% endwith %}
+        {% endwith %}
+
+        {% with course=course2.course %}
+        {% with comments=course2.comments %}
+        {% with course_type=course2.course_type %}
+        {% with instructors=course2.instructors %}
+        {% with ratings=course2.ratings %}
+            <div class="col-md-6">
+                <div class="panel panel-default course-details">
+                    <div class="panel-body">
+                        {% include 'objects/course_contents.html' %}
+                    </div>
+                </div>
+                {% include 'objects/comment_section.html' %}
+            </div>
+        {% endwith %}
+        {% endwith %}
+        {% endwith %}
+        {% endwith %}
+        {% endwith %}
+
+    </div>
+
+{% endblock %}

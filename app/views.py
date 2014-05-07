@@ -107,6 +107,26 @@ def all_comments(request):
 
     return render(request, 'pages/comments.html', context)
 
+
+def compare_start(request, slug1):
+    raise Http404
+
+def compare_next(request, slug1):
+    raise Http404
+
+
+def compare(request, slug1, slug2):
+    context = {
+        "page": "compare",
+        'user_auth': user_authenticated(request)
+    }
+    course1 = get_object_or_404(Course, slug=slug1)
+    course2 = get_object_or_404(Course, slug=slug2)
+    context['course1'] = course_page_context(request, course1)
+    context['course2'] = course_page_context(request, course2)
+
+    return render(request, "pages/compare.html", context)
+
 ##### User authentication here on
 
 def login_action(request):
