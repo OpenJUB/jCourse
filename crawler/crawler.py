@@ -11,7 +11,8 @@ _htmlparser = HTMLParser.HTMLParser()
 unescape = _htmlparser.unescape
 
 BASE_URL = "https://campusnet.jacobs-university.de"
-START_URL = "https://campusnet.jacobs-university.de/scripts/mgrqispi.dll?APPNAME=CampusNet&PRGNAME=ACTION&ARGUMENTS=-A9PnS7.Eby4LCWWmmtOcbYKUQ-so-sF48wtHtVNWX9aIeYmoSh5mej--SCbT.jubdlAouHy3dHzwyr-O.ufj3NVAYCNiJr0CFcBNwA3xADclRCTyqC0Oip8drT0F="
+# START_URL = "https://campusnet.jacobs-university.de/scripts/mgrqispi.dll?APPNAME=CampusNet&PRGNAME=ACTION&ARGUMENTS=-A9PnS7.Eby4LCWWmmtOcbYKUQ-so-sF48wtHtVNWX9aIeYmoSh5mej--SCbT.jubdlAouHy3dHzwyr-O.ufj3NVAYCNiJr0CFcBNwA3xADclRCTyqC0Oip8drT0F="
+START_URL = "https://campusnet.jacobs-university.de/scripts/mgrqispi.dll?APPNAME=CampusNet&PRGNAME=ACTION&ARGUMENTS=-Ay5mA7.qg6LMNvDMYpC5OA5fQWrJxZZnFT1g3nDrcXBmBAOc1okw0N0w-3G3jr7sqgPUaWidSdTRlieSfa7cljt5HqXxFM3y79Wu2aAHI4Ukhj2cB1P3odK2RwRy=https://campusnet.jacobs-university.de/scripts/mgrqispi.dll?APPNAME=CampusNet&PRGNAME=ACTION&ARGUMENTS=-Ay5mA7.qg6LMNvDMYpC5OA5fQWrJxZZnFT1g3nDrcXBmBAOc1okw0N0w-3G3jr7sqgPUaWidSdTRlieSfa7cljt5HqXxFM3y79Wu2aAHI4Ukhj2cB1P3odK2RwRy="
 
 def cleanLink(link):
     return unescape(link)

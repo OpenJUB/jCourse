@@ -10,13 +10,22 @@ f.close()
 
 coursesList = loads(courseDetailsString)
 
+courseTerm = "Fall"
+
 for courseDetails in coursesList:
     print courseDetails['CourseName']
-    if len(Course.objects.filter(name=courseDetails['CourseName'])) > 0:
+    cname = courseDetails['CourseName']
+    intersession = False
+    if "(Intersession)" in cname:
+        cname = cname.replace("(Intersession)", "").strip()
+        intersession = True
+    if len(Course.objects.filter(name=cname)) > 0:
         continue
     # Setup instructors
     dbProfs = []
-    instructors = courseDetails['Instructors'].split("; ")
+    instructors = []
+    if 'Instructors' in courseDetails:
+        instructors = courseDetails['Instructors'].split("; ")
     for instructor in instructors:
         prof = False
         profs = Professor.objects.filter(name=instructor)
@@ -33,20 +42,26 @@ for courseDetails in coursesList:
         if 'Type' in courseDetails and CTYPE[1] == courseDetails['Type']:
             ctype = CTYPE[0]
     if not ctype:
-        print "Error! Didnt find course type " + courseDetails['CourseName'] + " in our models!"
+        print "Error! Didnt find course type for course " + cname + " in our models!"
         ctype = UNKNOWN
     # Get Credits number
     if 'Credits' in courseDetails:
         credits = float(courseDetails['Credits'][0:4])
     else:
         credits = 5.0
+    abbreviation = ""
+    if 'Course Name Abbreviation' in courseDetails:
+        abbreviation = courseDetails['Course Name Abbreviation']
+    term = courseTerm
+    if intersession:
+        term = "Intersession"
     # Create the Course class
     course = Course(course_id = courseDetails['CourseID'],
                     course_type = ctype,
-                    name = courseDetails['CourseName'],
+                    name = cname,
                     credits = credits,
-                    catalogue = courseDetails['Catalogue'],
-                    abbreviation = courseDetails['Course Name Abbreviation'])
+                    catalogue = term + " > " + courseDetails['Catalogue'],
+                    abbreviation = abbreviation)
     if 'Official Course Description' in courseDetails:
         course.description = courseDetails['Official Course Description']
     if 'Min. | Max. participants' in courseDetails and courseDetails['Min. | Max. participants'] != '- | -':
