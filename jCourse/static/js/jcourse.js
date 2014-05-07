@@ -213,6 +213,14 @@ $(function() {
 
 
 
+    // Course compare JS 
+    $(".course-block-course-url").click( function(event) {
+        if ($('.compare-course-link').parent().hasClass("active")) {
+            event.preventDefault();
+            window.location = "./" + $(this).attr("slug");
+        }
+    });
+
 
 
     // Course page JS

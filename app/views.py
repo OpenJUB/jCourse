@@ -14,15 +14,16 @@ from app.course_info import *
 from app.context_processor import *
 from app.forms import *
 from app.campusnet_login import *
+from app.cache import *
 
 def home(request):
     context = {
         "page": "home",
-        'user_auth': user_authenticated(request)
+        'user_auth': user_authenticated(request),
+        'categories': MAJOR_TYPES
     }
     # Get courses
-    courses = Course.objects.all()
-    context = dict(context.items() + course_timeline_context(courses).items())
+    context = dict(context.items() + get_timeline_context().items())
 
     return render(request, "pages/home.html", context)
 
@@ -111,11 +112,11 @@ def all_comments(request):
 def compare_next(request, slug1=""):
     context = {
         "page": "compare",
-        'user_auth': user_authenticated(request)
+        'user_auth': user_authenticated(request),
+        'categories': MAJOR_TYPES
     }
     # Get courses
-    courses = Course.objects.all()
-    context = dict(context.items() + course_timeline_context(courses).items())
+    context = dict(context.items() + get_timeline_context().items())
 
     return render(request, "pages/home.html", context)
 

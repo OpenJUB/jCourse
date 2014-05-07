@@ -6,7 +6,11 @@
             {% include 'objects/sidebar.html' %}
         </div>
         <div class="col-md-9">
+            {{ timeline | safe }}
+
+            {% comment %}
             {% include 'objects/courses_timeline.html' %}
+            {% endcomment %}
         </div>
     </div>
 {% endblock %}

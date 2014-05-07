@@ -8,11 +8,7 @@
         <div class="row">
             <div class="col-md-10">
                 <div class="course-name">
-                    {% if page != "compare" %}
-                        <a href="/course/{{ course.course.slug }}">{{ course.course.name }}</a>
-                    {% else %}
-                        <a href="./{{ course.course.slug }}">{{ course.course.name }}</a>
-                    {% endif %}
+                    <a class="course-block-course-url" href="/course/{{ course.course.slug }}" slug="{{course.course.slug}}">{{ course.course.name }}</a>
                 </div>
             </div>
             <div class="col-md-2">

@@ -1,3 +1,4 @@
+import json
 
 from app.models import *
 from app.course_info import *
@@ -7,11 +8,12 @@ def user_authenticated(request):
         return request.user.username
     return False
 
-def course_timeline_context(courses):
+def course_timeline_context():
     context = {}
 
     categories = MAJOR_TYPES
 
+    courses = Course.objects.all()
     courses = sorted(courses, key=lambda x: x.name)
 
     # Add the courses to the context
