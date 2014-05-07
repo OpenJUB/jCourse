@@ -108,11 +108,16 @@ def all_comments(request):
     return render(request, 'pages/comments.html', context)
 
 
-def compare_start(request, slug1):
-    raise Http404
+def compare_next(request, slug1=""):
+    context = {
+        "page": "compare",
+        'user_auth': user_authenticated(request)
+    }
+    # Get courses
+    courses = Course.objects.all()
+    context = dict(context.items() + course_timeline_context(courses).items())
 
-def compare_next(request, slug1):
-    raise Http404
+    return render(request, "pages/home.html", context)
 
 
 def compare(request, slug1, slug2):
