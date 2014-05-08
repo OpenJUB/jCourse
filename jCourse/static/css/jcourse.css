@@ -4,6 +4,9 @@
     background-repeat:repeat;
 }
 
+#main_content_padding{
+    padding-top: 80px;
+}
 
 
 /********* Main page ***********/
@@ -40,12 +43,15 @@
 }
 
 .badge.course-credits {
-    background-color: #C38EC7;
+    background-color: #92209B;
+    border-radius: 0px;
+    width: 46px;
 }
 
 .badge.course-rating {
     margin-top: 2px;
-    background-color: #659EC7;
+    background-color: #33424D;
+    border-radius: 0px;
 }
 
 .course-catalog {
@@ -138,7 +144,7 @@
 }
 
 /******** COURSE BLOCK *********/
-.glyphicon {  margin-bottom: 10px;margin-right: 10px;}
+.glyphicon {  margin-bottom: 0px;margin-right: 0px;}
 
 small {
 display: block;
