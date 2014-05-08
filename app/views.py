@@ -92,7 +92,6 @@ def submit_comment(request):
         raise Http404
 
     form = SubmitCommentForm(request.POST)
-    print request.POST
     if not form.is_valid():
         raise Http404
 
@@ -144,11 +143,43 @@ def compare(request, slug1, slug2):
 
     return render(request, "pages/compare.html", context)
 
+@login_required
 def submit_comment_upvote(request):
-    raise Http404
+    if request.method != 'POST' or not 'comment_id' in request.POST \
+        or not request.POST['comment_id']:
+            raise Http404
 
+    comment = get_object_or_404(Comment, id=request.POST['comment_id'])
+    details = CommentDetails.objects.get_or_create(comment=comment)[0]
+
+    user = jUser.objects.get(id=request.user.id)
+    votes = CommentDetails.objects.filter(comment=comment, upvoted_by=user) | \
+        CommentDetails.objects.filter(comment=comment, downvoted_by=user)
+    if votes:
+        raise Http404
+
+    details.upvoted_by.add(user)
+
+    return HttpResponse()
+
+@login_required
 def submit_comment_downvote(request):
-    raise Http404
+    if request.method != 'POST' or not 'comment_id' in request.POST \
+        or not request.POST['comment_id']:
+            raise Http404
+
+    comment = get_object_or_404(Comment, id=request.POST['comment_id'])
+    details = CommentDetails.objects.get_or_create(comment=comment)[0]
+
+    user = jUser.objects.get(id=request.user.id)
+    votes = CommentDetails.objects.filter(comment=comment, upvoted_by=user) | \
+        CommentDetails.objects.filter(comment=comment, downvoted_by=user)
+    if votes:
+        raise Http404
+
+    details.downvoted_by.add(user)
+
+    return HttpResponse()
 
 ##### User authentication here on
 

@@ -288,6 +288,35 @@ $(function() {
         })
     }
 
+    $('.comment-rate-form').submit( function(event) {
+        var form = $(this);
+        $.ajax( {
+            type: "POST",
+            url: form.attr( 'action' ),
+            data: form.serialize(),
+            success: function( response ) {
+                var badge = form.parents('.course-comment').find('.comment-score-badge');
+                var score = badge.text();
+                var vote = form.parents('.course-comment').find('input[name="type"]').val();
+                var vote_nr = 0;
+                if (vote == "upvote") {
+                    vote_nr = 1;
+                }
+                if (score != "") {
+                    var scores = score.split("/");
+                    var upvotes = parseInt(scores[0])
+                    var total = parseInt(scores[1])
+                    badge.html("" + (upvotes + vote_nr).toString() + "/" + (total + 1).toString());
+                } else {
+                    badge.html("" + vote_nr.toString() + "/1");
+                }
+                
+                form.parents('.course-comment').find('.comment-rate').hide();
+            }
+        } );
+        event.preventDefault();
+    });
+
     // Tooltip for CampusNet
     $("#campusnet-popover").tooltip({title: 'Please log in with your CampusNet credentials!'})
 });
