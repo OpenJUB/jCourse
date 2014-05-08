@@ -94,6 +94,10 @@
 }
 
 /* Comments */
+.panel-heading.panel-heading-title {
+    font-size: 18px;
+}
+
 .comments .comment-submit {
     resize: vertical;
 }

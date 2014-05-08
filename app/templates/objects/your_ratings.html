@@ -27,7 +27,7 @@
                 {% csrf_token %}
                 <input type="hidden" name="course_id" value="{{ course.id }}">
                 <input type="hidden" name="username" value="{{ user_auth }}">
-                <input type="hidden" name="rating_value" value="{{ rating.score }}">
+                <input type="hidden" name="rating_value" value="{% if rating.my_score %} {{ rating.my_score }} {% endif %}">
                 <input type="hidden" name="rating_type" value="{{ rating.type_db }}">
                 <input type="hidden" name="url" value="{% url 'course_page' course.slug %}">
                 <input type="hidden" name="old_score" value="{% if rating.my_score %} {{ rating.my_score }} {% endif %}">
