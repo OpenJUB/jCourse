@@ -43,9 +43,9 @@
             {% for comment in comments reversed %}
                 <hr>
                 <div class="row">
-                    <div class="text-muted col-md-4"> @{{ comment.comment.id }} </div>
+                    <div class="text-muted col-md-3"> @{{ comment.comment.id }} </div>
                     <div class="text-muted col-md-4"> {% if comment.posted_by %} by {{ comment.posted_by }} {% endif %} </div>
-                    <div class="text-muted col-md-4">
+                    <div class="text-muted col-md-5">
                         <div class="comment-datetime">
                             {{ comment.comment.datetime|naturaltime }}
                         </div>
