@@ -80,7 +80,7 @@ for i in range(0, len(json_data)):
     #print '\n'
     #print json_data[i]['Official Course Description']
 
-    if True:
+    for CCOUNT in range(3):
         # request, response part
         url = ('https://ajax.googleapis.com/ajax/services/search/images?' + 'v=1.0&q='+course_name_search+'&start=0'+'&userip=MyIP')
         request = urllib2.Request(url, None, {'Referer': 'testing'})
@@ -91,7 +91,11 @@ for i in range(0, len(json_data)):
 
         # interpret json
         results = simplejson.load(response)
+        if not results or not 'responseData' in results:
+            continue
         data = results['responseData']
+        if not data or not 'results' in data:
+            continue
         dataInfo = data['results']
 
         count = 0
@@ -111,5 +115,7 @@ for i in range(0, len(json_data)):
 
         decider_file.write("<br/> <br/> <br/>")
         time.sleep(1)
+        if count > 0:
+            break
 
 decider_file.close()
