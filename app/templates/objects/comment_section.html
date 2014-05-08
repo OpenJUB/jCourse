@@ -1,5 +1,15 @@
 {% load humanize %}
 
+
+<div class="panel panel-default comments">
+    <div class="panel-heading">
+        Your ratings
+    </div>
+    <div class="panel-body">
+        {% include 'objects/your_ratings.html' %}
+    </div>
+</div>
+
 <div class="panel panel-default comments">
     <div class="panel-body">
         <form role="form" action="{% url 'submit_comment' %}" method="post">

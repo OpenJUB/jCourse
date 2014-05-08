@@ -5,16 +5,16 @@
 {% if course.studies %} studies-{{ course.studies }} {% endif %}
 {% if course.term %} term-{{ course.term }} {% endif %}">
 
-<div class="panel-heading">
-                <span class="badge course-credits"> {{ course.course.credits }} </span>
-                {% if course.overall_rating %}
-                    <span class="badge course-rating"> <span class="glyphicon glyphicon-star yellow-star"></span> {{ course.overall_rating|floatformat:1 }} </span>
-                {% endif %}
+    <div class="panel-heading">
+        <span class="badge course-credits"> {{ course.course.credits }} </span>
+        {% if course.overall_rating %}
+            <span class="badge course-rating"> <span class="glyphicon glyphicon-star yellow-star"></span> {{ course.overall_rating|floatformat:1 }} </span>
+        {% endif %}
 
-                <div class="course-name">
-                    <a class="course-block-course-url" href="/course/{{ course.course.slug }}" slug="{{course.course.slug}}">{{ course.course.name }}</a>
-                </div>
-</div>
+        <div class="course-name">
+            <a class="course-block-course-url" href="/course/{{ course.course.slug }}" slug="{{course.course.slug}}">{{ course.course.name }}</a>
+        </div>
+    </div>
 
     <div class="panel-body">
         <div class="row">

@@ -76,6 +76,11 @@
 }
 
 /******* Course page *********/
+.course-page-image {
+    max-width: 150px;
+    max-height: 150px;
+}
+
 .course-details .course-brief-detail-wrapper {
     margin-top: 10px;
 }
@@ -106,16 +111,12 @@
 }
 
 /* Ratings */
-.ratings {
-    margin-top: 8px;
-}
-
 .ratings hr {
     margin-top: 6px;
     margin-bottom: 6px;
 }
 
-.ratings .rating-form .rating-nrs {
+.agg-ratings .rating-nrs {
     font-size: 10px;
 }
 
