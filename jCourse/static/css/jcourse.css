@@ -139,6 +139,11 @@
 
 .comments-page .comment-datetime {
     float: right;
+    ma
+}
+
+#all_comments_date{
+    margin-right: 20px;
 }
 
 /******** COURSE BLOCK *********/
