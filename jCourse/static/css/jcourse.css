@@ -10,10 +10,6 @@
 
 
 /********* Main page ***********/
-.course-block-wrapper {
-    padding-bottom: 12px;
-}
-
 .school-group {
     margin-top: 8px;
 }
@@ -23,22 +19,18 @@
     max-height: 100px;
 }
 
-.course-block-wrapper .panel-course .panel-body {
-    min-height: 195px;
-}
-
 .course-name {
     font-size: 18px;
 }
-.panel-body .course-credits {
+.panel-heading .course-credits {
     float: right;
 }
 
-.panel-body .course-rating {
+.panel-heading .course-rating {
     float: right;
 }
 
-.panel-body .course-rating .yellow-star {
+.panel-heading .course-rating .yellow-star {
     color: #EDDA74;
 }
 
@@ -46,10 +38,11 @@
     background-color: #92209B;
     border-radius: 0px;
     width: 46px;
+    height: 20px;
+    margin-left: 10px;
 }
 
 .badge.course-rating {
-    margin-top: 2px;
     background-color: #33424D;
     border-radius: 0px;
 }
