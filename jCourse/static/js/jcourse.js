@@ -8,10 +8,10 @@ $(function() {
     // ga('create', 'UA-47744399-1', 'jcourse.herokuapp.com');
     // ga('send', 'pageview');
 
-    // // For lazy loading images
-    // $("img.course-image").lazyload({
-    //     effect : "fadeIn"
-    // });
+    // For lazy loading images
+    $("img.course-image").lazyload({
+        effect : "fadeIn"
+    });
 
     indexCourses = function(offset, size, btn_studies, btn_terms) {
         if ($(".sidebar-panel").length == 0) {
@@ -128,7 +128,8 @@ $(function() {
         }
 
         $("img.course-image").lazyload({
-            event : "click"
+            effect: "fadeIn",
+            event: "click"
         });
     }
 
