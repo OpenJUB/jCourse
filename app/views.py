@@ -128,6 +128,14 @@ def compare_next(request, slug1=""):
     # Get courses
     context = dict(context.items() + get_timeline_context().items())
 
+    message = ""
+    if not slug1:
+        message = "Select a course that you want to compare by clicking it's name"
+    else:
+        course1 = get_object_or_404(Course, slug=slug1)
+        message = "You selected course '" + course1.name + "'(<a href='/compare_course/'>go back</a>). Select the course that you want to compare it with"
+    context['success'] = message
+
     return render(request, "pages/home.html", context)
 
 
