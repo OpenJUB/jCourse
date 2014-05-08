@@ -36,7 +36,6 @@ def get_extension(url):
     if match < 0:
         return "jpg"
     ext = url[match+1:]
-    print ext
     if ext in allowed_extensions:
         return ext
     return "jpg"
@@ -53,6 +52,9 @@ url_limit = int(url_file.read());
 
 print url_limit
 
+decider_file = open('decide_on_images.html', "w")
+PATH = os.path.dirname(os.path.abspath(__file__))
+
 already_have_image = os.listdir("downloaded_images")
 
 for i in range(0, len(json_data)):
@@ -62,6 +64,7 @@ for i in range(0, len(json_data)):
     course_name_search = clean_up(course_name_search);
 
     print course_name_search
+    decider_file.write("<h1>" + course_name_search + "</h1><br/>")
 
     course_name_search = course_name_search.replace(' ','%20')
     course_id = json_data[i]['CourseID']
@@ -69,7 +72,7 @@ for i in range(0, len(json_data)):
 
     found = False
     for ext in allowed_extensions:
-        if course_image + "." + ext in already_have_image:
+        if course_id + "." + ext in already_have_image:
             found = True
     if found:
         continue
@@ -81,7 +84,10 @@ for i in range(0, len(json_data)):
         # request, response part
         url = ('https://ajax.googleapis.com/ajax/services/search/images?' + 'v=1.0&q='+course_name_search+'&start=0'+'&userip=MyIP')
         request = urllib2.Request(url, None, {'Referer': 'testing'})
-        response = urllib2.urlopen(request)
+        try:
+            response = urllib2.urlopen(request, timeout=1)
+        except urllib2.URLError, e:
+            continue
 
         # interpret json
         results = simplejson.load(response)
@@ -93,8 +99,17 @@ for i in range(0, len(json_data)):
         for myUrl in dataInfo:
             #print myUrl['unescapedUrl']
             ext = get_extension(myUrl['unescapedUrl'])
-            myopener.retrieve(myUrl['unescapedUrl'],course_name_search + "-" + course_id + "-" + str(count) + "." + ext)
+
+            image_link = "imgs/" + course_id + "-" + str(count) + "." + ext
+            myopener.retrieve(myUrl['unescapedUrl'],image_link)
+
+            decider_file.write("<img class='img-links' src='" + PATH + "/" + image_link + "' cnt='" + str(count) + "' id='" + str(course_id) + "." + ext + "' style='height:300px;'> ")
             if count >= url_limit:
                 break
             count += 1
+
+
+        decider_file.write("<br/> <br/> <br/>")
         time.sleep(1)
+
+decider_file.close()
