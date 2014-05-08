@@ -114,7 +114,15 @@ def all_comments(request):
         'page': 'all_comments',
         'user_auth': user_authenticated(request)
     }
-    context['comments'] = Comment.objects.all()
+
+    current_user = None
+    if request.user.is_authenticated():
+        current_user = jUser.objects.get(id=request.user.id)
+
+    comments = Comment.objects.all()
+    context['comments'] = []
+    for comment in comments:
+        context['comments'].append( comment_context(comment, request, current_user) )
 
     return render(request, 'pages/comments.html', context)
 

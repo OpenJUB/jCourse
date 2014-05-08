@@ -295,9 +295,14 @@ $(function() {
             url: form.attr( 'action' ),
             data: form.serialize(),
             success: function( response ) {
+                if ($('.compare-course-link').parent().hasClass("active")) {
+                    var url = form.find('input[name="url"]').val();
+                    window.location = url;
+                }
+
                 var badge = form.parents('.course-comment').find('.comment-score-badge');
                 var score = badge.text();
-                var vote = form.parents('.course-comment').find('input[name="type"]').val();
+                var vote = form.find('input[name="type"]').val();
                 var vote_nr = 0;
                 if (vote == "upvote") {
                     vote_nr = 1;
