@@ -118,6 +118,16 @@ def course_page_context(request, course):
 
 
     comments = Comment.objects.filter(course=course)
-    context['comments'] = comments
+    context['comments'] = []
+    for comment in comments:
+        context_comment = {
+            'comment': comment
+        }
+        details = CommentDetails.objects.get_or_create(comment=comment)[0]
+        if details.posted_by:
+            context_comment['posted_by'] = details.posted_by
+
+        context['comments'].append( context_comment )
+
 
     return context

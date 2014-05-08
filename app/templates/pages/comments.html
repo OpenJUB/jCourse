@@ -17,14 +17,13 @@
                                 {{ comment.datetime|naturaltime }}
                             </div>
                     </div>
-                    <!--This is a comment. Comments are not displayed in the browser-->
                     <div class="row">
                         <div class="col-md-1"> </div>
                         <div class="col-md-9">
                             <div class="comment-text" align="justify">
-                                {{ comment.comment }}
+                                {{ comment.comment|linebreaks }}
                             </div>
-                            </div>
+                        </div>
                     </div>
                     <hr>
                 {% endfor %}

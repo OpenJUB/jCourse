@@ -68,6 +68,12 @@ class Comment(models.Model):
     def __unicode__(self):
         return "Comm" + str(self.id)
 
+class CommentDetails(models.Model):
+    comment = models.ForeignKey('Comment')
+    posted_by = models.ForeignKey('jUser', null=True)
+    upvoted_by = models.ManyToManyField('jUser', related_name='rups')
+    downvoted_by = models.ManyToManyField('jUser', related_name='rdws')
+
 class TimelineCache(models.Model):
     cached_html = models.CharField(max_length=2000000)
     should_change_mark = models.NullBooleanField()

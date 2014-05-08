@@ -92,6 +92,7 @@ def submit_comment(request):
         raise Http404
 
     form = SubmitCommentForm(request.POST)
+    print request.POST
     if not form.is_valid():
         raise Http404
 
@@ -100,6 +101,12 @@ def submit_comment(request):
     comment_text = form.cleaned_data['comment']
     comment = Comment(course= course, comment= comment_text)
     comment.save()
+
+    details = CommentDetails(comment=comment)
+    if not form.cleaned_data['anonymous']:
+        user = jUser.objects.get(id= request.user.id)
+        details.posted_by = user
+    details.save()
 
     return redirect(form.cleaned_data['url'])
 
@@ -136,6 +143,12 @@ def compare(request, slug1, slug2):
     context['course2'] = course_page_context(request, course2)
 
     return render(request, "pages/compare.html", context)
+
+def submit_comment_upvote(request):
+    raise Http404
+
+def submit_comment_downvote(request):
+    raise Http404
 
 ##### User authentication here on
 

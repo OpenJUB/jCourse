@@ -114,6 +114,18 @@
     float: right;
 }
 
+.comments .comment-rate {
+    overflow: hidden;
+}
+
+.comments .comment-rate .rate-content {
+    float: right;
+}
+
+.comments .comment-rate .comment-rate-form {
+    display: inline;
+}
+
 /* Ratings */
 .ratings hr {
     margin-top: 6px;
@@ -139,7 +151,6 @@
 
 .comments-page .comment-datetime {
     float: right;
-    ma
 }
 
 #all_comments_date{

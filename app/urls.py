@@ -14,4 +14,7 @@ urlpatterns = patterns('',
     url(r'^compare_course/$', 'app.views.compare_next', name='compare_next'),
     url(r'^compare_course/(?P<slug1>[\w-]+)/$', 'app.views.compare_next', name='compare_next'),
     url(r'^compare_course/(?P<slug1>[\w-]+)/(?P<slug2>[\w-]+)$', 'app.views.compare', name='compare'),
+
+    url(r'^submit_comment_upvote$', 'app.views.submit_comment_upvote', name='submit_comment_upvote'),
+    url(r'^submit_comment_downvote$', 'app.views.submit_comment_downvote', name='submit_comment_downvote'),
 )
