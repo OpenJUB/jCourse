@@ -200,14 +200,16 @@ def submit_comment_downvote(request):
 
 def about_page(request):
     context = {
-        "page": "about"
+        "page": "about",
+        'user_auth': user_authenticated(request)
     }
 
     return render(request, "pages/about.html", context)
 
 def disclaimer_page(request):
     context = {
-        "page": "disclaimer"
+        "page": "disclaimer",
+        'user_auth': user_authenticated(request)
     }
 
     return render(request, "pages/disclaimer.html", context)
