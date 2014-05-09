@@ -197,6 +197,21 @@ def submit_comment_downvote(request):
 
     return HttpResponse()
 
+
+def about_page(request):
+    context = {
+        "page": "about"
+    }
+
+    return render(request, "pages/about.html", context)
+
+def disclaimer_page(request):
+    context = {
+        "page": "disclaimer"
+    }
+
+    return render(request, "pages/disclaimer.html", context)
+
 ##### User authentication here on
 
 def login_action(request):

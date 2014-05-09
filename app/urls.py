@@ -17,4 +17,7 @@ urlpatterns = patterns('',
 
     url(r'^submit_comment_upvote$', 'app.views.submit_comment_upvote', name='submit_comment_upvote'),
     url(r'^submit_comment_downvote$', 'app.views.submit_comment_downvote', name='submit_comment_downvote'),
+
+    url(r'^about$', 'app.views.about_page', name="about_page")
+    url(r'^disclaimer$', 'app.views.disclaimer_page', name="disclaimer_page")
 )
