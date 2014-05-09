@@ -31,6 +31,7 @@ def course_page(request, slug):
     course = get_object_or_404(Course, slug=slug)
     context = {
         "page": "course",
+        "page_title": course.name,
         'user_auth': user_authenticated(request)
     }
     context = dict(context.items() + course_page_context(request, course).items())
