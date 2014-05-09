@@ -52,6 +52,13 @@
     margin-top: 12px;
 }
 
+.btn-group .btn-filter:first-child {
+    border-radius: 0px;
+}
+.btn-group .btn-filter:last-child {
+    border-radius: 0px;
+}
+
 /* Credit slider */
 #credit-slider .ui-slider-range {
     background: #729fcf;
