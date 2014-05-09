@@ -322,6 +322,10 @@ $(function() {
         event.preventDefault();
     });
 
+    $(".comment-submit").keypress( function() {
+        $(this).attr("rows", $(this).val().split("\n").length+1||2);
+    });
+
     // Tooltip for CampusNet
     $("#campusnet-popover").tooltip({title: 'Please log in with your CampusNet credentials!'})
 });
