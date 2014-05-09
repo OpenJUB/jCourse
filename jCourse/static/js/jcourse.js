@@ -323,7 +323,7 @@ $(function() {
     });
 
     $(".comment-submit").keypress( function() {
-        $(this).attr("rows", $(this).val().split("\n").length+1||2);
+        $(this).attr("rows", Math.max($(this).val().split("\n").length+1, 3));
     });
 
     // Tooltip for CampusNet
