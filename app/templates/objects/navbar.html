@@ -13,8 +13,8 @@
   <div class="collapse navbar-collapse " id="bs-example-navbar-collapse-1">
     <ul class="nav navbar-nav jcourse-nav">
       <li {% if page == 'home' %} class="active" {% endif %}><a href="/home">All courses</a></li>
-      <li {% if page == 'all_comments' %} class="active" {% endif %}><a href="/all_comments">All comments</a></li>
       <li {% if page == 'compare' %} class="active" {% endif %}><a class="compare-course-link" href="/compare_course/">Compare courses</a></li>
+      <li {% if page == 'all_comments' %} class="active" {% endif %}><a href="/all_comments">All reviews</a></li>
     </ul>
     {% include 'objects/login.html' %}
     {% comment %}

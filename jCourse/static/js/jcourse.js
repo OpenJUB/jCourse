@@ -1,12 +1,12 @@
 $(function() {
 
-    // (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    // (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    // m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    // })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-    // ga('create', 'UA-47744399-1', 'jcourse.herokuapp.com');
-    // ga('send', 'pageview');
+    ga('create', 'UA-47744399-1', 'jcourse.herokuapp.com');
+    ga('send', 'pageview');
 
     // For lazy loading images
     $("img.course-image").lazyload({
@@ -287,6 +287,44 @@ $(function() {
             }
         })
     }
+
+    $('.comment-rate-form').submit( function(event) {
+        var form = $(this);
+        $.ajax( {
+            type: "POST",
+            url: form.attr( 'action' ),
+            data: form.serialize(),
+            success: function( response ) {
+                if ($('.compare-course-link').parent().hasClass("active")) {
+                    var url = form.find('input[name="url"]').val();
+                    window.location = url;
+                }
+
+                var badge = form.parents('.course-comment').find('.comment-score-badge');
+                var score = badge.text();
+                var vote = form.find('input[name="type"]').val();
+                var vote_nr = 0;
+                if (vote == "upvote") {
+                    vote_nr = 1;
+                }
+                if (score != "") {
+                    var scores = score.split("/");
+                    var upvotes = parseInt(scores[0])
+                    var total = parseInt(scores[1])
+                    badge.html("" + (upvotes + vote_nr).toString() + "/" + (total + 1).toString());
+                } else {
+                    badge.html("" + vote_nr.toString() + "/1");
+                }
+                
+                form.parents('.course-comment').find('.comment-rate').hide();
+            }
+        } );
+        event.preventDefault();
+    });
+
+    $(".comment-submit").keypress( function() {
+        $(this).attr("rows", Math.max($(this).val().split("\n").length+1, 3));
+    });
 
     // Tooltip for CampusNet
     $("#campusnet-popover").tooltip({title: 'Please log in with your CampusNet credentials!'})

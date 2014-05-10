@@ -1,6 +1,14 @@
 {% extends 'pages/base.html' %}
 
 {% block content %}
+    {% if success %}
+        <div class="alert alert-success">
+            {{ success|safe }}
+            {% comment %}
+                In 'connect' this may lead to HTML injection. Here it is no problem
+            {% endcomment %}
+        </div>
+    {% endif %}
     <div class="row">
         <div class="col-md-3">
             {% include 'objects/sidebar.html' %}

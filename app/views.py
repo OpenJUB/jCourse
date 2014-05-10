@@ -31,6 +31,7 @@ def course_page(request, slug):
     course = get_object_or_404(Course, slug=slug)
     context = {
         "page": "course",
+        "page_title": course.name,
         'user_auth': user_authenticated(request)
     }
     context = dict(context.items() + course_page_context(request, course).items())
@@ -92,7 +93,6 @@ def submit_comment(request):
         raise Http404
 
     form = SubmitCommentForm(request.POST)
-    print request.POST
     if not form.is_valid():
         raise Http404
 
@@ -115,7 +115,15 @@ def all_comments(request):
         'page': 'all_comments',
         'user_auth': user_authenticated(request)
     }
-    context['comments'] = Comment.objects.all()
+
+    current_user = None
+    if request.user.is_authenticated():
+        current_user = jUser.objects.get(id=request.user.id)
+
+    comments = Comment.objects.all()
+    context['comments'] = []
+    for comment in comments:
+        context['comments'].append( comment_context(comment, request, current_user) )
 
     return render(request, 'pages/comments.html', context)
 
@@ -128,6 +136,14 @@ def compare_next(request, slug1=""):
     }
     # Get courses
     context = dict(context.items() + get_timeline_context().items())
+
+    message = ""
+    if not slug1:
+        message = "Select a course that you want to compare by clicking it's name"
+    else:
+        course1 = get_object_or_404(Course, slug=slug1)
+        message = "You selected course '" + course1.name + "'(<a href='/compare_course/'>go back</a>). Select the course that you want to compare it with"
+    context['success'] = message
 
     return render(request, "pages/home.html", context)
 
@@ -144,11 +160,60 @@ def compare(request, slug1, slug2):
 
     return render(request, "pages/compare.html", context)
 
+@login_required
 def submit_comment_upvote(request):
-    raise Http404
+    if request.method != 'POST' or not 'comment_id' in request.POST \
+        or not request.POST['comment_id']:
+            raise Http404
 
+    comment = get_object_or_404(Comment, id=request.POST['comment_id'])
+    details = CommentDetails.objects.get_or_create(comment=comment)[0]
+
+    user = jUser.objects.get(id=request.user.id)
+    votes = CommentDetails.objects.filter(comment=comment, upvoted_by=user) | \
+        CommentDetails.objects.filter(comment=comment, downvoted_by=user)
+    if votes:
+        raise Http404
+
+    details.upvoted_by.add(user)
+
+    return HttpResponse()
+
+@login_required
 def submit_comment_downvote(request):
-    raise Http404
+    if request.method != 'POST' or not 'comment_id' in request.POST \
+        or not request.POST['comment_id']:
+            raise Http404
+
+    comment = get_object_or_404(Comment, id=request.POST['comment_id'])
+    details = CommentDetails.objects.get_or_create(comment=comment)[0]
+
+    user = jUser.objects.get(id=request.user.id)
+    votes = CommentDetails.objects.filter(comment=comment, upvoted_by=user) | \
+        CommentDetails.objects.filter(comment=comment, downvoted_by=user)
+    if votes:
+        raise Http404
+
+    details.downvoted_by.add(user)
+
+    return HttpResponse()
+
+
+def about_page(request):
+    context = {
+        "page": "about",
+        'user_auth': user_authenticated(request)
+    }
+
+    return render(request, "pages/about.html", context)
+
+def disclaimer_page(request):
+    context = {
+        "page": "disclaimer",
+        'user_auth': user_authenticated(request)
+    }
+
+    return render(request, "pages/disclaimer.html", context)
 
 ##### User authentication here on
 

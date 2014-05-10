@@ -8,7 +8,7 @@
 
     <div class="row">
         <!-- Picture here -->
-        <div class="col-md-3">
+        <div class="col-md-4">
             <div class="course-image-wrapper">
                 {% if course.image %}
                     <img class="img-thumbnail course-page-image" src="{% url 'course_image' course.slug %}" alt="{{course.name}} image">
@@ -19,7 +19,7 @@
         </div>
 
         <!-- Some info -->
-        <div class="col-md-9 course-brief-detail-wrapper">
+        <div class="col-md-8 course-brief-detail-wrapper">
             {% if course.course_id %}
                 <div class="course-brief-detail">
                         <strong> Course ID: </strong> 

@@ -2,6 +2,7 @@ import json
 
 from app.models import *
 from app.course_info import *
+from app.ratings import *
 
 def user_authenticated(request):
     if request.user and request.user.is_authenticated():
@@ -61,6 +62,37 @@ def course_timeline_context():
 
     return context
 
+def comment_context(comment, request, current_user):
+    context_comment = {
+        'comment': comment
+    }
+    details = CommentDetails.objects.get_or_create(comment=comment)[0]
+
+    upvotes = details.upvoted_by.all().count()
+    downvotes = details.downvoted_by.all().count()
+    context_comment['rating'] = comment_rating(upvotes, downvotes)
+    if upvotes + downvotes > 0:
+        context_comment['score'] = str(upvotes) + "/" + str(upvotes + downvotes)
+
+    already_voted = False
+    if current_user:
+        users_votes = CommentDetails.objects.filter(comment=comment, upvoted_by=current_user) | \
+            CommentDetails.objects.filter(comment=comment, downvoted_by=current_user)
+        if users_votes:
+            already_voted = True
+
+    shouldnt_vote = False
+    if details.posted_by:
+        context_comment['posted_by'] = details.posted_by
+        if current_user:
+            if details.posted_by == current_user:
+                shouldnt_vote = True
+
+    context_comment['should_vote'] = not already_voted and not shouldnt_vote
+
+    return context_comment
+
+
 def course_page_context(request, course):
     context = {}
     context['course'] = course
@@ -117,17 +149,14 @@ def course_page_context(request, course):
                 context['ratings'].append( dict(context_rating.items() + specific_rating.items()) )
 
 
+    current_user = None
+    if request.user.is_authenticated():
+        current_user = jUser.objects.get(id=request.user.id)
+
     comments = Comment.objects.filter(course=course)
     context['comments'] = []
     for comment in comments:
-        context_comment = {
-            'comment': comment
-        }
-        details = CommentDetails.objects.get_or_create(comment=comment)[0]
-        if details.posted_by:
-            context_comment['posted_by'] = details.posted_by
-
-        context['comments'].append( context_comment )
+        context['comments'].append( comment_context(comment, request, current_user) )
 
 
     return context

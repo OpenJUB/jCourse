@@ -14,7 +14,7 @@
                                 {% comment %}
                                 <span class="glyphicon glyphicon-star {% if rating.my_score %} yellow-star {% endif %}"></span>
                                 {% endcomment %}
-                                <span class="rating-agg-score"> {{ rating.score }} </span>
+                                <span class="rating-agg-score"> {{ rating.score|floatformat:1 }} </span>
                             </span>
                             <span class="rating-nrs">
                                 ({{ rating.count }})
@@ -40,7 +40,7 @@
                                 {% comment %}
                                 <span class="glyphicon glyphicon-star {% if rating.my_score %} yellow-star {% endif %}"></span>
                                 {% endcomment %}
-                                <span class="rating-agg-score"> {{ rating.score }} </span>
+                                <span class="rating-agg-score"> {{ rating.score|floatformat:1 }} </span>
                             </span>
                             <span class="rating-nrs">
                                 ({{ rating.count }})

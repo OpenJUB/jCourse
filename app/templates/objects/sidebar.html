@@ -20,13 +20,13 @@
     <hr>
 
     <div class="btn-group studies-group" data-toggle="buttons">
-      <label class="btn btn-primary btn-studies">
+      <label class="btn btn-primary btn-filter btn-studies">
         <input type="radio" class="studies-radio" name="studies" id="st_UG"> UG </input>
       </label>
-      <label class="btn btn-primary btn-studies">
+      <label class="btn btn-primary btn-filter btn-studies">
         <input type="radio" class="studies-radio" name="studies" id="st_Grad"> Grad </input>
       </label>
-      <label class="btn btn-primary btn-studies active">
+      <label class="btn btn-primary btn-filter btn-studies active">
         <input type="radio" class="studies-radio" name="studies" id="st_Both"> Both </input>
       </label>
     </div>
@@ -34,16 +34,16 @@
     <hr>
 
     <div class="btn-group terms-group" data-toggle="buttons">
-      <label class="btn btn-primary btn-terms">
+      <label class="btn btn-primary btn-filter btn-terms">
         <input type="radio" class="terms-radio" name="terms" id="tm_Fall">Fall</input>
       </label>
-      <label class="btn btn-primary btn-terms">
+      <label class="btn btn-primary btn-filter btn-terms">
         <input type="radio" class="terms-radio" name="terms" id="tm_Spring">Spring</input>
       </label>
-      <label class="btn btn-primary btn-terms">
+      <label class="btn btn-primary btn-filter btn-terms">
         <input type="radio" class="terms-radio" name="terms" id="tm_Intersession">Inter</input>
       </label>
-      <label class="btn btn-primary btn-terms active">
+      <label class="btn btn-primary btn-filter btn-terms active">
         <input type="radio" class="terms-radio" name="terms" id="tm_All">All</input>
       </label>
     </div>
@@ -82,3 +82,5 @@
     
   </div>
 </div>
+
+{% include "objects/sidebar-footer.html" %}
