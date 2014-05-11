@@ -180,3 +180,23 @@ color: #999;
 .btn-group>.btn:last-child:not(:first-child), .btn-group>.dropdown-toggle:not(:first-child){
     border-radius: 0px;
 }
+
+
+
+/************** ABOUT PAGE ****************/
+
+#poster_about{
+    width: 100%;
+}
+
+#about_background{
+    position: relative;
+}
+
+#about_info{
+    position: absolute;
+    top: 7%;
+    left: 2%;
+    right:2%;
+    z-index: 100;
+}

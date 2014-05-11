@@ -1,4 +1,86 @@
 {% extends 'pages/base.html' %}
 
 {% block content %}
+
+<div id="about_background">
+	<img src="static/about_image.png" id="poster_about">
+
+
+	<div class="row" id="about_info">
+		<div class="col-md-6">
+			<div class="panel panel-default">
+				<div class="panel-heading panel-heading-title">What is jCourse for? </div>
+					<div class="panel-body">
+						<p align="justify">
+							<br>
+							jCourse is built to aid Jacobs University students choose courses by offering them acces to information that would otherwise be attained in a less comfortable way.  jCourse uses data collected from <a href="https://campusnet.jacobs-university.de">CampusNet</a> of <a href="http://jacobs-university.de">Jacobs University Bremen</a>. The data is collected from the course catalogue of academic year 2014 (this data is all public). Through jCourse we aim to offer a more convenient and accessible way of rating, reviewing and comparing courses.<br><br>
+							In the framework of the latest developments, we will use jCourse to aid the administration with the course and teaching evaluations so that a comparison between the official teaching evaluations and the data from jCourse can be compared when making decisions on the future structure of the faculty.<br>
+						</p>
+					</div>
+			</div>
+		</div>
+
+		<div class="col-md-6" id="team">
+			<div class="panel panel-default">
+			<div class="panel-heading panel-heading-title" align="center"> jCourse Team </div>
+	            <br>
+	              
+	        <div class="row">
+	            <div class="col-md-4">
+	                <center>
+	                <a href="http://de.linkedin.com/in/arjaldokaraj/" target="_blank">
+	                  <img src="{{ STATIC_URL }}images/aldo.jpg" class="img-circle" width="100"></a>
+	                  <br>
+	                  <h5 class="footertext"><b>Aldo</b></h5>
+	                </center>
+	            </div>
+
+	            <div class="col-md-4">
+	                <center>
+	                	<a href="http://de.linkedin.com/pub/daniel-hasegan/5b/775/84a" target="_blank">
+	                  <img src="{{ STATIC_URL }}images/daniel.jpg" class="img-circle" width="100"></a>
+	                  <br>
+	                  <h5 class="footertext"><b>Daniel</b></h5>
+	                </center>
+	            </div>				           
+
+	            <div class="col-md-4">
+	                <center>
+					<a href="http://de.linkedin.com/pub/tomas-pllaha/60/6b7/3b1" target="_blank">             
+	             	  <img src="{{ STATIC_URL }}images/tomas.jpg" class="img-circle" width="100"></a>
+	                  <br>
+	                  <h5 class="footertext"><b>Tomas</b></h5>
+	                  <div class="divider"></div>
+	                </center>
+	            </div>
+	        </div>
+
+	        	<br>
+	        <div class="row">
+	            <div class="col-md-4">
+	                <center>
+	                	<a href="http://de.linkedin.com/pub/stiv-sherko/80/4a8/5" target="_blank">
+	                  <img src="{{ STATIC_URL }}images/stiv.jpg" class="img-circle" width="100"></a>
+	                  <br>
+	                  <h5 class="footertext"><b>Stiv</b></h5>
+	                  <div class="divider"></div>                  
+	                </center>
+	            </div>
+
+	            <div class="col-md-4">
+	                <center>
+	                	<a href="de.linkedin.com/pub/uneeb-agha/63/b41/5b9" target="_blank">
+	                  <img src="{{ STATIC_URL }}images/uneeb.jpg" class="img-circle" width="100"></a>
+	                  <br>
+	                  <h5 class="footertext"><b>Uneeb</b> </h5>
+	                  <div class="divider"></div>                  	         	
+	                </center>
+	            </div>
+	        </div>
+	    </div>
+	</div>
+
+</div>
+
+
 {% endblock %}
