@@ -62,7 +62,7 @@ class Course(models.Model):
 
 class Comment(models.Model):
     course = models.ForeignKey('Course')
-    comment = models.CharField(max_length=1000)
+    comment = models.CharField(max_length=5000)
     datetime = models.DateTimeField(auto_now=True)
 
     def __unicode__(self):
