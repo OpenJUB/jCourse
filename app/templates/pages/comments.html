@@ -7,6 +7,7 @@
     <div class="panel-heading panel-heading-title" > All Reviews </div>
         <div class="panel-body">
             <div class="comments-display">
+            {% if user_auth %}
                 {% for comment in comments|dictsort:"rating" reversed %}
                     <div class="row">
                         <div class="text-muted col-md-1"> @{{ comment.comment.id }} </div>
@@ -34,6 +35,9 @@
                     </div>
                     <hr>
                 {% endfor %}
+            {% else %}
+                Please log in to view reviews
+            {%endif%}
             </div>
         </div>
     </div>

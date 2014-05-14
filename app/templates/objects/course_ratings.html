@@ -28,7 +28,7 @@
 
     <div class="col-md-6">
         {% for rating in ratings %}
-            {% if rating.type == 'Professor' %}
+            {% if rating.type == 'Professor' and user_auth %}
                 <div class="row">
                     <form class="rating-form" method="post" action="/vote_course">
                         <div class="col-md-8">
