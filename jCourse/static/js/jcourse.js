@@ -288,7 +288,7 @@ $(function() {
         })
     }
 
-    // Tooltip for CampusNet
+    // Tooltip for score badge
     $(".comment-score-badge").tooltip(
         {
             title: function() {
@@ -335,6 +335,14 @@ $(function() {
                 form.parents('.course-comment').find('.comment-rate').hide();
             }
         } );
+        event.preventDefault();
+    });
+    $('.comment-flag').each( function() {
+        $(this).parent().find(".course-comment").hide();
+    });
+    $('.comment-flag').click( function(event) {
+        $(this).parent().find(".course-comment").show();
+        $(this).hide();
         event.preventDefault();
     });
 

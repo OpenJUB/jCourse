@@ -70,9 +70,13 @@ def comment_context(comment, request, current_user):
 
     upvotes = details.upvoted_by.all().count()
     downvotes = details.downvoted_by.all().count()
+    # Add a +1 to upvotes to fix the ratings score
     context_comment['rating'] = comment_rating(upvotes+1, downvotes)
     if upvotes + downvotes > 0:
         context_comment['score'] = str(upvotes) + "/" + str(upvotes + downvotes)
+    if (upvotes + 1) * 2 < downvotes:
+        print "donw show"
+        context_comment['dont_show'] = True
 
     already_voted = False
     if current_user:

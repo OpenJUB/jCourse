@@ -133,6 +133,10 @@
     display: inline;
 }
 
+.comments .comment-block .comment-flag {
+    color: #515151;
+}
+
 /* Ratings */
 .ratings hr {
     margin-top: 6px;
