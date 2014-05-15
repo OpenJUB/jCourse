@@ -288,6 +288,22 @@ $(function() {
         })
     }
 
+    // Tooltip for CampusNet
+    $(".comment-score-badge").tooltip(
+        {
+            title: function() {
+                var score = $(this).text();
+                var scores = score.split("/");
+                var upvotes = parseInt(scores[0]);
+                var total = parseInt(scores[1]);
+                var people = "people";
+                if (upvotes == 1) {
+                    people = "person";
+                }
+                return upvotes + " " + people + ' found this review helpful';
+            }
+        }
+    )
     $('.comment-rate-form').submit( function(event) {
         var form = $(this);
         $.ajax( {
@@ -309,8 +325,8 @@ $(function() {
                 }
                 if (score != "") {
                     var scores = score.split("/");
-                    var upvotes = parseInt(scores[0])
-                    var total = parseInt(scores[1])
+                    var upvotes = parseInt(scores[0]);
+                    var total = parseInt(scores[1]);
                     badge.html("" + (upvotes + vote_nr).toString() + "/" + (total + 1).toString());
                 } else {
                     badge.html("" + vote_nr.toString() + "/1");
