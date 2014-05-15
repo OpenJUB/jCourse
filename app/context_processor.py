@@ -70,7 +70,7 @@ def comment_context(comment, request, current_user):
 
     upvotes = details.upvoted_by.all().count()
     downvotes = details.downvoted_by.all().count()
-    context_comment['rating'] = comment_rating(upvotes, downvotes)
+    context_comment['rating'] = comment_rating(upvotes+1, downvotes)
     if upvotes + downvotes > 0:
         context_comment['score'] = str(upvotes) + "/" + str(upvotes + downvotes)
 
