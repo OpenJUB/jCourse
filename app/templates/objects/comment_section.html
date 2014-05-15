@@ -26,7 +26,7 @@
             </form>
         {% else %}
             <div class="auth-to-rate">
-                To submit or read reviews, please log in!
+                To submit reviews, please log in!
             </div>
         {% endif %}
 
@@ -35,12 +35,10 @@
             The comments display
         {% endcomment %}
         <div class="comments-display">
-            {% if user_auth %}
-                {% for comment in comments|dictsort:"rating" reversed %}
-                    <hr>
-                    {% include "objects/course_comment.html" %}
-                {% endfor %}
-            {% endif %}
+            {% for comment in comments|dictsort:"rating" reversed %}
+                <hr>
+                {% include "objects/course_comment.html" %}
+            {% endfor %}
         </div>
     </div>
 </div>

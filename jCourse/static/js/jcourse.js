@@ -342,7 +342,9 @@ $(function() {
     });
     $('.comment-flag').click( function(event) {
         $(this).parent().find(".course-comment").show();
-        $(this).hide();
+        if ($(this).parent().find(".course-comment").length > 0) {
+            $(this).hide();
+        }
         event.preventDefault();
     });
 

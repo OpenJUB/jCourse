@@ -7,37 +7,35 @@
     <div class="panel-heading panel-heading-title" > All Reviews </div>
         <div class="panel-body">
             <div class="comments-display">
-            {% if user_auth %}
                 {% for comment in comments|dictsort:"rating" reversed %}
-                    <div class="row">
-                        <div class="text-muted col-md-1"> @{{ comment.comment.id }} </div>
-                        <div class="col-md-5">
-                            <a href="{% url 'course_page' comment.comment.course.slug %}"> {{ comment.comment.course.name }} </a>
-                        </div>
-                        <div class="col-md-2">
-                            <span class="badge comment-score-badge">{{ comment.score }}</span> 
-                        </div>
-                        <div class="col-md-2">
-                            {% if comment.posted_by %} by {{ comment.posted_by }} {% endif %} 
-                        </div>
+                    {% if not comment.dont_show %}
+                        <div class="row">
+                            <div class="text-muted col-md-1"> @{{ comment.comment.id }} </div>
+                            <div class="col-md-5">
+                                <a href="{% url 'course_page' comment.comment.course.slug %}"> {{ comment.comment.course.name }} </a>
+                            </div>
+                            <div class="col-md-2">
+                                <span class="badge comment-score-badge">{{ comment.score }}</span> 
+                            </div>
+                            <div class="col-md-2">
+                                {% if comment.posted_by %} by {{ comment.posted_by }} {% endif %} 
+                            </div>
 
-                        <div class="comment-datetime" id="all_comments_date">
-                            {{ comment.comment.datetime|naturaltime }}
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-1"> </div>
-                        <div class="col-md-9">
-                            <div class="comment-text" align="justify">
-                                {{ comment.comment.comment|linebreaks }}
+                            <div class="comment-datetime" id="all_comments_date">
+                                {{ comment.comment.datetime|naturaltime }}
                             </div>
                         </div>
-                    </div>
-                    <hr>
+                        <div class="row">
+                            <div class="col-md-1"> </div>
+                            <div class="col-md-9">
+                                <div class="comment-text" align="justify">
+                                    {{ comment.comment.comment|linebreaks }}
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                    {% endif %}
                 {% endfor %}
-            {% else %}
-                Please log in to view reviews
-            {%endif%}
             </div>
         </div>
     </div>
