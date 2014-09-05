@@ -238,7 +238,7 @@ $(function() {
             var score = form.find('input[name="old_score"]').val();
             form.find('.rating-my-score').text(score);
         },
-        noRatedMsg: "To rate please log in!",
+        noRatedMsg: "Check www.connect.academy!",
         score: function() {
             var form = $(this).parents('form');
             form.find('input[name="rating_value"]')
@@ -249,7 +249,8 @@ $(function() {
             form.find('input[name="rating_value"]').val(score)
             var user = form.find('input[name="username"]')
             if (user.length > 0) {
-                form.submit();
+                alertAboutConnect();
+                // form.submit();
             }
         },
         readOnly: function() {
@@ -275,6 +276,7 @@ $(function() {
             placement: 'top',
             title: function() {
                 var type = $(this).parents('form').find('input[name="rating_type"]').val();
+                return "Don't bother! Check connect.academy"
                 if (type == 'ALL') {
                     return "How do you rate the course in general?"
                 } else if (type == 'WKL') {
@@ -305,46 +307,48 @@ $(function() {
         }
     )
     $('.comment-rate-form').submit( function(event) {
-        var form = $(this);
-        $.ajax( {
-            type: "POST",
-            url: form.attr( 'action' ),
-            data: form.serialize(),
-            success: function( response ) {
-                if ($('.compare-course-link').parent().hasClass("active")) {
-                    var url = form.find('input[name="url"]').val();
-                    window.location = url;
-                }
+        alertAboutConnect();
+        // var form = $(this);
+        // $.ajax( {
+        //     type: "POST",
+        //     url: form.attr( 'action' ),
+        //     data: form.serialize(),
+        //     success: function( response ) {
+        //         if ($('.compare-course-link').parent().hasClass("active")) {
+        //             var url = form.find('input[name="url"]').val();
+        //             window.location = url;
+        //         }
 
-                var badge = form.parents('.course-comment').find('.comment-score-badge');
-                var score = badge.text();
-                var vote = form.find('input[name="type"]').val();
-                var vote_nr = 0;
-                if (vote == "upvote") {
-                    vote_nr = 1;
-                }
-                if (score != "") {
-                    var scores = score.split("/");
-                    var upvotes = parseInt(scores[0]);
-                    var total = parseInt(scores[1]);
-                    badge.html("" + (upvotes + vote_nr).toString() + "/" + (total + 1).toString());
-                } else {
-                    badge.html("" + vote_nr.toString() + "/1");
-                }
+        //         var badge = form.parents('.course-comment').find('.comment-score-badge');
+        //         var score = badge.text();
+        //         var vote = form.find('input[name="type"]').val();
+        //         var vote_nr = 0;
+        //         if (vote == "upvote") {
+        //             vote_nr = 1;
+        //         }
+        //         if (score != "") {
+        //             var scores = score.split("/");
+        //             var upvotes = parseInt(scores[0]);
+        //             var total = parseInt(scores[1]);
+        //             badge.html("" + (upvotes + vote_nr).toString() + "/" + (total + 1).toString());
+        //         } else {
+        //             badge.html("" + vote_nr.toString() + "/1");
+        //         }
                 
-                form.parents('.course-comment').find('.comment-rate').hide();
-            }
-        } );
+        //         form.parents('.course-comment').find('.comment-rate').hide();
+        //     }
+        // } );
         event.preventDefault();
     });
     $('.comment-flag').each( function() {
         $(this).parent().find(".course-comment").hide();
     });
     $('.comment-flag').click( function(event) {
-        $(this).parent().find(".course-comment").show();
-        if ($(this).parent().find(".course-comment").length > 0) {
-            $(this).hide();
-        }
+        alertAboutConnect();
+        // $(this).parent().find(".course-comment").show();
+        // if ($(this).parent().find(".course-comment").length > 0) {
+        //     $(this).hide();
+        // }
         event.preventDefault();
     });
 
@@ -353,5 +357,10 @@ $(function() {
     });
 
     // Tooltip for CampusNet
-    $("#campusnet-popover").tooltip({title: 'Please log in with your CampusNet credentials!'})
+    $("#campusnet-popover").tooltip({title: 'Please log in with your CampusNet credentials!'});
+
+
+    alertAboutConnect = function() {
+        alert("This website is closed! Check out the better and improved version at www.connect.academy")
+    };
 });

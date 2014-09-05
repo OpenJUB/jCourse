@@ -1,18 +1,35 @@
-import sys
-import os
+import requests
 
-from twill import commands
+_UNIVERSITY_LOGINS = [
+    {
+        "name": "Jacobs University Bremen",
+        "url": 'https://campusnet.jacobs-university.de/scripts/mgrqispi.dll',
+        "domain": 'jacobs-university.de',
+        "payload": {
+            'usrname': "", 
+            'pass': "",
+            "APPNAME": "CampusNet",
+            "PRGNAME": "LOGINCHECK",
+            "ARGUMENTS": "clino,usrname,pass,menuno,persno,browser,platform",
+            "clino": "000000000000001",
+            "menuno": "000084",
+            "persno": "00000000",
+            "browser": "",
+            "platform": ""
+        }
+    }
 
-def login_success(login_user, login_pass):
-    commands.go('https://campusnet.jacobs-university.de/scripts/mgrqispi.dll?APPNAME=CampusNet&PRGNAME=ACTION&ARGUMENTS=-A9PnS7.Eby4LCWWmmtOcbYKUQ-so-sF48wtHtVNWX9aIeYmoSh5mej--SCbT.jubdlAouHy3dHzwyr-O.ufj3NVAYCNiJr0CFcBNwA3xADclRCTyqC0Oip8drT0F=')
-    commands.fv('1', 'usrname', login_user)
-    commands.fv('1', 'pass', login_pass)
-    commands.submit('3')
+]
 
-    out = sys.stdout
-    bin = open(os.devnull, 'w')
-    sys.stdout = bin
-    login_result = commands.show()
-    sys.stdout = out
 
-    return (login_result.find('Wrong username or password') == -1)
+def login_success(username, password):
+    for university in _UNIVERSITY_LOGINS:
+        payload = university['payload']
+        payload["usrname"] = username
+        payload["pass"] = password
+        response = requests.post(university['url'], data=payload)
+
+        if response.content.find('Wrong username or password') == -1 and response.content.find('Access denied') == -1:
+            return True
+
+    return False
