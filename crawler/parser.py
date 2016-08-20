@@ -44,8 +44,7 @@ class MyHTMLParser(HTMLParser):
                 self.caption = ""
                 self.tableData = ""
             else:
-                print
-                "Error: No caption or table contents!", self.caption
+                print "Error: No caption or table contents!", self.caption
         if tag == 'caption' and self.insideCaption:
             self.insideCaption = 0
 
@@ -103,8 +102,7 @@ coursesList = []
 for link in linksFile:
     # Get link and print progress
     courseName = namesFile.readline()
-    print
-    courseName[:-1]
+    print courseName[:-1]
     # Download the page
     page = urllib.urlopen(link)
     page = page.read()
@@ -116,13 +114,14 @@ for link in linksFile:
     courseInfo = dict(map(lambda x: (cleanuper(x[0]), cleanuper(x[1])),
                           uglyCourseInfo.iteritems()))
     if not 'Course offering details' in courseInfo:
-        print
-        "Error: No label 'Course offering details' abort scanning page"
+        print "Error: No label 'Course offering details' abort scanning page"
     if not 'Name' in courseInfo:
-        print
-        "Error: No label 'Name' abort scanning page"
+        print "Error: No label 'Name' abort scanning page"
     # Get main details about the course
-    details = courseInfo['Course offering details']
+    try:
+        details = courseInfo['Course offering details']
+    except:
+        details = "N.A."
     detailsMap = {}
     # For each field found put it in the map
     for field in importantFields:
@@ -136,16 +135,14 @@ for link in linksFile:
                     detailsMap[field] = unicode(details[startIdx:stopIdx],
                                                 errors='ignore').strip()
             else:
-                print
-                "Error: Start after stop"
+                print "Error: Start after stop"
     # Parse the Catalogue information
     if 'Contained in course catalogues' in courseInfo:
         catalogue = courseInfo['Contained in course catalogues']
         startIdx = catalogue.find('> ')
         detailsMap['Catalogue'] = catalogue[startIdx + 2:].strip()
     else:
-        print
-        "Error: No label 'Contained in course catalogues'"
+        print "Error: No label 'Contained in course catalogues'"
     detailsMap['Name'] = courseName.strip()
     # Parse for the ID and just course name
     courseID = detailsMap['Name'][0:6]
