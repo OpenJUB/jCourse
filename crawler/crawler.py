@@ -3,27 +3,36 @@
 import urllib
 import re
 import sys
-import os
-import lxml.html
 from collections import deque
 import HTMLParser
+
 _htmlparser = HTMLParser.HTMLParser()
 unescape = _htmlparser.unescape
 
 BASE_URL = "https://campusnet.jacobs-university.de"
-# START_URL = "https://campusnet.jacobs-university.de/scripts/mgrqispi.dll?APPNAME=CampusNet&PRGNAME=ACTION&ARGUMENTS=-A9PnS7.Eby4LCWWmmtOcbYKUQ-so-sF48wtHtVNWX9aIeYmoSh5mej--SCbT.jubdlAouHy3dHzwyr-O.ufj3NVAYCNiJr0CFcBNwA3xADclRCTyqC0Oip8drT0F="
-START_URL = "https://campusnet.jacobs-university.de/scripts/mgrqispi.dll?APPNAME=CampusNet&PRGNAME=ACTION&ARGUMENTS=-Ay5mA7.qg6LMNvDMYpC5OA5fQWrJxZZnFT1g3nDrcXBmBAOc1okw0N0w-3G3jr7sqgPUaWidSdTRlieSfa7cljt5HqXxFM3y79Wu2aAHI4Ukhj2cB1P3odK2RwRy=https://campusnet.jacobs-university.de/scripts/mgrqispi.dll?APPNAME=CampusNet&PRGNAME=ACTION&ARGUMENTS=-Ay5mA7.qg6LMNvDMYpC5OA5fQWrJxZZnFT1g3nDrcXBmBAOc1okw0N0w-3G3jr7sqgPUaWidSdTRlieSfa7cljt5HqXxFM3y79Wu2aAHI4Ukhj2cB1P3odK2RwRy="
+# START_URL = "https://campusnet.jacobs-university.de/scripts/mgrqispi.dll
+# ?APPNAME=CampusNet&PRGNAME=ACTION&ARGUMENTS=-A9PnS7.Eby4LCWWmmtOcbYKUQ-so
+# -sF48wtHtVNWX9aIeYmoSh5mej--SCbT.jubdlAouHy3dHzwyr-O
+# .ufj3NVAYCNiJr0CFcBNwA3xADclRCTyqC0Oip8drT0F="
+START_URL = "https://campusnet.jacobs-university.de/scripts/mgrqispi.dll" \
+            "?APPNAME=CampusNet&PRGNAME=ACTION&ARGUMENTS=-Ay5mA7" \
+            ".qg6LMNvDMYpC5OA5fQWrJxZZnFT1g3nDrcXBmBAOc1okw0N0w" \
+            "-3G3jr7sqgPUaWidSdTRlieSfa7cljt5HqXxFM3y79Wu2aAHI4Ukhj2cB1P3odK2RwRy=https://campusnet.jacobs-university.de/scripts/mgrqispi.dll?APPNAME=CampusNet&PRGNAME=ACTION&ARGUMENTS=-Ay5mA7.qg6LMNvDMYpC5OA5fQWrJxZZnFT1g3nDrcXBmBAOc1okw0N0w-3G3jr7sqgPUaWidSdTRlieSfa7cljt5HqXxFM3y79Wu2aAHI4Ukhj2cB1P3odK2RwRy="
+
 
 def cleanLink(link):
     return unescape(link)
 
+
 def getLinks(input_string):
     links = re.findall(r"<a.*?\s*href=\"(.*?)\".*?>(.*?)</a>", input_string)
-    return [cleanLink(BASE_URL+link[0]) for link in links]
+    return [cleanLink(BASE_URL + link[0]) for link in links]
+
 
 def getCourseNames(input_string):
     links = re.findall(r"<a.*?\s*href=\"(.*?)\".*?>(.*?)</a>", input_string)
     return [link[1] for link in links]
+
 
 courses = []
 courseNames = []
@@ -31,7 +40,8 @@ queue = deque([START_URL])
 
 while queue:
     link = queue.popleft()
-    print link
+    print
+    link
 
     page = urllib.urlopen(link)
     page = page.read()
@@ -53,11 +63,10 @@ while queue:
     newLinks = getLinks(ulList)
     queue.extend(newLinks)
 
-
 fileHandle = open('crawler/courses', 'w')
 for course in courses:
     sys.stdout = fileHandle
-    print ('%s' % (course))
+    print('%s' % (course))
 sys.stdout = sys.__stdout__
 fileHandle.close()
 
@@ -67,6 +76,6 @@ for course in courseNames:
     # Hacked way to avoid some bad characters
     course = course.replace('\xe9', 'e').replace('\xa0', ' ').strip()
 
-    print ('%s' % (course))
+    print('%s' % (course))
 sys.stdout = sys.__stdout__
 fileHandle.close()

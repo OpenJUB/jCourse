@@ -7,7 +7,8 @@ DEBUG = environ.get('JCOURSE_DEBUG_STATE', 'True') == 'True'
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
-    ('Daniel Hasegan', 'daniel@hasegan.com'),
+    ('Leonhard Kuboschek', 'l.kuboschek@jacobs-university.de'),
+    ('Siddharth Shukla', 's.shukla@jacobs-university.de'),
 )
 
 MANAGERS = ADMINS
@@ -16,8 +17,10 @@ PROJECT_ROOT = path.realpath(path.dirname(__file__)) + '/'
 
 DATABASES = {
     'default': {
-        'ENGINE': environ.get('JCOURSE_DATABASE_BACKEND', 'django.db.backends.sqlite3'),
-        'NAME': environ.get('JCOURSE_DATABASE_NAME', PROJECT_ROOT + 'db/database.db'),
+        'ENGINE': environ.get('JCOURSE_DATABASE_BACKEND',
+                              'django.db.backends.sqlite3'),
+        'NAME': environ.get('JCOURSE_DATABASE_NAME',
+                            PROJECT_ROOT + 'db/database.db'),
         'USER': environ.get('JCOURSE_DATABASE_USER', ''),
         'PASSWORD': environ.get('JCOURSE_DATABASE_PASSWORD', ''),
         'HOST': environ.get('JCOURSE_DATABASE_HOST', ''),
@@ -86,17 +89,18 @@ STATICFILES_DIRS = (
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-#    'django.contrib.staticfiles.finders.DefaultStorageFinder',
+    #    'django.contrib.staticfiles.finders.DefaultStorageFinder',
 )
 
 # Make this unique, and don't share it with anybody.
-SECRET_KEY = environ.get('JCOURSE_SECRET_KEY', '^vix^ohv5hl+w9yv(o!1-b#$54vm_p$12s(a7iiz14u*c&gs@1')
+SECRET_KEY = environ.get('JCOURSE_SECRET_KEY',
+                         '^vix^ohv5hl+w9yv(o!1-b#$54vm_p$12s(a7iiz14u*c&gs@1')
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.Loader',
     'django.template.loaders.app_directories.Loader',
-#     'django.template.loaders.eggs.Loader',
+    #     'django.template.loaders.eggs.Loader',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -115,7 +119,8 @@ ROOT_URLCONF = 'jCourse.urls'
 WSGI_APPLICATION = 'jCourse.wsgi.application'
 
 TEMPLATE_DIRS = (
-    # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
+    # Put strings here, like "/home/html/django_templates" or
+    # "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
 )
@@ -177,5 +182,7 @@ AWS_PRELOAD_METADATA = True
 if not DEBUG:
     boto.connect_s3()
 
-DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage' if not DEBUG else 'django.core.files.storage.FileSystemStorage'
-MEDIA_URL = 'http://{0}.s3.amazonaws.com/'.format(AWS_STORAGE_BUCKET_NAME) if not DEBUG else '/media/'
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage' if not DEBUG \
+    else 'django.core.files.storage.FileSystemStorage'
+MEDIA_URL = 'http://{0}.s3.amazonaws.com/'.format(
+        AWS_STORAGE_BUCKET_NAME) if not DEBUG else '/media/'

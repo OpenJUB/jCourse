@@ -1,4 +1,3 @@
-
 # Insert results into the DB
 
 from app.models import *
@@ -13,7 +12,8 @@ coursesList = loads(courseDetailsString)
 courseTerm = "Fall"
 
 for courseDetails in coursesList:
-    print courseDetails['CourseName']
+    print
+    courseDetails['CourseName']
     cname = courseDetails['CourseName']
     intersession = False
     if "(Intersession)" in cname:
@@ -42,7 +42,8 @@ for courseDetails in coursesList:
         if 'Type' in courseDetails and CTYPE[1] == courseDetails['Type']:
             ctype = CTYPE[0]
     if not ctype:
-        print "Error! Didnt find course type for course " + cname + " in our models!"
+        print
+        "Error! Didnt find course type for course " + cname + " in our models!"
         ctype = UNKNOWN
     # Get Credits number
     if 'Credits' in courseDetails:
@@ -56,27 +57,29 @@ for courseDetails in coursesList:
     if intersession:
         term = "Intersession"
     # Create the Course class
-    course = Course(course_id = courseDetails['CourseID'],
-                    course_type = ctype,
-                    name = cname,
-                    credits = credits,
-                    catalogue = term + " > " + courseDetails['Catalogue'],
-                    abbreviation = abbreviation)
+    course = Course(course_id=courseDetails['CourseID'],
+                    course_type=ctype,
+                    name=cname,
+                    credits=credits,
+                    catalogue=term + " > " + courseDetails['Catalogue'],
+                    abbreviation=abbreviation)
     if 'Official Course Description' in courseDetails:
         course.description = courseDetails['Official Course Description']
-    if 'Min. | Max. participants' in courseDetails and courseDetails['Min. | Max. participants'] != '- | -':
+    if 'Min. | Max. participants' in courseDetails and courseDetails[
+        'Min. | Max. participants'] != '- | -':
         course.participants = courseDetails['Min. | Max. participants']
     if 'Hours per week' in courseDetails:
         course.hours_per_week = courseDetails['Hours per week']
-    if 'Partial Grades' in courseDetails and courseDetails['Partial Grades'] != "":
+    if 'Partial Grades' in courseDetails and courseDetails[
+        'Partial Grades'] != "":
         course.grades = courseDetails['Partial Grades']
     if 'Additional Information' in courseDetails:
         course.additional_info = courseDetails['Additional Information']
     if 'This course is divided into the following sections' in courseDetails:
-        course.sections_info = courseDetails['This course is divided into the following sections']
+        course.sections_info = courseDetails[
+            'This course is divided into the following sections']
     if 'Further Grading Information' in courseDetails:
         course.grades_info = courseDetails['Further Grading Information']
     course.save()
     for dbProf in dbProfs:
         course.instructors.add(dbProf)
-

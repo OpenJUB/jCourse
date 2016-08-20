@@ -1,13 +1,13 @@
-import json
-
 from app.models import *
 from app.course_info import *
 from app.ratings import *
+
 
 def user_authenticated(request):
     if request.user and request.user.is_authenticated():
         return request.user.username
     return False
+
 
 def course_timeline_context():
     context = {}
@@ -30,13 +30,15 @@ def course_timeline_context():
         major = ""
         school = ""
         term = ""
-        studies = "UG" if " Undergraduate Level Courses" in course.catalogue else ("Grad" if " Graduate Level Courses" in course.catalogue else "")
-        
-        ratings = Rating.objects.filter(course= course, rating_type=OVERALL_R)
+        studies = "UG" if " Undergraduate Level Courses" in course.catalogue \
+            else (
+        "Grad" if " Graduate Level Courses" in course.catalogue else "")
+
+        ratings = Rating.objects.filter(course=course, rating_type=OVERALL_R)
         if (len(ratings) == 0):
             overall_rating = None
-        else:   
-            overall_rating = sum([cur.rating for cur in ratings])/len(ratings)
+        else:
+            overall_rating = sum([cur.rating for cur in ratings]) / len(ratings)
 
         for m in categories:
             if m[1] in noSchoolCatalogue:
@@ -55,12 +57,14 @@ def course_timeline_context():
             'catalogue': noSchoolCatalogue,
             'overall_rating': overall_rating
         })
-    allcourses = sorted(allcourses, key=lambda x:x['overall_rating'], reverse=True)
+    allcourses = sorted(allcourses, key=lambda x: x['overall_rating'],
+                        reverse=True)
     context['courses'] = allcourses
 
     context['categories'] = categories
 
     return context
+
 
 def comment_context(comment, request, current_user):
     context_comment = {
@@ -71,17 +75,20 @@ def comment_context(comment, request, current_user):
     upvotes = details.upvoted_by.all().count()
     downvotes = details.downvoted_by.all().count()
     # Add a +1 to upvotes to fix the ratings score
-    context_comment['rating'] = comment_rating(upvotes+1, downvotes)
+    context_comment['rating'] = comment_rating(upvotes + 1, downvotes)
     if upvotes + downvotes > 0:
         context_comment['score'] = str(upvotes) + "/" + str(upvotes + downvotes)
     if (upvotes + 1) * 2 < downvotes:
-        print "donw show"
+        print
+        "donw show"
         context_comment['dont_show'] = True
 
     already_voted = False
     if current_user:
-        users_votes = CommentDetails.objects.filter(comment=comment, upvoted_by=current_user) | \
-            CommentDetails.objects.filter(comment=comment, downvoted_by=current_user)
+        users_votes = CommentDetails.objects.filter(comment=comment,
+                                                    upvoted_by=current_user) | \
+                      CommentDetails.objects.filter(comment=comment,
+                                                    downvoted_by=current_user)
         if users_votes:
             already_voted = True
 
@@ -106,11 +113,11 @@ def course_page_context(request, course):
     context['instructors'] = course.instructors.all()
 
     context['ratings'] = []
-    allratings = Rating.objects.filter(course= course)
+    allratings = Rating.objects.filter(course=course)
     for rating_type in RATING_TYPES:
         ratings = allratings.filter(rating_type=rating_type[0])
         if len(ratings) > 0:
-            rating = sum([cur.rating for cur in ratings])/len(ratings)
+            rating = sum([cur.rating for cur in ratings]) / len(ratings)
         else:
             rating = None
         context_rating = {
@@ -129,13 +136,16 @@ def course_page_context(request, course):
                 if len(my_ratings) > 0:
                     specific_rating['my_score'] = my_ratings[0].rating
         if rating_type[1] != 'Professor':
-            context['ratings'].append( dict(context_rating.items() + specific_rating.items()) )
+            context['ratings'].append(
+                dict(context_rating.items() + specific_rating.items()))
         else:
             professors = course.instructors.all()
             for prof in professors:
-                profratings = Professor_Rating.objects.filter(course= course, prof=prof)
+                profratings = Professor_Rating.objects.filter(course=course,
+                                                              prof=prof)
                 if len(profratings) > 0:
-                    profrating = sum([cur.rating for cur in profratings])/len(profratings)
+                    profrating = sum([cur.rating for cur in profratings]) / len(
+                        profratings)
                 else:
                     profrating = None
                 specific_rating = {
@@ -150,8 +160,8 @@ def course_page_context(request, course):
                         my_ratings = profratings.filter(user=user)
                         if len(my_ratings) > 0:
                             specific_rating['my_score'] = my_ratings[0].rating
-                context['ratings'].append( dict(context_rating.items() + specific_rating.items()) )
-
+                context['ratings'].append(
+                    dict(context_rating.items() + specific_rating.items()))
 
     current_user = None
     if request.user.is_authenticated():
@@ -160,7 +170,7 @@ def course_page_context(request, course):
     comments = Comment.objects.filter(course=course)
     context['comments'] = []
     for comment in comments:
-        context['comments'].append( comment_context(comment, request, current_user) )
-
+        context['comments'].append(
+            comment_context(comment, request, current_user))
 
     return context

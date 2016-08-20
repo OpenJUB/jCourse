@@ -6,7 +6,7 @@ _UNIVERSITY_LOGINS = [
         "url": 'https://campusnet.jacobs-university.de/scripts/mgrqispi.dll',
         "domain": 'jacobs-university.de',
         "payload": {
-            'usrname': "", 
+            'usrname': "",
             'pass': "",
             "APPNAME": "CampusNet",
             "PRGNAME": "LOGINCHECK",
@@ -29,7 +29,9 @@ def login_success(username, password):
         payload["pass"] = password
         response = requests.post(university['url'], data=payload)
 
-        if response.content.find('Wrong username or password') == -1 and response.content.find('Access denied') == -1:
+        if response.content.find(
+                'Wrong username or password') == -1 and response.content.find(
+                'Access denied') == -1:
             return True
 
     return False
