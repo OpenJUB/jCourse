@@ -10,15 +10,7 @@ _htmlparser = HTMLParser.HTMLParser()
 unescape = _htmlparser.unescape
 
 BASE_URL = "https://campusnet.jacobs-university.de"
-# START_URL = "https://campusnet.jacobs-university.de/scripts/mgrqispi.dll
-# ?APPNAME=CampusNet&PRGNAME=ACTION&ARGUMENTS=-A9PnS7.Eby4LCWWmmtOcbYKUQ-so
-# -sF48wtHtVNWX9aIeYmoSh5mej--SCbT.jubdlAouHy3dHzwyr-O
-# .ufj3NVAYCNiJr0CFcBNwA3xADclRCTyqC0Oip8drT0F="
-START_URL = "https://campusnet.jacobs-university.de/scripts/mgrqispi.dll" \
-            "?APPNAME=CampusNet&PRGNAME=ACTION&ARGUMENTS=-Ay5mA7" \
-            ".qg6LMNvDMYpC5OA5fQWrJxZZnFT1g3nDrcXBmBAOc1okw0N0w" \
-            "-3G3jr7sqgPUaWidSdTRlieSfa7cljt5HqXxFM3y79Wu2aAHI4Ukhj2cB1P3odK2RwRy=https://campusnet.jacobs-university.de/scripts/mgrqispi.dll?APPNAME=CampusNet&PRGNAME=ACTION&ARGUMENTS=-Ay5mA7.qg6LMNvDMYpC5OA5fQWrJxZZnFT1g3nDrcXBmBAOc1okw0N0w-3G3jr7sqgPUaWidSdTRlieSfa7cljt5HqXxFM3y79Wu2aAHI4Ukhj2cB1P3odK2RwRy="
-
+START_URL = "https://campusnet.jacobs-university.de/scripts/mgrqispi.dll?APPNAME=CampusNet&PRGNAME=ACTION&ARGUMENTS=-AwzylPJTf938arh6MKf.3u4jqu3krPlgNhR7gfYp0TknptvFZ3e-WZqb0WGUZzDcYytyjQYNPS9DyE31X5Brk.z-rX5sahpSSs2CHVt-tOLA4vVwktVMIbU44Yoe="
 
 def cleanLink(link):
     return unescape(link)
@@ -40,8 +32,7 @@ queue = deque([START_URL])
 
 while queue:
     link = queue.popleft()
-    print
-    link
+    print link
 
     page = urllib.urlopen(link)
     page = page.read()

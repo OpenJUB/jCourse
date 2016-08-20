@@ -1,46 +1,29 @@
-001101 Foundations Mathematics I (FY)
-001111 SAT Preparation I (FY)
-001141 Foundations Academic English I (FY)
-JCLL01 JCLL PhD Core Theory Seminar: Health Psychology
-060601 BIGSSS Methods Preparatory Forum
-060611 BIGSSS Lecture Series (Semester I)
-060621 BIGSSS Core Theory Seminar: Global Governance and Regional Integration
-060622 BIGSSS Proposal Workshop: Global Governance and Regional Integration
-060624 BIGSSS Colloquium: Global Governance and Regional Integration (Semester I)
-060626 BIGSSS Colloquium: Global Governance and Regional Integration (Semester III)
-060628 BIGSSS Colloquium: Global Governance and Regional Integration (Semester V)
-060631 BIGSSS Core Theory Seminar: Welfare State, Inequality and Quality of Life
-060632 BIGSSS Proposal Workshop: Welfare State, Inequality and Quality of Life
-060633 BIGSSS Colloquium: Welfare State, Inequality and Quality of Life (Semester I)
-060635 BIGSSS Colloquium: Welfare State, Inequality and Quality of Life (Semester III)
-060637 BIGSSS Colloquium: Welfare State, Inequality and Quality of Life (Semester V)
-060641 BIGSSS Core Theory Seminar: Changing Lives in Changing Socio-Cultural Contexts
-060642 BIGSSS Proposal Workshop: Changing Lives in Changing Socio-Cultural Contexts
-060643 BIGSSS Colloquium: Changing Lives in Changing Socio-Cultural Contexts (Semester I)
-060645 BIGSSS Colloquium: Changing Lives in Changing Socio-Cultural Contexts (Semester III)
-060647 BIGSSS Colloquium: Changing Lives in Changing Socio-Cultural Contexts (Semester V)
-060695 BIGSSS Demand-Tailored Methods Seminar: Analysis of Longitudinal Data
-060695 BIGSSS Demand-Tailored Methods Seminar: Coding
-060698 Mixed Methods (Intersession)
-060699 BIGSSS Demand-Tailored Methods Seminar: MaxQDA
-060701 BIGSSS Didactic Block Seminar
-060702 BIGSSS Writing Workshop
-060716 BIGSSS Demand-Tailored Methods Course: Expert Interviewing
-060721 BIGSSS Lecture Series (Semester III)
-060821 BIGSSS Lecture Series (Semester V)
-020059 USC - From the Textual to the Technological: Documents and Structure in a Digital Age (Intersession
-020065 USC - Adapt! - A Lifespan Perspective on Successful Aging
-020072 USC - Water II
-020075 USC - Perspectives on Creativity in Nature, Art, and Society
-020080 Visual Empathy (TDC)
-020081 USC - Researching Integration and Multiculturalism
-020082 USC - Research in Practice: Participation in Bremen
-020083 USC - China Goes Global
-020084 USC - Offshore Wind (Intersession)
-020085 USC - Claiming Human Rights (Intersession)
-020086 USC - India - Growth without Development? (Intersession)
-100594 Mathematics Colloquium
-600801 Graduate Seminar (IH): Interdisciplinary Research Colloquium
+001111 SAT Training I (FY)
+001141 Academic English (FY)
+001101 Mathematics for Science & Engineering I (FY)
+001134 Reading, Thinking and Writing at University
+001143 Academic English for Scientists and Engineers
+001103 Fundamentals of Sciences and Engineering
+001133 Fundamentals of Business and Social Sciences
+CH01-CellBio Cell Biology
+CH01-520122 From Cells to Tissues and Body Functions
+CH01-520123 General Cell Biology Lab
+CH02-BioChem Biochemistry and Molecular Biology
+CH02-520101 General Biochemistry and Molecular Biology I
+CH02-520111 General Biochemistry and Molecular Biology I Lab
+CH03-OrgChem Organic Chemistry
+CH03-400102 Organic Chemistry I
+CH03-400112 Organic Chemistry I Lab
+CH04-InorgChem Inorganic Chemistry and Environmental Systems
+CH04-210113 Introduction to Inorganic Chemistry and Earth and Environmental Sciences
+CH04-400111 Inorganic Chemistry I Lab
+CH05-PhysNatSys Physics of Natural Systems
+CH05-200104 Classical Physics
+CH05-200114 Classical Physics Lab
+CH06-PhysAppMath Physics and Applied Mathematics
+CH06-100101 Applied Mathematics
+CH06-100111 Applied Mathematics Lab
+CH17-IntGermI Intensive German I
 010001 German A1.1
 010003 German A2.1 (1)
 010005 German A2.2 (1)
@@ -48,334 +31,459 @@ JCLL01 JCLL PhD Core Theory Seminar: Health Psychology
 010009 German B1.2 (1)
 010011 German B2.1 (1)
 010013 German B2.2 (1)
-010015 German B2.3 (1)
-010019 German C1.2 (1)
+CH17-010101 German I
+CH18-FoundNat Foundations in Natural Sciences
+CH18-540101 Foundations in Organic Chemistry
+CH18-540111 Foundations in Organic Chemistry Lab
+CH19-FoundMedI Foundations in Medicine I
+CH19-540103 Biology/Physiology
+CH19-540113 MedNat Lab
+CO01-Biomed Biomedicine
+CO01-520234 Advanced Molecular Cell Biology
+CO01-520241 Advanced Molecular Cell Biology Lab (Intersession)
+CO02-InfImm Infection and Immunity
+CO02-520233 Microbes and Infection
+CO03-MolBio Molecular Biology
+CO03-520224 Molecular Information Pathways
+CO03-520225 Molecular Biology Lab
+CO04-ChemBio Chemical Biology
+CO04-520203 Introduction to Chemical Biology
+CO05-DrugProd Drug Action and Production
+CO05-400234 Biopharmaceutical Production Lab
+CO05-400241 Pharmaceutical Analytical Chemistry
+CO05-400243 Pharmaceutical Analytical Chemistry Lab
+CO06-DrugDev Drug Development
+CO06-400251 Drug Design (Intersession)
+CO06-400271 Medicinal Chemistry Lab I (Intersession)
+CO06-400272 Medicinal Chemistry
+CO07-ChemBiotec Chemical Biotechnology
+CO07-400104 Enzymes and Cells in Biochemical Production
+CO07-400114 Biochemical Production Lab
+CO08-PhysChem Physical and Analytical Chemistry
+CO08-400121 Analytical Chemistry
+CO08-400231 Analytical Chemistry Lab
+CO09-InorgSuMolChem Inorganic and Supramolecular Chemistry
+CO09-420432 Supramolecular Chemistry
+CO09-420434 Supramolecular Chemistry Lab
+CO10-FundEES Fundamental Earth and Environmental Sciences
+CO10-210201 Volcanism and Metamorphism
+CO10-210203 Sedimentology
+CO10-210206 Structural Geology
+CO11-EOEnvChem Earth, Ocean and Environmental GeoChemistry
+CO11-210241 Geochemistry of Igneous and Aqueous Systems
+CO11-210302 Environmental Geochemistry
+CO12-EOEnvPhys Earth, Ocean, and Environmental Physics
+CO12-210214 Physical Oceanography
+CO12-210223 Geophysical Techniques and Applications
+CO12-210233 Geophysical Hydrodynamics
+CO13-PhysMatter Physics of Matter
+CO13-200212 Statistical Physics
+CO14-PhysTech Physics and Technology
+CO14-200221 Renewable Energy - Advanced Lab
+CO14-201231 Renewable Energy
+CO15-TheoPhys Theoretical Physics
+CO15-200201 Analytical Mechanics & Electrodynamics
+CO43-IntGermII Intensive German II
+CO43-010104 German III
+CO44-CelluBio Cellular Biology
+CH01-520122 From Cells to Tissues and Body Functions
+CO44-540201 Histologie Labor
+CO45-FoundMedII Foundations in Medicine II
+CO02-520233 Microbes and Infection
+CO45-540211 Mikrobiologie Labor
+CH07-FundMath Fundamental Mathematics
+CH07-100101 General Mathematics
+CH07-100111 Mathematical Software Lab
+CH08-GenCS General Computer Science
+CH08-320101 General Computer Science
+CH08-320142 Object-oriented Programming I
+CH09-IntroIMS Introduction to Intelligent Mobile Systems
+CH09-320103 General Intelligent Mobile Systems I
+CH09-320113 Introduction to Intelligent Mobile Systems Lab I
+CH10-IntroEE Introduction to Electrical Engineering
+CH10-300101 General Electrical Engineering I
+CH10-300111 Electrical Engineering I Lab
+CH11-GenIEM General Industrial Engineering and Managment
+CH11-050103 Industrial Engineering
+CH11-050111 Industrial Engineering Lab
+CH11-050262 Basics of Manufacturing Technology (Intersession)
+CO16-CoreMaths Core Mathematics
+CO16-100231 Linear Algebra
+CO16-100241 Elements of Stochastic Processes
+CO17-CorePureMath Core Pure Mathematics
+CO17-100251 Introduction to Complex Analysis
+CO17-100261 Calculus on Manifolds
+CO18-CoreAppMath Core Applied Mathematics
+CO18-110221 Stochastic Methods
+CO18-110222 Stochastic Methods Lab
+CO19-ApplCS Applied Computer Science
+CO19-320302 Databases and Web Services
+CO19-320322 Computer Graphics
+CO20-TechCS Technical Computer Science
+CO20-320202 Operating Systems
+CO20-320241 Computer Architecture and Programming Languages
+CO21-TheoCS Theoretical Computer Science
+CO21-320211 Formal Languages and Logic
+CO22-IntelSys Intelligent Systems
+CO22-320671 Computer Vision
+CO23-AutoControl Automation and Control
+CO23-320301 Control Systems
+CO24-PlanOpt Planning and Optimization
+CO24-320521 Autonomous Systems
+CO29-080202 Operations Research
+CO25-Communic Communications
+CO25-300202 Communications Basics
+CO25-300203 Communications Lab
+CO26-ElectroNoise Electronics and Noise
+CO26-300321 Probability and Random Signal Processing
+CO26-300341 Information Theory
+CO27-SigProcess Signal Processing
+CO27-300201 Signals and Systems
+CO27-300221 Signals and Systems Lab
+CO28-FinProjMan Finance and Project Management
+CO28-930242 Corporate Finance and Investment (Intersession)
+CO28-990221 Applied Project Management
+CO29-ProcessEng Process Engineering
+CO29-050332 Advanced Lean Methods
+CO29-080202 Operations Research
+CO30-ProductEng Production & Engineering
+CO30-050131 Fundamentals of Engineering Design
+CO30-050232 Production Planning and Control
+CH12-GenMan General Management
+CH12-032201 Introduction to International Business
+CH12-930113 Entrepreneurship and Innovation I
+CH13-GenEco General Economics
+CH13-032101 Microeconomics
+CH13-032103 Economic Policy Issues I
+CH14-PolSocMedia Political, Social & Media Diversity
+CH14-910101 Comparing Political Systems
+CH14-930101 Social Structure and Processes I
+CH15-IntroIR Introduction to International Relations
+CH15-830102 Contemporary European History since 1789
+CH15-850201 International Relations of the Twentieth Century I
+CH16-IntroPsych Introduction to Psychology
+CH16-710103 Introduction to Psychology I
+CH16-710113 Methods in Psychology and Neuroscience I
+CO28-FinProjMan Finance and Project Management
+CO28-930242 Corporate Finance and Investment (Intersession)
+CO28-990221 Applied Project Management
+CO31-StratMan Strategy and Management
+CO31-930214 International Management
+CO31-930224 Global E-Business
+CO32-ManDivers Managing Diversity
+CO32-930352 Marketing
+CO33-EconPolicy Economic Policy Challenges
+CO33-930112 Development Economics
+CO34-EconInstOrg Economic Institutions and Organization
+CO34-930203 Comparing Economics Systems
+CO34-970202 Public Management and Public Policy
+CO35-IntPolitics International Politics and Policy
+CO35-970301 International Security
+CO36-CommCult Communication, Culture and Prosumption
+CO36-940202 Communication, Culture and Prosumption Lab I
+CO36-940212 Consumer Culture and Society
+CO38-GlobDynHist Global Dynamics in Historical Perspective
+CO38-820222 Empires and Nation States
+CO39-ArenaPolLife Arenas of Political Life
+CO39-830210 International Political Economy
+CO39-830211 Regional Integration
+CO40-BioBrainCog Biology, Brain, and Cognition
+CO40-710102 Learning and Memory
+CO40-710201 Neurobiological Foundations of Psychology
+CO41-HumanSoCo Humans in Social Context
+CO41-701101 Group Processes and Intergroup Relations
+CO41-730102 Social Cognition
+CO42-ApplPsych Applied Psychology
+CO42-710232 Current Topics in Applied Psychology
+JTME-MethodsMath Methods / Mathematics
+JTME-120103 Calculus I
+JTME-120104 Calculus II
+JTME-120106 Applied Calculus I
+JTME-120107 Applied Calculus II
+JTME-120201 Elements of Probability
+JTME-120203 Elements of Analysis I
+JTME-120204 Elements of Analysis II
+JTME-210213 Geo-Information Systems (GIS-Lab)
+JTME-400203 Methods in Chemical Research I
+JTME-550201 Bioinformatics
+JTME-990103 Empirical Research Methodology
+JTME-990203 Statistical Modeling with R
+JTME-990204 Qualitative Research: Analysis of Text and Images
+JTME-990213 Statistical Modeling with SPSS
+JTME-990222 Econometrics
+JTME-MethodsMath Methods / Mathematics
+JTME-120103 Calculus I
+JTME-120104 Calculus II
+JTME-120106 Applied Calculus I
+JTME-120107 Applied Calculus II
+JTME-120201 Elements of Probability
+JTME-120203 Elements of Analysis I
+JTME-120204 Elements of Analysis II
+JTME-210213 Geo-Information Systems (GIS-Lab)
+JTME-400203 Methods in Chemical Research I
+JTME-550201 Bioinformatics
+JTME-990103 Empirical Research Methodology
+JTME-990203 Statistical Modeling with R
+JTME-990204 Qualitative Research: Analysis of Text and Images
+JTME-990213 Statistical Modeling with SPSS
+JTME-990222 Econometrics
+JTSK-Skills Skills
+JTSK-320111 Programming in C I
+JTSK-350111 Programming in Python
+JTSK-990100 Academic and Professional Skills
+JTSK-990103 Scientific and Experimental Skills
+JTSK-Skills Skills
+JTSK-320111 Programming in C I
+JTSK-350111 Programming in Python
+JTSK-990100 Academic and Professional Skills
+JTSK-990103 Scientific and Experimental Skills
+JTLA-Language Language
+010001 German A1.1
+010003 German A2.1 (1)
+010005 German A2.2 (1)
+010007 German B1.1 (1)
+010009 German B1.2 (1)
+010011 German B2.1 (1)
+010013 German B2.2 (1)
 011001 French A1.1
 011003 French A2.1
 011007 French B1.1 (1)
-011009 French B1.2 (1)
 011011 French B2.1 (1)
-011013 French B2.2 (1)
-011015 French B2.3 (1)
-011025 French C1 - La societe francaise, entre crise et renouveau
+011025 French C1 - Faits & actualitÃ©s de lÂ´espace francophone
 012001 Spanish A1.1
 012003 Spanish A2.1
 012005 Spanish B1.1 (1)
-012011 Spanish B2.2 (1)
-300101 General Electrical Engineering I
-300111 NatSciLab Unit Electrical Engineering I
-300201 Fundamental Electrical Engineering I (Signals and Systems)
-300211 Advanced Electrical Engineering I (Electromagnetics)
-300221 Advanced Electrical Engineering Lab Course I (Signals and Systems Lab)
-300301 Dynamical Systems and Control
-300311 Wireless Communications I
-300321 Probability and random signal processing
-300331 Electronic Devices
-300341 Introduction to Information Theory
-300361 Guided Research Proposal Electrical Engineering
-300392 Specialization Areas Lab
-320101 General Computer Science I
-320111 NatSciLab Unit Computer Science I
-320201 Fundamental Computer Science I (Algorithms and Data Structures)
-320211 Advanced Computer Science I (Formal Languages and Logic)
-320241 Computer Architecture
-320301 Computer Networks
-320302 Databases and Web Applications
-320322 Graphics and Visualization
-320331 Artificial Intelligence
-320341 Programming in Java
-320351 Medical Image Analysis
-320371 Guided Research Proposal Computer Science
-320441 Computational Logic
-320521 Autonomous Systems
-350101 General Information and Communication Technology I
-350102 General Information and Communication Technology II (ISC)
-350111 NatSciLab Unit Programming in Python I
-350112 NatSciLab Unit Programming in Python II (ISC)
-300402 Antennas and Propagation
-300411 Digital Communications with a Focus on Wireline Communications
-300431 CSE Seminar I
-300451 Speech Signal Processing
-300461 CSE Research Project I
-300481 CSE Research Project III
-300531 CSE Seminar III
-300541 CSE Seminar IV
-300561 Speech Signal Procesing Laboratory
-320301 Computer Networks
-320302 Databases and Web Applications
-320322 Graphics and Visualization
-320331 Artificial Intelligence
-320414 Internet of Things Lab
-320424 Computer Networks Project A
-320433 Artificial Intelligence Lab
-320434 Computational Logic Project
-320441 Computational Logic
-320443 Artificial Intelligence Project
-320454 Big Data Project A
-320473 Databases and Web Applications Lab
-320484 Topics in Robotics Project A
-320494 Topics in Graphics Project
-320501 Master/Doctorate Thesis Proposal
-320513 Graphics and Visualization Lab
-320521 Autonomous Systems
-320611 Autonomous Systems Lab
-320612 Computational Logic Lab
-330401 COSYP Colloquium (fall)
-500101 General Biology / Neuroscience I
-500111 NatSciLab Unit Biology / Neuroscience I
-500202 Animal Senses and Behaviour (Intersession)
-500221 Advanced Biology/Neuroscience Lab I
-500341 Behavioral Neurobiology: A lifespan developmental perspective
-500361 Guided Research Biology I
-520101 General Biochemistry and Cell Biology I
-520111 NatSciLab Unit Biochemistry and Cell Biology I
-520201 Advanced Biochemistry and Molecular Biology I
-520211 Advanced Cell Biology I
-520221 Advanced Lab Course Microbiology
-520222 Advanced Lab Course Genetics (Intersession)
-520231 Advanced Lab Course Biochemistry and Molecular Biology
-520241 Advanced Lab Course Molecular Cell Biology (Intersession)
-520251 Microbiology
-520301 Guided Research Biochemistry and Cell Biology
-520321 Advanced Biochemistry and Molecular Biology III
-520322 Immunology
-520341 Methods and Research Strategies in BCCB
-550201 Bioinformatics and Computational Biology
-550221 Bioinformatics Laboratory Course
-550311 Guided Research Bioinformatics and Computational Biology I
-560101 General Biotechnology
-560111 NatSciLab Unit Biotechnology I
-560211 Bioprocess Modeling and Control I
-560221 Advanced Lab Course Biotechnology (Intersession)
-560231 Advanced Lab Course Fermentation Technology
-560241 Marine Biotechnology
-560311 High-throughput Screening Technology I
-560321 Guided Research Biotechnology
-560341 Environmental Biotechnology
-560351 Biophysical Chemistry I
-560361 Lab Course Introduction to Biophysical Chemistry
-560371 Dynamic Modeling of Bioprocesses (Intersession)
-530401 Laboratory Rotations I
-530431 MoLife Presentation Course
-530443 Biomembranes and Materials Science
+012009 Spanish B2.1 (1)
+012017 Spanish C1 - ConversaciÃ³n
+013001 Introduction to Chinese Language and Culture I (1)
+013003 Introduction to Chinese Language and Culture II (1)
+JTLA-Language Language
+010001 German A1.1
+010003 German A2.1 (1)
+010005 German A2.2 (1)
+010007 German B1.1 (1)
+010009 German B1.2 (1)
+010011 German B2.1 (1)
+010013 German B2.2 (1)
+011001 French A1.1
+011003 French A2.1
+011007 French B1.1 (1)
+011011 French B2.1 (1)
+011025 French C1 - Faits & actualitÃ©s de lÂ´espace francophone
+012001 Spanish A1.1
+012003 Spanish A2.1
+012005 Spanish B1.1 (1)
+012009 Spanish B2.1 (1)
+012017 Spanish C1 - ConversaciÃ³n
+013001 Introduction to Chinese Language and Culture I (1)
+013003 Introduction to Chinese Language and Culture II (1)
+JTTA-TriArea Triangle Area
+JTBU-020003 Big Data: Big Boon and Big Brother!?
+JTBU-020059 Biotechnology: From Science to Business
+JTSC-020009 Extreme Natural Hazards, Disaster Risks and Societal Implications
+JTTE-020006 How Things Work
+JTTE-020003 Topics in Modern Computer Science
+JTSC-020008 Global Health â€“ Historical context and future challenges
+JTBU-020006 Occupational Health Promotion
+JTSC-020010 War and Culture (Intersession)
+JTTE-020008 Coding for Entrepreneurs (Intersession)
+JTBU-020007 Digital Entrepreneurship (Intersession)
+JTTE-020084 Off-Shore Wind Energy (Intersession)
+JTTA-TriArea Triangle Area
+JTBU-020003 Big Data: Big Boon and Big Brother!?
+JTBU-020059 Biotechnology: From Science to Business
+JTTE-020006 How Things Work
+JTTE-020003 Topics in Modern Computer Science
+JTSC-020009 Extreme Natural Hazards, Disaster Risks and Societal Implications
+JTSC-020008 Global Health â€“ Historical context and future challenges
+JTBU-020006 Occupational Health Promotion
+JTSC-020010 War and Culture (Intersession)
+JTTE-020008 Coding for Entrepreneurs (Intersession)
+JTBU-020007 Digital Entrepreneurship (Intersession)
+JTTE-020084 Off-Shore Wind Energy (Intersession)
+020080 Visual Empathy (TDC)
+CA01-CarSkills Career Skills
+CA01-990000 CSC - Info Session CSC Services
+CA01-990001 CSC - Application Training
+CA01-990004 CSC - Researching and Contacting Employers
+CA01-990005 CSC - Business Etiquette
+CA01-990006 CSC - Career Orientation Workshop
+CA01-990007 CSC - Communication Skills
+CA01-990008 CSC - Decision Making
+CA01-990009 CSC - Grad School Application Training
+CA01-990010 CSC - Introduction to Project Management
+CA01-990011 CSC - Preparing for an Interview
+CA01-990012 CSC - Presentation Skills
+CA01-990013 CSC - Self Management
+CA01-990014 CSC - Info Session Internship
+CA01-990015 CSC - Info Session Study Abroad
+CA01-990027 CSC - Exploring the Entrepreneurial Spirit
+CA01-990028 CSC - Leadership and Group Dynamics
+CA01-990029 CSC - Solving Business Case Studies
+CA01-CarSkills Career Skills
+CA01-990000 CSC - Info Session CSC Services
+CA01-990001 CSC - Application Training
+CA01-990004 CSC - Researching and Contacting Employers
 530451 MoLife Research Seminar
-530453 MoLife Orientation
-530463 Enzyme Kinetic and Membrane Transport
-530473 Literature Course RNA Biochemistry I
 530481 Models of Metabolism
-530532 Advanced Studies in Computational Biology
-530541 Physiology of Eukaryotic Cells
-530551 Molecular Genetics
-530561 Techniques for Analysis and Structure Determination of Biomolecules II
-530601 Advanced Studies in Molecular Genetics
-530611 Advanced Studies in Cellular and Molecular Biology
-530621 Advanced Studies in Molecular Biophysics
-530631 Advanced Studies in Molecular Biotechnology
-530641 Literature Course Molecular Immunology
-050101 General Logistics I
-050111 NatSciLab Unit Logistics I
-050131 Fundamentals of Engineering Design (Intersession)
-050211 Traffic, Transport and Storage Systems
-050231 Distribution Logistics
-050262 Basics of Manufacturing Technology (Intersession)
-050301 Guided Industrial Project
-051412 Project Management
-051431 Theory and Application of Simulation in Logistics (LAB)
-051441 Theory and Application of Simulation in Logistics (Lecture)
-051451 Orientation Course International Logistics
-051461 Mathematical Methods for Logistics and Economy (Intersession)
-051462 Advanced Production Monitoring and Control
-051464 Communication & Presentation Skills for Executives
-051481 Research and Writing Skills for Logistics
-051491 Introduction to Scientific Approaches for Research in International Logistics
-051511 Seminar Engineering
-051521 Seminar Management
-051531 Graduate Seminar (ILME): Guided Industrial Project
-051541 Orientation Course International Logistics III
-052101 Global Brand Management
-052111 Global Franchising
-100211 Analysis I
-100221 Linear Algebra I
-100291 Perspectives of Mathematics I
-100312 Introductory Complex Analysis
-100313 Real Analysis
-100321 Introductory Algebra
-100361 Ordinary Differential Equations and Dynamical Systems
-100391 Guided Research Mathematics I
-110101 General Mathematics and Computational Science I
-110111 NatSciLab Unit - Symbolic Software
-110221 Derivatives Lab
-110301 Introduction to parallel programming with MPI and OpenMP (Intersession)
-110341 Numerical Analysis
-110391 Guided Research Applied and Computational Mathematics
-120101 ESM 1A - Single Variable Calculus
-120111 ESM 1B - Multivariable Calculus, ODE
-120121 ESM 1C - Calculus and Matrix Algebra
-120201 ESM 3A - Advanced Linear Algebra, Stochastic Processes
-120211 ESM 3B - Complex Variable Calculus, PDE
-100442 Algebraic Topology
-100451 Differential Geometry
-100491 Graduate Research Seminar Mathematical Sciences
-100521 Seminar in Algebra, Lie Theory and Geometry
+550413 Lab Rotation in Computational Life Science II
+530473 Literature Course RNA Biochemistry I
+550403 Theoretical Biology
+550414 Computational Life Science Colloquium
+550421 Advanced Studies in Computational Life Science
+550412 Lab Rotation in Computational Life Science I
+550431 Marine Ecosystem Modelling
+550401 Introduction to Computational Life Science
+550433 Statistical Physics of Complex Networks
+550433 Statistical Physics of Complex Networks
+320521 Autonomous Systems
+550433 Statistical Physics of Complex Networks
+340141 Data Ethics
+320671 Machine Vision
+300351 Advanced Digital Design
+340111 The Big Data Challenge: Topics, Applications, Perspectives
+320301 Computer Networks
+320302 Databases and Web Applications
+340101 Principles of Statistical Modeling
+340121 Legal Foundations of Data Engineering
+340131 Data Analytics
+320322 Graphics and Visualization
+051481 Introduction to Academic Writing in SCEM
+052101 Business Continuity Management
+051441 Modelling & Simulation in Supply Chain Management (Lecture)
+051412 Project Management Concepts
+051433 Introduction to Transportation, Logistics and Supply Chain Management
+051461 Advanced Business Mathematics
+051432 International Purchasing and Business
+051431 Modelling & Simulation in Supply Chain Management (Lab)
+051464 Communication & Presentation Skills
+051451 Orientation Course Supply Chain Engineering and Management I
+100522 Seminar in Algebra, Lie Theory, Geometry
+550433 Statistical Physics of Complex Networks
 100551 Seminar in Geometry and Dynamics
-110411 Topics in Applied Analysis
-110511 Problems in Computational Analysis
-040101 General Environmental Science I
-040201 Sustainable Energy Policy
-040202 Energy Economics
-040221 Fundamentals of Hydrogeology (Intersession)
-040231 Fundamental Processes in Ecology
-040241 Introduction to Soil Sciences
-040251 Field Lab/Excursion I: Fossil Fuels: Energy and Construction Materials: Coal and Limestone Mining
-040261 IES Seminar I
-040351 IES Field Camp Iceland: Environment, Resources and Energy
-040361 IES Seminar II
-041201 Geospatial Environmental and Resource Data Analysis (ISC)
-041301 Waste Management and Technology (Intersession)
-200101 General Physics I
-200111 NatSciLab Unit Physics I
-200201 Advanced Physics A I (Analytical Mechanics)
-200211 Advanced Physics B I (Electrodynamics)
-200221 Advanced Physics A + B Lab I
-200301 Advanced Physics A III (Applied Quantum and Statistical Physics)
-200311 Advanced Physics B III (Condensed Matter and Solid State Physics)
-200321 Guided Research Physics
-200341 Physics Seminar I (literature reviews)
-200352 Physics Specialization Subject III (Principles and Applications of Optical Spectroscopy)
-200451 Black holes in higher dimensions
-201321 Biophysics
-210101 General Earth and Space Sciences I
-210201 Geology I: Volcanology and Metamorphism
-210211 Geology II: Sedimentology and Structural Geology
-210221 Mathematical and Computational Concepts in ESS
-210231 Introduction to Geophysics
-210251 Introduction to Physical Oceanography
-210301 Stable Isotope Geochemistry
-210311 Dynamics of Marine Systems (Oceanography II)
-210341 Earth and Space Sciences Seminar I
-210351 Guided Research Earth and Space Sciences I
-210361 Specialization Area Excursion
-210362 Geochemistry of Igneous and Sedimentary Rocks
-210371 Radiogenic Isotope Geochemistry (Intersession)
-210372 Plankton Ecology (Intersession)
-210381 Resource Geology I: Oil, Natural Gas and Coal
-210391 Resource Geology II: Ore Deposits
-400101 General Inorganic Chemistry
-400102 General Organic Chemistry I
-400111 NatSciLab Unit Chemistry I (Inorganic Chemistry)
-400131 Introduction to Chemistry Research I
-400211 Advanced Physical Chemistry I
-400221 Advanced Inorganic Chemistry I
-400231 Advanced Integrated Organic and Analytical Chemistry Lab
-400301 Computational Chemistry and Biochemistry
-400321 Guided Research Chemistry
-400331 Guided Research Chemistry Seminar I
-200451 Black holes in higher dimensions
-420421 Physical Sciences Research Methods
-420432 Supramolecular Chemistry
-420433 Introduction to Quantum Chemistry and Electronic Structure
-420463 Nanomolecular Science Research II
-420472 Current Topics in Physical Sciences
-420511 Nanomolecular Science Graduate Seminar
-420522 Nanomolecular Science Master Thesis
-420531 Advanced Quantum Mechanics
-420532 Nanomolecular Science Master Research Seminar
-032101 Microeconomics
-032201 Fundamentals of International Business
-032211 GEM Seminar II
-032302 International Trade
-032311 Global Leadership
-040202 Energy Economics
-080101 Introduction to Information Management and Systems
-080201 SAP Lab (Intersession)
-910301 International Economics
-930112 Development Economics
-930201 Introduction to Economics
-930352 Marketing
-970181 Europe in a week: The European Union in Theory and Practice (Intersession)
-970231 Financial Constitution (in Time of Crisis)
-990221 Applied Project Management
-820111 Utopias and the Dream of a Better World: Perspectives from Chinese History and Philosophy (Intersession)
-820201 Modern Asian History I
-830102 Contemporary European History since 1789
-970321 The African Union (AU): Principles, Objectives, Institutions and its role in the global context (Intersession)
+100594 Mathematics Colloquium
 900441 Graduate Seminar (IR): International History
-610112 Theories of Art and Art History (Intersession)
-610121 History of World Religions in the Modern Age
-610131 Looking Through the Lens: Aesthetic Theory and Social Practice of Photography from Modernity to Postmodernity
-610151 The Concepts of World Literature (Intersession)
-620111 Music and Architecture: An Introduction (Intersession)
-630102 Theories of Literature and Textual Interpretation
-630112 Literature and Theory in Global Perspective
-640102 Dynamics of Literature I: Traditional Models
-970101 International Law
-970132 Introduction to Law
 900442 Graduate Seminar (IR): International Law and Legalization
-701211 Intercultural Competence (Intersession)
-710102 Learning and Memory
-710111 Introduction to Cognitive Psychology
-720301 Communication and Interaction
-720302 Social Neuroscience
-720311 Culture and Cognition
-730101 Introduction to Social Psychology
-730201 Stereotypes, Prejudice and Discrimination
-740101 Lab Course in Experimental Psychology I
-740102 Lab Course in Experimental Psychology II
-032111 Society and Economy
-040201 Sustainable Energy Policy
-042101 Resolving Wicked Environmental Problems
-910101 Comparing Political Systems
-910102 International Institutions
-920102 Mass Beliefs and Democracy
-920201 Culture and Society
-940301 Information and Knowledge Society
-970122 European Integration
-970171 Human Trafficking: An International Perspective (Intersession)
-970221 German Politics and Culture (Intersession)
-970301 International Security
-900451 Graduate Seminar (IR): Normative Theories of International Order
-900462 Graduate Seminar (IR): War and Peace
+M03-730001 EinfÃ¼hrung in die kulturvergleichende Psychologie
+M01-710001 EinfÃ¼hrung in die klinische Psychologie
+M04-740001 Testtheorie und Testkonstruktion
+M02-720001 EinfÃ¼hrung in die Arbeits-, Organisations - und Wirtschaftspsychologie
 900551 Graduate Seminar (IR): Modern Social Theory
+900451 Graduate Seminar (IR): Normative Theories of International Order
 900581 Graduate Seminar (IR): Actors, Institutions and Global Governance
-990111 Introduction to Empirical Research and Research Design
-990201 Statistical Methods II: Classification, Modelling and Prediction
-990211 The Logic of Comparative Research - Case Studies
-990211 The Logic of Comparative Research - Online Field Studies
-990211 The Logic of Comparative Research - Survey Development
-990212 Secondary Data Analysis
-APS000 Academic skills in a nutshell: an introduction to writing an academic paper
-APS000 Academic skills in a nutshell: an introduction to writing an academic paper
-APS007 Cover Letter Training (0,1 credits)
-APS013 Researching and Contacting your Future Employer (0,1 credits)
-APS018 Bewerben in Deutschland (0,1 credits)
-APS020 The Academic Writing Process (0,1 credits)
-APS026 Presentation Skills (0,2 credits)
-APS029 Western Classroom Culture (0,1 credits)
-APS031 Leadership and Group Dynamics (0,1 credits)
-APS032 (Intercultural) Conflict Resolution (0,1 credits)
-APS033 Stress Management Seminar (0,1 credits) - Foundation Year
-APS034 Overcoming The Fear of Failure - How to worry less and enjoy life more (0,1 credits)
-APS035 Reference Management with RefWorks (0,1 credits)
-APS036 Search Strategy Clinic (0,15 credits)
-APS038 Academic Writing and Study Skills I (Foundations)
-APS047 Career Management (0,2 credits)
-APS048 SHSS Lecture Series I (0,1 credits)
-APS049 SHSS Lecture Series II (0,1 credits)
-APS050 SHSS Lecture Series III (0,1 credits)
-APS051 SHSS Lecture Series IV (0,1 credits)
-APS052 SHSS Lecture Series V (0,1 credits)
-APS067 Preparing for an Interview (0,2 credits)
-APS081 Application Training (0,1 credits)
-APS083 Effective Communication Strategies (0,1 credits)
-APS084 Goal Getting and Goal Attainment (0,1 credits)
-APS085 A Session of Mindfulness Based Stress Reduction (MBSR) (0,1 credits)
-APS086 Consulting Case Study Training (0,1 credits)
-APS117 Career Orientation (0,2 credits)
-APS119 Mock Assessment Center Workshop (0,2 credits)
-APS123 Introduction to Project Management I (0,3 credits)
-APS126 Grad School Search and Applications Seminar (0,15 credits)
-APS141 Business Etiquette Seminar (0,2 credits)
-APS142 Self Management (0,2 credits)
-APS143 Networking and Elevator Speeches (0,2 credits)
-990401 Graduate Seminar (IR): Research Design
 990501 Graduate Seminar: Advanced Qualitative Methods
+990401 Graduate Seminar (IR): Research Design
+061603 BIGSSS Proposal Workshop: Changing Lives in Changing Socio-Cultural Contexts
+060746 BIGSSS Colloquium: Global Governance and Regional Integration (Semester III)
+061607 BIGSSS Didactics Workshop
+060747 BIGSSS Colloquium: Welfare State, Inequality and Quality of Life (Semester III)
+060748 BIGSSS Colloquium: Changing Lives in Changing Socio-Cultural Contexts (Semester III)
+060847 BIGSSS Colloquium: Welfare State, Inequality and Quality of Life (Semester V)
+060846 BIGSSS Colloquium: Global Governance and Regional Integration (Semester V)
+060848 BIGSSS Colloquium: Changing Lives in Changing Socio-Cultural Contexts (Semester V)
+061606 BIGSSS Core Theory Seminar: Changing Lives in Changing Socio-Cultural Contexts
+061646 BIGSSS Colloquium: Global Governance and Regional Integration (Semester I)
+061647 BIGSSS Colloquium: Welfare State, Inequality and Quality of Life (Semester I)
+060661 BIGSSS Preparatory Forum
+061608 BIGSSS Lecture Series (Semester I)
+061708 BIGSSS Lecture Series (Semester III)
+060749 BIGSSS Demand-Tailored Specialized Methods Training: Structural Equation Modelling
+061808 BIGSSS Lecture Series (Semester V)
+061748 BIGSSS Colloquium: Changing Lives in Changing Socio-Cultural Contexts (Semester I)
+010007 German B1.1 (1)
+010003 German A2.1 (1)
+010009 German B1.2 (1)
+010001 German A1.1
+010013 German B2.2 (1)
+010005 German A2.2 (1)
+010011 German B2.1 (1)
+011003 French A2.1
+011001 French A1.1
+011007 French B1.1 (1)
+011011 French B2.1 (1)
+011025 French C1 - Faits & actualitÃ©s de lÂ´espace francophone
+012001 Spanish A1.1
+012005 Spanish B1.1 (1)
+012017 Spanish C1 - ConversaciÃ³n
+012009 Spanish B2.1 (1)
+012003 Spanish A2.1
+013001 Introduction to Chinese Language and Culture I (1)
+013003 Introduction to Chinese Language and Culture II (1)
+520301 Guided Research Biochemistry and Cell Biology
+500361 Guided Research Biology I
+560311 High-throughput Screening TechnologyÂ IÂ Â Â Â Â Â Â Â Â Â
+560321 Guided Research Biotechnology
+500222 Advanced Biology/Neuroscience Lab II (Intersession)
+520341 Methods and Research Strategies in BCCB
+CAS05-520301 Research Approaches in Molecular Life Science I
+520321 Advanced Biochemistry and Molecular Biology III
+500341 Behavioral Neurobiology: A lifespan developmental perspective
+520332 Current Topics Molecular Life Sciences
+500321 Neuroendocrinology/Biorhythms
+520103 Introduction to Biochemistry
+200311 Advanced Physics B III (Condensed Matter and Solid State Physics)
+200352 Principles and Applications of Optical Spectroscopy
+400321 Guided Research Chemistry
+201351 General  Relativity
+210321 Advanced Planetary Sciences
+040351 IES Field Camp Iceland: Environment, Resources and Energy
+200321 Guided Research Physics
+200301 Advanced Physics A III (Applied Quantum and Statistical Physics)
+201231 Renewable Energy
+420432 Supramolecular Chemistry
+400272 Medicinal Chemistry
+400331 Guided Research Chemistry Seminar I
+210341 Earth and Space Sciences Seminar I
+210372 Plankton Ecology
+210351 Guided Research Earth and Space Sciences I
+210301 Stable Isotope Geochemistry
+210363 Specialization Area Excursion Oceanography
+210391 Resource Geology II: Ore Deposits
+400341 Introduction to Polymer Chemistry
+210361 Specialization Area Excursion Geosciences
+200323 Solid-State Electronic Devices
+210381 Resource Geology I: Oil, Natural Gas and Coal
+300341 Introduction to Information Theory
+300392 Specialization Areas Lab
+320232 Operating Systems Lab
+320301 Computer Networks
+300321 Probability and random signal processing
+300301 Dynamical Systems and Control
+320302 Databases and Web Applications
+320322 Graphics and Visualization
+340101 Principles of Statistical Modeling
+300351 Advanced Digital Design
+300361 Guided Research Proposal Electrical Engineering
+320371 Guided Research Proposal Computer Science
+320321 Image Processing
+320671 Machine Vision
+320521 Autonomous Systems
+050301 Guided Industrial Project
+110391 Guided Research Applied and Computational Mathematics
+100391 Guided Research Mathematics I
+110301 Introduction to parallel programming with MPI and OpenMP
+100353 Manifolds and Topology
+100332 Discrete Mathematics
+930112 Development Economics
+910301 International Economics
+032311 Global Leadership
+610171 Looking at Art: Introduction to Bremen Museums and Art Collections
+970132 Introduction to Law
+720311 Culture and Cognition
+701211 Intercultural Competence (Intersession)
+720301 Communication and Interaction
+970122 European Integration
+540101 European Healthcare and Welfare Systems
+940301 Information and Knowledge Society
+APS123 Introduction to Project Management I (0,5 credits)
+APS031 Leadership and Group Dynamics (0,1 credits)
+APS026 Advanced Presentation Skills (0,2 credits)
+APS023 Exploring the Entrepreneurial Spirit (0,1 credits)
+APS067 Preparing for an Interview (0,2 credits)
+APS013 Researching and Contacting Employers (0,1 credits)
+APS126 Grad School Search and Applications Seminar (0,15 credits)
+APS091 Professional Communication Skills (0,2 credits)
+APS094 Working in Germany (0,1 credits)
+APS142 Self Management (0,2 credits)
+APS081 Application Training (0,1 credits)
+APS097 Solving Business Case Studies by Applying The Pyramid Principle (0,2 ECTS credits)
